@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmp8kggat26r3"]
+
+[ext_resource type="Script" path="res://zombie/zombie.gd" id="1_2hyxj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g1obl"]
+
+[node name="Zombie" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_2hyxj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g1obl")
+debug_color = Color(0, 1, 0.180392, 0.419608)
