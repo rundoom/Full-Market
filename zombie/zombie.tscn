@@ -6,7 +6,7 @@
 
 [node name="Zombie" type="CharacterBody2D"]
 motion_mode = 1
-safe_margin = 0.64
+safe_margin = 10.24
 script = ExtResource("1_2hyxj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

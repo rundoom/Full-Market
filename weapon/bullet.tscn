@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3g3qosbmb5lo"]
+
+[ext_resource type="Script" path="res://weapon/bullet.gd" id="1_65ouk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uhx15"]
+radius = 3.0
+
+[node name="Bullet" type="AnimatableBody2D"]
+top_level = true
+collision_layer = 0
+sync_to_physics = false
+script = ExtResource("1_65ouk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uhx15")
