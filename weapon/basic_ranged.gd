@@ -6,9 +6,11 @@ const Bullet := preload("res://weapon/bullet.tscn")
 
 
 func _physics_process(delta: float) -> void:
-	var mouse_pos := get_viewport().get_mouse_position()
+	var mouse_pos := get_global_mouse_position()
+	var rotated_right := cos(rotation) > 0
 	global_rotation = global_position.direction_to(mouse_pos).angle()
-	
+	scale.y = 1 if rotated_right else -1
+
 	if Input.is_action_pressed("mouse_left") and shoot_cooldown.is_stopped():
 		var bullet := Bullet.instantiate()
 		add_child(bullet)

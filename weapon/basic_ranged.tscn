@@ -5,16 +5,20 @@
 [node name="BasicRanged" type="Node2D"]
 script = ExtResource("1_liwxu")
 
+[node name="ShootCooldown" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.3
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(0, 5.04871e-29)
 scale = Vector2(8.26339, 3.99503)
 offset = Vector2(10.6305, -1.65688)
 polygon = PackedVector2Array(-8.05356, 0.658119, -8.05356, 2.65812, -7.05356, 2.65812, -7.05356, 1.65812, -4.05356, 1.65812, -4.05356, 0.658119)
-
-[node name="ShootCooldown" type="Timer" parent="."]
-process_callback = 0
-wait_time = 0.3
-one_shot = true
 
 [node name="BulletOuput" type="Marker2D" parent="."]
 position = Vector2(55, -2)
