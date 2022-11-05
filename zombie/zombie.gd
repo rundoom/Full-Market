@@ -7,6 +7,9 @@ var current_speed := 0.0
 var current_hp := 4:
 	set(value):
 		current_hp = value
+		var tween := create_tween()
+		tween.tween_property(self, "modulate", Color.RED, 0.2)
+		tween.tween_property(self, "modulate", Color.WHITE, 0.2)
 		if value <= 0: queue_free()
 
 func _physics_process(delta: float) -> void:
