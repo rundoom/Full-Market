@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddw5lbt5xk0xg"]
+[gd_scene load_steps=3 format=3 uid="uid://ddw5lbt5xk0xg"]
 
 [ext_resource type="Script" path="res://weapon/basic_ranged.gd" id="1_liwxu"]
+[ext_resource type="AudioStream" uid="uid://buio5iw1388g0" path="res://weapon/пистолет 1.wav" id="2_3xgcu"]
 
 [node name="BasicRanged" type="Node2D"]
 script = ExtResource("1_liwxu")
@@ -22,3 +23,6 @@ polygon = PackedVector2Array(-8.05356, 0.658119, -8.05356, 2.65812, -7.05356, 2.
 
 [node name="BulletOuput" type="Marker2D" parent="."]
 position = Vector2(55, -2)
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3xgcu")
