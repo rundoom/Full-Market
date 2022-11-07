@@ -48,7 +48,6 @@ offset_left = -44.0
 offset_top = -299.0
 offset_right = 44.0
 offset_bottom = -272.0
-value = 50.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="Camera2D/ComboCounter"]
