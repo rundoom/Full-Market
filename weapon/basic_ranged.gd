@@ -20,5 +20,6 @@ func _physics_process(delta: float) -> void:
 		add_child(bullet)
 		bullet.global_transform = $BulletOuput.global_transform
 		$ShootSound.stream = sound_variation.pick_random()
+		$ShootSound.pitch_scale = randf_range(0.5, 1.5)
 		$ShootSound.play()
 		shoot_cooldown.start()

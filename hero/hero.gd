@@ -5,6 +5,19 @@ const SPEED = 300.0
 
 enum AttackType {MELEE, RANGED}
 var current_attack_type := AttackType.RANGED
+@onready var combo = $Camera2D/ComboCounter
+var combo_tween: Tween
+
+var combo_counter: int:
+	set(value):
+		combo_counter = value
+		combo.value = combo.max_value
+		combo.get_node(^"Label").text = str(combo_counter)
+		if value != 0:
+			if combo_tween != null: combo_tween.kill()
+			combo_tween = create_tween()
+			combo_tween.tween_property(combo, ^"value", 0, 10/combo_counter)
+			combo_tween.finished.connect(func(): combo_counter = 0)
 
 
 func _physics_process(delta: float) -> void:
@@ -25,13 +38,14 @@ func _physics_process(delta: float) -> void:
 
 func switch_weapon():
 	current_attack_type = AttackType.MELEE if $RayCast2D.is_colliding() else AttackType.RANGED
-	if current_attack_type == AttackType.MELEE:
-		$Ranged.visible = false
-		$Ranged.set_physics_process(false)
-		$Melee.visible = true
-		$Melee.set_physics_process(true)
-	elif current_attack_type == AttackType.RANGED:
-		$Ranged.visible = true
-		$Ranged.set_physics_process(true)
-		$Melee.visible = false
-		$Melee.set_physics_process(false)
+	match current_attack_type:
+		AttackType.MELEE:
+			$Ranged.visible = false
+			$Ranged.set_physics_process(false)
+			$Melee.visible = true
+			$Melee.set_physics_process(true)
+		AttackType.RANGED:
+			$Ranged.visible = true
+			$Ranged.set_physics_process(true)
+			$Melee.visible = false
+			$Melee.set_physics_process(false)

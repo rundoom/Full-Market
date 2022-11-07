@@ -15,10 +15,15 @@ var current_hp := 4:
 func _physics_process(delta: float) -> void:
 	current_speed = SPEED
 	var attractor := get_tree().get_first_node_in_group("zombie_attractor") as Node2D
-		
+	1 + 5
 	var target_rotation = global_position.direction_to(attractor.global_position).angle()
 	rotation = lerp_angle(rotation, target_rotation, 0.1)
 	
 	velocity = Vector2.RIGHT.rotated(rotation) * current_speed
 
 	move_and_slide()
+
+
+func _on_tree_exiting() -> void:
+	var hero := get_tree().get_first_node_in_group("zombie_attractor") as Node2D
+	hero.combo_counter += 1
