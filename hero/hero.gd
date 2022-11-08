@@ -16,7 +16,7 @@ var combo_counter: int:
 		if value != 0:
 			if combo_tween != null: combo_tween.kill()
 			combo_tween = create_tween()
-			combo_tween.tween_property(combo, ^"value", 0, 10/combo_counter)
+			combo_tween.tween_property(combo, ^"value", 0, clampf(10/combo_counter, 1.0, 10) )
 			combo_tween.finished.connect(func(): combo_counter = 0)
 
 
