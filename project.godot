@@ -13,11 +13,16 @@ config_version=5
 config/name="Full Market"
 run/main_scene="res://test/playground.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
+run/max_fps=60
 
 [debug]
 
 gdscript/warnings/unused_parameter=0
 gdscript/warnings/return_value_discarded=0
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [editor]
 
@@ -53,4 +58,4 @@ mouse_left={
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"

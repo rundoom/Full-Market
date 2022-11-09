@@ -5,7 +5,7 @@ const SPEED = 300.0
 
 enum AttackType {MELEE, RANGED}
 var current_attack_type := AttackType.RANGED
-@onready var combo = $Camera2D/ComboCounter
+@onready var combo = %ComboCounter
 var combo_tween: Tween
 
 var combo_counter: int:
@@ -16,8 +16,10 @@ var combo_counter: int:
 		if value != 0:
 			if combo_tween != null: combo_tween.kill()
 			combo_tween = create_tween()
-			combo_tween.tween_property(combo, ^"value", 0, clampf(10/combo_counter, 1.0, 10) )
+			combo_tween.tween_property(combo, ^"value", 0, clampf(10/combo_counter, 1.0, 10))
 			combo_tween.finished.connect(func(): combo_counter = 0)
+		else:
+			combo.value = 0
 
 
 func _ready() -> void: combo_counter = 0

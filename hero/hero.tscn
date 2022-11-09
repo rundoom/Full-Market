@@ -10,10 +10,11 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_hl0qa"]
 radius = 14.0
 
-[sub_resource type="SystemFont" id="SystemFont_h3h0r"]
+[sub_resource type="SystemFont" id="SystemFont_4kcal"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_dk8xf"]
-font = SubResource("SystemFont_h3h0r")
+font = SubResource("SystemFont_4kcal")
 font_size = 21
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
@@ -40,17 +41,25 @@ visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
+[node name="Node2D" type="Node2D" parent="."]
+z_index = 1
 
-[node name="ComboCounter" type="ProgressBar" parent="Camera2D"]
-offset_left = -44.0
-offset_top = -299.0
-offset_right = 44.0
-offset_bottom = -272.0
+[node name="Camera2D" type="Camera2D" parent="Node2D"]
+current = true
+position_smoothing_enabled = true
+
+[node name="UIContainer" type="CanvasLayer" parent="."]
+
+[node name="ComboCounter" type="ProgressBar" parent="UIContainer"]
+unique_name_in_owner = true
+offset_left = 539.0
+offset_top = 32.0
+offset_right = 627.0
+offset_bottom = 59.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="Camera2D/ComboCounter"]
+[node name="Label" type="Label" parent="UIContainer/ComboCounter"]
+layout_mode = 0
 offset_left = -1.0
 offset_top = -3.0
 offset_right = 89.0

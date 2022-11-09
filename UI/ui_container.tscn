@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq7rgvaevwn6u"]
+
+[sub_resource type="SystemFont" id="SystemFont_4kcal"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_dk8xf"]
+font = SubResource("SystemFont_4kcal")
+font_size = 21
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="UIContainer" type="CanvasLayer"]
+
+[node name="ComboCounter" type="ProgressBar" parent="."]
+offset_left = 460.0
+offset_top = 39.0
+offset_right = 548.0
+offset_bottom = 66.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="ComboCounter"]
+offset_left = -1.0
+offset_top = -3.0
+offset_right = 89.0
+offset_bottom = 30.0
+label_settings = SubResource("LabelSettings_dk8xf")
+horizontal_alignment = 1
+vertical_alignment = 1
