@@ -4,8 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://djk7sbmj5o2y" path="res://zombie/Zombie 1.svg" id="2_n5emj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nskxr"]
-radius = 15.0
-height = 62.0
+radius = 13.0
 
 [node name="Zombie" type="CharacterBody2D"]
 motion_mode = 1
@@ -14,7 +13,7 @@ script = ExtResource("1_2hyxj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(-4, -4)
+position = Vector2(1, 9)
 shape = SubResource("CapsuleShape2D_nskxr")
 debug_color = Color(0, 1, 0.180392, 0.419608)
 

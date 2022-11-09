@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cmp8kggat26r3" path="res://zombie/zombie.tscn" id="2_2280h"]
 
 [node name="Playground" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Hero" parent="." instance=ExtResource("1_oy7wj")]
 position = Vector2(57.4307, 34.7296)
