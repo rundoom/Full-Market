@@ -7,12 +7,23 @@ enum AttackType {MELEE, RANGED}
 var current_attack_type := AttackType.RANGED
 @onready var combo = %ComboCounter
 var combo_tween: Tween
+var xp_melee := 0
+var xp_ranged := 0
 
 var combo_counter: int:
 	set(value):
 		combo_counter = value
 		combo.value = combo.max_value
 		combo.get_node(^"Label").text = str(combo_counter)
+		
+		match current_attack_type:
+			AttackType.MELEE:
+				xp_melee += value
+				$UIContainer/XPMelee.text = str(xp_melee)
+			AttackType.RANGED:
+				xp_ranged += value
+				$UIContainer/XPRanged.text = str(xp_ranged)
+		
 		if value != 0:
 			if combo_tween != null: combo_tween.kill()
 			combo_tween = create_tween()
