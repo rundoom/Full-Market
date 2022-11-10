@@ -12,6 +12,7 @@ var current_hp := 4:
 		tween.tween_property(self, "modulate", Color.WHITE, 0.2)
 		if value <= 0: queue_free()
 
+
 func _physics_process(delta: float) -> void:
 	current_speed = SPEED
 	var attractor := get_tree().get_first_node_in_group("zombie_attractor") as Node2D
