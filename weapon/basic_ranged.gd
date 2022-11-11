@@ -3,11 +3,6 @@ extends Node2D
 
 const Bullet := preload("res://weapon/bullet.tscn")
 @onready var shoot_cooldown := $ShootCooldown
-@onready var sound_variation: Array[AudioStreamWAV] = [
-	preload("res://weapon/пистолет 1.wav"),
-	preload("res://weapon/пистолет 2.wav"),
-	preload("res://weapon/пистолет 3.wav")
-	]
 
 
 func _physics_process(delta: float) -> void:
@@ -19,7 +14,6 @@ func _physics_process(delta: float) -> void:
 		var bullet := Bullet.instantiate()
 		add_child(bullet)
 		bullet.global_transform = $BulletOuput.global_transform
-		$ShootSound.stream = sound_variation.pick_random()
 		$ShootSound.pitch_scale = randf_range(0.5, 1.5)
 		$ShootSound.play()
 		shoot_cooldown.start()
