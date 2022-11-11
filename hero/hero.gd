@@ -57,15 +57,11 @@ func switch_weapon():
 	current_attack_type = AttackType.MELEE if $RayCast2D.is_colliding() else AttackType.RANGED
 	match current_attack_type:
 		AttackType.MELEE:
-			$Ranged.visible = false
-			$Ranged.set_physics_process(false)
-			$Melee.visible = true
-			$Melee.set_physics_process(true)
+			$Ranged.arm(false)
+			$Melee.arm(true)
 		AttackType.RANGED:
-			$Ranged.visible = true
-			$Ranged.set_physics_process(true)
-			$Melee.visible = false
-			$Melee.set_physics_process(false)
+			$Ranged.arm(true)
+			$Melee.arm(false)
 
 
 func _on_zombie_notify_body_entered(body: Node2D) -> void:

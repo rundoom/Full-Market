@@ -10,8 +10,8 @@ var current_hp := 4:
 	set(value):
 		current_hp = value
 		var tween := create_tween()
-		tween.tween_property(self, "modulate", Color.RED, 0.2)
-		tween.tween_property(self, "modulate", Color.WHITE, 0.2)
+		tween.tween_property(self, "modulate", Color.RED, 0.1)
+		tween.tween_property(self, "modulate", Color.WHITE, 0.1)
 		if value <= 0: queue_free()
 
 
