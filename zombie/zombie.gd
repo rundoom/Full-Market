@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED := 150.0
+var speed := randf_range(50, 150) 
 var current_speed := 0.0
 var is_hero_visible := false
 
@@ -16,7 +16,7 @@ var current_hp := 4:
 
 
 func _physics_process(delta: float) -> void:
-	current_speed = SPEED
+	current_speed = speed
 	var attractor := get_tree().get_first_node_in_group("zombie_attractor") as Node2D
 	if attractor != null and is_hero_visible == true:
 		var target_rotation = global_position.direction_to(attractor.global_position).angle()
