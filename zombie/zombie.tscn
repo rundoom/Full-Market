@@ -1,17 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmp8kggat26r3"]
+[gd_scene load_steps=6 format=3 uid="uid://cmp8kggat26r3"]
 
 [ext_resource type="Script" path="res://zombie/zombie.gd" id="1_2hyxj"]
 [ext_resource type="Texture2D" uid="uid://djk7sbmj5o2y" path="res://zombie/Zombie 1.svg" id="2_n5emj"]
+[ext_resource type="Texture2D" uid="uid://uvxejgojwl0p" path="res://core/White_Circle.svg" id="2_s30nn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nskxr"]
 radius = 13.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sns36"]
+radius = 16.0
+height = 58.0
 
 [node name="Zombie" type="CharacterBody2D"]
 motion_mode = 1
 safe_margin = 20.0
 script = ExtResource("1_2hyxj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Toucher" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(1, 9)
 shape = SubResource("CapsuleShape2D_nskxr")
@@ -20,6 +25,12 @@ debug_color = Color(0, 1, 0.180392, 0.419608)
 [node name="CenterPos" type="Marker2D" parent="."]
 position = Vector2(-4, -4)
 
+[node name="Shadow" type="Sprite2D" parent="CenterPos"]
+modulate = Color(0, 0, 0, 0.345098)
+position = Vector2(4, 22)
+scale = Vector2(0.1, 0.06)
+texture = ExtResource("2_s30nn")
+
 [node name="Zombie1" type="Sprite2D" parent="CenterPos"]
 texture_filter = 6
 position = Vector2(2.00272e-05, 0)
@@ -27,4 +38,14 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_n5emj")
 offset = Vector2(565, -186)
 
+[node name="DmgSponge" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="DmgSponge" type="CollisionShape2D" parent="DmgSponge"]
+visible = false
+position = Vector2(-1, -3)
+shape = SubResource("CapsuleShape2D_sns36")
+
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="body_entered" from="DmgSponge" to="." method="_on_dmg_sponge_body_entered"]
