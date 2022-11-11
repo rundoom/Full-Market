@@ -29,3 +29,8 @@ func _on_tree_exiting() -> void:
 	var hero := get_tree().get_first_node_in_group("zombie_attractor") as Node2D
 	if hero != null:
 		hero.combo_counter += 1
+
+
+func _on_dmg_sponge_body_entered(body: Node2D) -> void:
+		body.queue_free()
+		current_hp -= 1

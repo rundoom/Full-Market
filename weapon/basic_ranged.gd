@@ -10,10 +10,10 @@ func _physics_process(delta: float) -> void:
 	global_rotation = global_position.direction_to(mouse_pos).angle()
 	scale.y = 1 if cos(rotation) > 0 else -1
 
-	if Input.is_action_pressed("mouse_left") and shoot_cooldown.is_stopped():
+	if Input.is_action_just_pressed("mouse_left") and shoot_cooldown.is_stopped():
 		var bullet := Bullet.instantiate()
 		add_child(bullet)
 		bullet.global_transform = $BulletOuput.global_transform
-		$ShootSound.pitch_scale = randf_range(0.5, 1.5)
+		$ShootSound.pitch_scale = randf_range(0.8, 1.2)
 		$ShootSound.play()
 		shoot_cooldown.start()

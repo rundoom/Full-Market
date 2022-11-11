@@ -58,6 +58,11 @@ mouse_left={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Touch"
+2d_physics/layer_2="Damage"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
