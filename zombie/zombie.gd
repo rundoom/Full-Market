@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var speed := randf_range(50, 150) 
+var speed := randf_range(80, 150) 
 var current_speed := 0.0
 var is_hero_visible := false
 

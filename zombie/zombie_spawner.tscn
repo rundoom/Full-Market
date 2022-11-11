@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://8g0lm68uj2wn"]
+
+[ext_resource type="Script" path="res://zombie/zombie_spawner.gd" id="1_exktw"]
+
+[sub_resource type="Curve2D" id="Curve2D_idhdq"]
+resource_local_to_scene = true
+
+[node name="ZombieSpawner" type="Path2D"]
+curve = SubResource("Curve2D_idhdq")
+script = ExtResource("1_exktw")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
