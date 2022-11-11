@@ -10,6 +10,7 @@ var combo_tween: Tween
 var xp_melee := 0
 var xp_ranged := 0
 
+
 var combo_counter: int:
 	set(value):
 		combo_counter = value
@@ -65,3 +66,12 @@ func switch_weapon():
 			$Ranged.set_physics_process(true)
 			$Melee.visible = false
 			$Melee.set_physics_process(false)
+
+
+func _on_zombie_notify_body_entered(body: Node2D) -> void:
+	if "is_hero_visible" in body: body.is_hero_visible = true
+		
+
+func _on_zombie_notify_body_exited(body: Node2D) -> void:
+	if "is_hero_visible" in body: body.is_hero_visible = false
+		

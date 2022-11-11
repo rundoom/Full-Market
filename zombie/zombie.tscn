@@ -21,6 +21,7 @@ debug_color = Color(0, 1, 0.180392, 0.419608)
 position = Vector2(-4, -4)
 
 [node name="Zombie1" type="Sprite2D" parent="CenterPos"]
+texture_filter = 6
 position = Vector2(2.00272e-05, 0)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_n5emj")
