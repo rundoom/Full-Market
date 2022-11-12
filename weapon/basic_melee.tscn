@@ -136,6 +136,7 @@ offset = Vector2(6, 2)
 polygon = PackedVector2Array(-4.30429, -2.28718, 11.6957, -2.28718, 11.6957, -1.28718, -4.30429, -1.28718, -4.30429, -0.287178, -5.30429, -0.287178, -5.30429, -3.28718, -4.30429, -3.28718)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(30.5, 4)
 shape = SubResource("RectangleShape2D_rt015")
 disabled = true

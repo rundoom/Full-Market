@@ -35,8 +35,8 @@ func _physics_process(delta: float) -> void:
 
 
 func handle_shoot():
-	if INPUT_ACTION.call() and shoot_cooldown.is_stopped():
-		if current_mag > 0 :
+	if INPUT_ACTION.call():
+		if current_mag > 0 and shoot_cooldown.is_stopped():
 			var bullet_direction := $BulletOuput.global_rotation as float
 			for i in BULLET_COUNT:
 				var bullet := Bullet.instantiate()
@@ -49,7 +49,7 @@ func handle_shoot():
 			shoot_cooldown.start()
 			current_mag -= 1
 			reload_bar.value += 1
-		elif $ReloadTime.is_stopped():
+		elif $ReloadTime.is_stopped() and current_mag <= 0:
 			$ReloadTime.start()
 			var reloader := create_tween()
 			reloader.tween_property(reload_bar, "value", 0, $ReloadTime.wait_time)
