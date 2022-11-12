@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://hero/hero.gd" id="1_nn66o"]
 [ext_resource type="PackedScene" uid="uid://m0py817i1pv0" path="res://weapon/basic_melee.tscn" id="2_0o263"]
-[ext_resource type="PackedScene" uid="uid://ddw5lbt5xk0xg" path="res://weapon/basic_ranged.tscn" id="2_3c3j3"]
+[ext_resource type="PackedScene" uid="uid://db3auxgtppuy2" path="res://weapon/pistol.tscn" id="2_7j5sd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xwrk1"]
 radius = 16.0
@@ -29,10 +29,6 @@ script = ExtResource("1_nn66o")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xwrk1")
 
-[node name="Ranged" parent="." instance=ExtResource("2_3c3j3")]
-
-[node name="Melee" parent="." instance=ExtResource("2_0o263")]
-
 [node name="RayCast2D" type="ShapeCast2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_hl0qa")
@@ -58,7 +54,6 @@ offset_bottom = 59.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="UIContainer/ComboCounter"]
-layout_mode = 0
 offset_left = -1.0
 offset_top = -3.0
 offset_right = 89.0
@@ -77,7 +72,6 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="RangedLabel" type="Label" parent="UIContainer/XPRanged"]
-layout_mode = 0
 offset_left = -55.0
 offset_right = 12.0
 offset_bottom = 26.0
@@ -93,7 +87,6 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="MeleeLabel" type="Label" parent="UIContainer/XPMelee"]
-layout_mode = 0
 offset_left = -41.0
 offset_right = 15.0
 offset_bottom = 26.0
@@ -113,6 +106,14 @@ debug_color = Color(0, 0.6, 0.266667, 0.0862745)
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.254902, 0.576471, 1, 1)
 polygon = PackedVector2Array(0, -16, -5, -15, -11, -12, -15, -5, -16, 3, -11, 12, -3, 16, 5, 15, 11, 11, 15, 6, 16, -3, 12, -10, 6, -15)
+
+[node name="RangedSlot" type="Node2D" parent="."]
+
+[node name="Pistol" parent="RangedSlot" instance=ExtResource("2_7j5sd")]
+
+[node name="MeleeSlot" type="Node2D" parent="."]
+
+[node name="Melee" parent="MeleeSlot" instance=ExtResource("2_0o263")]
 
 [connection signal="body_entered" from="ZombieNotify" to="." method="_on_zombie_notify_body_entered"]
 [connection signal="body_exited" from="ZombieNotify" to="." method="_on_zombie_notify_body_exited"]

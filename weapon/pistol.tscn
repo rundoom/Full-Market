@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://db3auxgtppuy2"]
+
+[ext_resource type="PackedScene" uid="uid://btwufhjl24n5j" path="res://weapon/basic_ranged.tscn" id="1_ttt16"]
+
+[node name="Pistol" instance=ExtResource("1_ttt16")]
+SPREAD = 0.1
+MAG_SIZE = 15
+AUTOMATIC = false
+
+[node name="ShootCooldown" parent="." index="0"]
+wait_time = 0.1
+
+[node name="ReloadTime" parent="." index="1"]
+wait_time = 2.0
+
+[node name="Polygon2D" parent="." index="2"]
+polygon = PackedVector2Array(-8.05356, 0.658119, -8.05356, 2.65812, -7.05356, 2.65812, -7.05356, 1.65812, -6.62148, 1.65712, -6.51597, 2.1575, -5.91089, 2.1575, -5.79907, 1.65695, -4.05356, 1.65812, -4.05356, 0.658119)

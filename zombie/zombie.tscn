@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmp8kggat26r3"]
+[gd_scene load_steps=6 format=3 uid="uid://eon1kp7fae5u"]
 
 [ext_resource type="Script" path="res://zombie/zombie.gd" id="1_2hyxj"]
+[ext_resource type="Texture2D" uid="uid://uvxejgojwl0p" path="res://core/white_circle.svg" id="2_ix2t1"]
 [ext_resource type="Texture2D" uid="uid://djk7sbmj5o2y" path="res://zombie/Zombie 1.svg" id="2_n5emj"]
-[ext_resource type="Texture2D" uid="uid://uvxejgojwl0p" path="res://core/White_Circle.svg" id="2_s30nn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nskxr"]
 radius = 13.0
@@ -29,7 +29,7 @@ position = Vector2(-4, -4)
 modulate = Color(0, 0, 0, 0.345098)
 position = Vector2(4, 22)
 scale = Vector2(0.1, 0.06)
-texture = ExtResource("2_s30nn")
+texture = ExtResource("2_ix2t1")
 
 [node name="Zombie1" type="Sprite2D" parent="CenterPos"]
 texture_filter = 6

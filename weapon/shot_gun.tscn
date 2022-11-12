@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmqx8ywgjre11"]
+
+[ext_resource type="PackedScene" uid="uid://btwufhjl24n5j" path="res://weapon/basic_ranged.tscn" id="1_lh2xa"]
+
+[node name="ShotGun" instance=ExtResource("1_lh2xa")]
+SPREAD = 0.3
+BULLET_COUNT = 12
+BULLET_SPEED_SPRED = 400
+MAG_SIZE = 6
+
+[node name="ReloadTime" parent="." index="1"]
+wait_time = 2.0

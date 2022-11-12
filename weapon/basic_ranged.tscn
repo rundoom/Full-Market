@@ -1,20 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddw5lbt5xk0xg"]
+[gd_scene load_steps=4 format=3 uid="uid://btwufhjl24n5j"]
 
 [ext_resource type="Script" path="res://weapon/basic_ranged.gd" id="1_liwxu"]
 [ext_resource type="AudioStream" uid="uid://buio5iw1388g0" path="res://weapon/пистолет 1.wav" id="2_3xgcu"]
-[ext_resource type="Texture2D" uid="uid://uvxejgojwl0p" path="res://core/White_Circle.svg" id="3_mubgr"]
+[ext_resource type="Texture2D" uid="uid://uvxejgojwl0p" path="res://core/white_circle.svg" id="3_wijuy"]
 
 [node name="BasicRanged" type="Node2D"]
 script = ExtResource("1_liwxu")
 
 [node name="ShootCooldown" type="Timer" parent="."]
 process_callback = 0
-wait_time = 0.1
 one_shot = true
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="ReloadTime" type="Timer" parent="."]
+process_callback = 0
+one_shot = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(0, 5.04871e-29)
@@ -27,11 +26,6 @@ position = Vector2(55, -2)
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_3xgcu")
-
-[node name="ReloadTime" type="Timer" parent="."]
-process_callback = 0
-wait_time = 2.0
-one_shot = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 remote_path = NodePath("../UI")
@@ -49,7 +43,7 @@ offset_right = 314.0
 offset_bottom = 227.0
 scale = Vector2(0.152552, 0.152552)
 fill_mode = 4
-texture_progress = ExtResource("3_mubgr")
+texture_progress = ExtResource("3_wijuy")
 tint_progress = Color(0.870588, 0.117647, 0.32549, 1)
 
 [connection signal="timeout" from="ReloadTime" to="." method="_on_reload_time_timeout"]

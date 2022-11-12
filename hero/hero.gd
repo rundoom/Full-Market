@@ -9,6 +9,12 @@ var current_attack_type := AttackType.RANGED
 var combo_tween: Tween
 var xp_melee := 0
 var xp_ranged := 0
+@onready var current_ranged := $RangedSlot.get_child(0)
+@onready var current_melee := $MeleeSlot.get_child(0)
+
+
+var Shotgun := preload("res://weapon/shot_gun.tscn")
+var Pistol := preload("res://weapon/pistol.tscn")
 
 
 var combo_counter: int:
@@ -57,17 +63,30 @@ func switch_weapon():
 	current_attack_type = AttackType.MELEE if $RayCast2D.is_colliding() else AttackType.RANGED
 	match current_attack_type:
 		AttackType.MELEE:
-			$Ranged.arm(false)
-			$Melee.arm(true)
+			current_ranged.arm(false)
+			current_melee.arm(true)
 		AttackType.RANGED:
-			$Ranged.arm(true)
-			$Melee.arm(false)
+			current_ranged.arm(true)
+			current_melee.arm(false)
 
 
 func _on_zombie_notify_body_entered(body: Node2D) -> void:
 	if "is_hero_visible" in body: body.is_hero_visible = true
-		
+
 
 func _on_zombie_notify_body_exited(body: Node2D) -> void:
 	if "is_hero_visible" in body: body.is_hero_visible = false
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("1"):
+		var old_ranged = current_ranged
+		current_ranged = Pistol.instantiate()
+		old_ranged.queue_free()
+		$RangedSlot.add_child(current_ranged)
+	elif event.is_action_pressed("2"):
+		var old_ranged = current_ranged
+		current_ranged = Shotgun.instantiate()
+		old_ranged.queue_free()
+		$RangedSlot.add_child(current_ranged)
 		
