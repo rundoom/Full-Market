@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://olu8bl1joys5"]
+
+[ext_resource type="PackedScene" uid="uid://btwufhjl24n5j" path="res://weapon/basic_ranged.tscn" id="1_g76i0"]
+
+[node name="Minigun" instance=ExtResource("1_g76i0")]
+SPREAD = 0.3
+BULLET_COUNT = 3
+BULLET_SPEED_SPRED = 100
+MAG_SIZE = 500
+AUTOMATIC = true
+
+[node name="ShootCooldown" parent="." index="0"]
+wait_time = 0.05
+
+[node name="ReloadTime" parent="." index="1"]
+wait_time = 8.0
+
+[node name="Polygon2D" parent="." index="2"]
+polygon = PackedVector2Array(-8.05356, 0.658119, -8.05356, 2.65812, -6.27393, 4.15999, -7.05356, 1.65812, -5.06378, 1.65688, -4.82175, 3.15875, -3.49057, 3.15875, -3.18161, 1.6575, -0.364291, 1.65704, -0.344164, 3.15875, 1.22904, 1.65688, 1.22904, 0.655636, -0.344164, -0.84623, -0.373826, 0.656065)
+
+[node name="BulletOuput" parent="." index="3"]
+position = Vector2(99, -2)

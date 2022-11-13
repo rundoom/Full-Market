@@ -15,6 +15,8 @@ var xp_ranged := 0
 
 var Shotgun := preload("res://weapon/shot_gun.tscn")
 var Pistol := preload("res://weapon/pistol.tscn")
+var AssaultRifle := preload("res://weapon/assault_rifle.tscn")
+var Minigun := preload("res://weapon/minigun.tscn")
 
 
 var combo_counter: int:
@@ -87,6 +89,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("2"):
 		var old_ranged = current_ranged
 		current_ranged = Shotgun.instantiate()
+		old_ranged.queue_free()
+		$RangedSlot.add_child(current_ranged)
+	elif event.is_action_pressed("3"):
+		var old_ranged = current_ranged
+		current_ranged = AssaultRifle.instantiate()
+		old_ranged.queue_free()
+		$RangedSlot.add_child(current_ranged)
+	elif event.is_action_pressed("4"):
+		var old_ranged = current_ranged
+		current_ranged = Minigun.instantiate()
 		old_ranged.queue_free()
 		$RangedSlot.add_child(current_ranged)
 		

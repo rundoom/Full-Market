@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsevgd8nuxikq"]
+
+[ext_resource type="PackedScene" uid="uid://btwufhjl24n5j" path="res://weapon/basic_ranged.tscn" id="1_vgb0w"]
+
+[node name="AssaultRifle" instance=ExtResource("1_vgb0w")]
+SPREAD = 0.1
+MAG_SIZE = 90
+AUTOMATIC = true
+
+[node name="ShootCooldown" parent="." index="0"]
+wait_time = 0.1
+
+[node name="ReloadTime" parent="." index="1"]
+wait_time = 3.0
+
+[node name="Polygon2D" parent="." index="2"]
+polygon = PackedVector2Array(-8.05356, 0.658119, -8.05356, 2.65812, -7.05356, 2.65812, -7.05356, 1.65812, -5.62044, 1.65812, -5.51693, 2.22539, -5.31347, 2.22539, -5.19211, 1.65812, -4.05356, 1.65812, -4.05356, 1.41726, -3.255, 1.4169, -3.2651, 0.83218, -4.05356, 0.83218, -4.05356, 0.658119)
+
+[node name="BulletOuput" parent="." index="3"]
+position = Vector2(60.9859, -2.146)
