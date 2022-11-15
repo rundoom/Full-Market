@@ -12,40 +12,21 @@ var xp_ranged := 0
 @onready var current_ranged := $RangedSlot.get_child(0)
 @onready var current_melee := $MeleeSlot.get_child(0)
 @export var MAX_HP: int
-@onready var current_hp: int:
+@onready var current_hp: float:
 	set(value):
 		if value <= 0: get_tree().reload_current_scene()
 		current_hp = value
 		$UIContainer/HP.value = value
-
 
 var Shotgun := preload("res://weapon/shot_gun.tscn")
 var Pistol := preload("res://weapon/pistol.tscn")
 var AssaultRifle := preload("res://weapon/assault_rifle.tscn")
 var Minigun := preload("res://weapon/minigun.tscn")
 
-
 var combo_counter: int:
 	set(value):
 		combo_counter = value
-		combo.value = combo.max_value
-		combo.get_node(^"Label").text = str(combo_counter)
-		
-		match current_attack_type:
-			AttackType.MELEE:
-				xp_melee += value
-				$UIContainer/XPMelee.text = str(xp_melee)
-			AttackType.RANGED:
-				xp_ranged += value
-				$UIContainer/XPRanged.text = str(xp_ranged)
-		
-		if value != 0:
-			if combo_tween != null: combo_tween.kill()
-			combo_tween = create_tween()
-			combo_tween.tween_property(combo, ^"value", 0, clampf(10/combo_counter, 1.0, 10))
-			combo_tween.finished.connect(func(): combo_counter = 0)
-		else:
-			combo.value = 0
+		update_combo(value)
 
 
 func _ready() -> void:
@@ -67,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	for i in get_slide_collision_count():
 		var collider = get_slide_collision(i).get_collider() as Node2D
 		if collider.is_in_group("zombie"):
-			current_hp -= 1
+			current_hp -= 0.5
 		
 
 func switch_weapon():
@@ -111,3 +92,35 @@ func _unhandled_input(event: InputEvent) -> void:
 		old_ranged.queue_free()
 		$RangedSlot.add_child(current_ranged)
 		
+
+func update_combo(value: int):
+	combo.value = combo.max_value
+	combo.get_node(^"Label").text = str(combo_counter)
+	
+	match current_attack_type:
+		AttackType.MELEE:
+			xp_melee += value
+			$UIContainer/XPMelee.text = str(xp_melee)
+		AttackType.RANGED:
+			xp_ranged += value
+			$UIContainer/XPRanged.text = str(xp_ranged)
+	
+	if value != 0:
+		if combo_tween != null: combo_tween.kill()
+		combo_tween = create_tween()
+		combo_tween.tween_property(combo, ^"value", 0, clampf(10/combo_counter, 1.0, 10))
+		combo_tween.finished.connect(func(): combo_counter = 0)
+	else:
+		combo.value = 0
+
+
+func _on_zombie_charge_body_entered(body: Node2D) -> void:
+	if body.is_in_group("zombie"):
+		var margin_tween := create_tween()
+		margin_tween.tween_property(body, "safe_margin", 0, 0.5)
+
+
+func _on_zombie_charge_body_exited(body: Node2D) -> void:
+		if body.is_in_group("zombie"):
+			var margin_tween := create_tween()
+			margin_tween.tween_property(body, "safe_margin", 20, 1)

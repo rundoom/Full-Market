@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdw4uncpvcxf8"]
+[gd_scene load_steps=10 format=3 uid="uid://cdw4uncpvcxf8"]
 
 [ext_resource type="Script" path="res://hero/hero.gd" id="1_nn66o"]
 [ext_resource type="PackedScene" uid="uid://m0py817i1pv0" path="res://weapon/basic_melee.tscn" id="2_0o263"]
@@ -22,12 +22,15 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_d1ket"]
 radius = 430.785
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_iay8a"]
+radius = 52.0865
+
 [node name="Hero" type="CharacterBody2D" groups=["zombie_attractor"]]
 motion_mode = 1
 script = ExtResource("1_nn66o")
 MAX_HP = 100
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="HitBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xwrk1")
 
 [node name="RayCast2D" type="ShapeCast2D" parent="."]
@@ -127,5 +130,13 @@ polygon = PackedVector2Array(0, -16, -5, -15, -11, -12, -15, -5, -16, 3, -11, 12
 
 [node name="Melee" parent="MeleeSlot" instance=ExtResource("2_0o263")]
 
+[node name="ZombieCharge" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieCharge"]
+shape = SubResource("CircleShape2D_iay8a")
+
 [connection signal="body_entered" from="ZombieNotify" to="." method="_on_zombie_notify_body_entered"]
 [connection signal="body_exited" from="ZombieNotify" to="." method="_on_zombie_notify_body_exited"]
+[connection signal="body_entered" from="ZombieCharge" to="." method="_on_zombie_charge_body_entered"]
+[connection signal="body_exited" from="ZombieCharge" to="." method="_on_zombie_charge_body_exited"]
