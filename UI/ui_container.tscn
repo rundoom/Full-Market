@@ -10,13 +10,18 @@ outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [node name="UIContainer" type="CanvasLayer"]
+offset = Vector2(-1000, 0)
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, -1000, 0)
 
 [node name="ComboCounter" type="ProgressBar" parent="."]
-offset_left = 460.0
-offset_top = 39.0
-offset_right = 548.0
-offset_bottom = 66.0
+unique_name_in_owner = true
+offset_left = 942.0
+offset_top = 32.0
+offset_right = 1030.0
+offset_bottom = 59.0
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="ComboCounter"]
 offset_left = -1.0
@@ -26,3 +31,38 @@ offset_bottom = 30.0
 label_settings = SubResource("LabelSettings_dk8xf")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="XPRanged" type="Label" parent="."]
+offset_left = 1100.0
+offset_top = 32.0
+offset_right = 1140.0
+offset_bottom = 58.0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RangedLabel" type="Label" parent="XPRanged"]
+offset_left = -55.0
+offset_right = 12.0
+offset_bottom = 26.0
+text = "Ranged: "
+metadata/_edit_use_anchors_ = true
+
+[node name="XPMelee" type="Label" parent="."]
+offset_left = 891.0
+offset_top = 32.0
+offset_right = 931.0
+offset_bottom = 58.0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MeleeLabel" type="Label" parent="XPMelee"]
+offset_left = -41.0
+offset_right = 15.0
+offset_bottom = 26.0
+text = "Melee: "
+metadata/_edit_use_anchors_ = true

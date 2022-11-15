@@ -11,6 +11,12 @@ var xp_melee := 0
 var xp_ranged := 0
 @onready var current_ranged := $RangedSlot.get_child(0)
 @onready var current_melee := $MeleeSlot.get_child(0)
+@export var MAX_HP: int
+@onready var current_hp: int:
+	set(value):
+		if value <= 0: get_tree().reload_current_scene()
+		current_hp = value
+		$UIContainer/HP.value = value
 
 
 var Shotgun := preload("res://weapon/shot_gun.tscn")
@@ -42,8 +48,9 @@ var combo_counter: int:
 			combo.value = 0
 
 
-func _ready() -> void: combo_counter = 0
-
+func _ready() -> void:
+	combo_counter = 0
+	current_hp = MAX_HP
 
 func _physics_process(delta: float) -> void:
 	var direction_y := Input.get_axis("w", "s")
@@ -55,11 +62,13 @@ func _physics_process(delta: float) -> void:
 	$RayCast2D.global_rotation = global_position.direction_to(mouse_pos).angle()
 	
 	switch_weapon()
-		
-	$Label.text = str(current_attack_type)
 
 	move_and_slide()
-
+	for i in get_slide_collision_count():
+		var collider = get_slide_collision(i).get_collider() as Node2D
+		if collider.is_in_group("zombie"):
+			current_hp -= 1
+		
 
 func switch_weapon():
 	current_attack_type = AttackType.MELEE if $RayCast2D.is_colliding() else AttackType.RANGED

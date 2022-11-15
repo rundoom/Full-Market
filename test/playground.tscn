@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b5vrtd741pnxl" path="res://test/floor_test.jpg" id="3_j50kw"]
 [ext_resource type="PackedScene" uid="uid://8g0lm68uj2wn" path="res://zombie/zombie_spawner.tscn" id="4_naovq"]
 
-[sub_resource type="Curve2D" id="Curve2D_j2r0h"]
+[sub_resource type="Curve2D" id="Curve2D_xby84"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(-235.451, 198.452, 235.451, -198.452, -444, 38, -210.139, -202.165, 210.139, 202.165, 510, 43, 381.683, -205.619, -381.683, 205.619, 507, 711, 586.119, 338.984, -586.119, -338.984, -445, 697, 0, 0, 0, 0, -444, 38)
@@ -102,4 +102,4 @@ region_rect = Rect2(-1950, -1200, 5100, 2850)
 [node name="ZombieSpawner" parent="." instance=ExtResource("4_naovq")]
 position = Vector2(156, -183)
 scale = Vector2(1.00733, 1)
-curve = SubResource("Curve2D_j2r0h")
+curve = SubResource("Curve2D_xby84")
