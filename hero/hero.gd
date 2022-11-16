@@ -9,6 +9,11 @@ var current_attack_type := AttackType.RANGED
 var combo_tween: Tween
 var xp_melee := 0
 var xp_ranged := 0
+var money := 0:
+	set(value):
+		money = value
+		$UIContainer/MoneyCount.text = str(value)
+		
 @onready var current_ranged := $RangedSlot.get_child(0)
 @onready var current_melee := $MeleeSlot.get_child(0)
 @export var MAX_HP: int
@@ -124,3 +129,8 @@ func _on_zombie_charge_body_exited(body: Node2D) -> void:
 		if body.is_in_group("zombie"):
 			var margin_tween := create_tween()
 			margin_tween.tween_property(body, "safe_margin", 20, 1)
+
+
+func _on_collector_body_entered(body: Node2D) -> void:
+	body.queue_free()
+	money += 1

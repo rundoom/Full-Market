@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdw4uncpvcxf8"]
+[gd_scene load_steps=13 format=3 uid="uid://cdw4uncpvcxf8"]
 
 [ext_resource type="Script" path="res://hero/hero.gd" id="1_nn66o"]
 [ext_resource type="PackedScene" uid="uid://m0py817i1pv0" path="res://weapon/basic_melee.tscn" id="2_0o263"]
 [ext_resource type="PackedScene" uid="uid://db3auxgtppuy2" path="res://weapon/pistol.tscn" id="2_7j5sd"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_xwrk1"]
-radius = 16.0
+[ext_resource type="Shape2D" uid="uid://e0lfel375pb2" path="res://hero/hitbox_shape.tres" id="2_lepoo"]
+[ext_resource type="Script" path="res://hero/Picker.gd" id="4_l1sxa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hl0qa"]
 radius = 14.0
@@ -19,11 +18,17 @@ font_size = 21
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2rgd"]
+size = Vector2(89, 20)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_d1ket"]
 radius = 430.785
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iay8a"]
 radius = 52.0865
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tks1c"]
+radius = 63.0317
 
 [node name="Hero" type="CharacterBody2D" groups=["zombie_attractor"]]
 motion_mode = 1
@@ -31,7 +36,7 @@ script = ExtResource("1_nn66o")
 MAX_HP = 100
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_xwrk1")
+shape = ExtResource("2_lepoo")
 
 [node name="RayCast2D" type="ShapeCast2D" parent="."]
 visible = false
@@ -39,7 +44,7 @@ shape = SubResource("CircleShape2D_hl0qa")
 target_position = Vector2(61, 1)
 max_results = 1
 
-[node name="UIContainer" type="CanvasLayer" parent="."]
+[node name="UIContainer" type="CanvasLayer" parent="." groups=["ui"]]
 offset = Vector2(-1000, 0)
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, -1000, 0)
@@ -106,6 +111,30 @@ offset_top = 34.0
 offset_right = 1426.0
 offset_bottom = 61.0
 
+[node name="MoneyCount" type="Label" parent="UIContainer"]
+offset_left = 1342.0
+offset_top = 80.0
+offset_right = 1382.0
+offset_bottom = 106.0
+text = "0"
+
+[node name="MoneyLabel" type="Label" parent="UIContainer/MoneyCount"]
+layout_mode = 0
+offset_left = -68.5
+offset_top = -0.5
+offset_right = -11.5
+offset_bottom = 25.5
+text = "Money:"
+
+[node name="Area2D" type="Area2D" parent="UIContainer"]
+position = Vector2(1308, 107)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UIContainer/Area2D"]
+position = Vector2(4, -14.5)
+shape = SubResource("RectangleShape2D_v2rgd")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2(2, 2)
@@ -136,7 +165,33 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieCharge"]
 shape = SubResource("CircleShape2D_iay8a")
 
+[node name="Picker" type="Node2D" parent="."]
+visible = false
+
+[node name="Magnet" type="Area2D" parent="Picker"]
+collision_layer = 0
+collision_mask = 4
+gravity_space_override = 3
+gravity_point = true
+gravity_point_distance_scale = 0.05
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+script = ExtResource("4_l1sxa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Picker/Magnet"]
+shape = SubResource("CircleShape2D_tks1c")
+
+[node name="Collector" type="Area2D" parent="Picker"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Picker/Collector"]
+shape = ExtResource("2_lepoo")
+
 [connection signal="body_entered" from="ZombieNotify" to="." method="_on_zombie_notify_body_entered"]
 [connection signal="body_exited" from="ZombieNotify" to="." method="_on_zombie_notify_body_exited"]
 [connection signal="body_entered" from="ZombieCharge" to="." method="_on_zombie_charge_body_entered"]
 [connection signal="body_exited" from="ZombieCharge" to="." method="_on_zombie_charge_body_exited"]
+[connection signal="body_entered" from="Picker/Magnet" to="Picker/Magnet" method="_on_body_entered"]
+[connection signal="body_exited" from="Picker/Magnet" to="Picker/Magnet" method="_on_body_exited"]
+[connection signal="body_entered" from="Picker/Collector" to="." method="_on_collector_body_entered"]

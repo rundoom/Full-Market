@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccft33p8b7r7v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tuffk"]
+
+[node name="Money" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 0
+gravity_scale = 0.0
+linear_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tuffk")

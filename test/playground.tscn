@@ -1,16 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx5lclh870s7o"]
+[gd_scene load_steps=7 format=3 uid="uid://cx5lclh870s7o"]
 
 [ext_resource type="PackedScene" uid="uid://cdw4uncpvcxf8" path="res://hero/hero.tscn" id="1_oy7wj"]
 [ext_resource type="PackedScene" uid="uid://eon1kp7fae5u" path="res://zombie/zombie.tscn" id="2_2280h"]
 [ext_resource type="Texture2D" uid="uid://b5vrtd741pnxl" path="res://test/floor_test.jpg" id="3_j50kw"]
 [ext_resource type="PackedScene" uid="uid://8g0lm68uj2wn" path="res://zombie/zombie_spawner.tscn" id="4_naovq"]
+[ext_resource type="PackedScene" uid="uid://c51bwamfyghcx" path="res://building/full_market.tscn" id="5_ondwb"]
 
-[sub_resource type="Curve2D" id="Curve2D_xby84"]
+[sub_resource type="Curve2D" id="Curve2D_g4m5y"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(-235.451, 198.452, 235.451, -198.452, -444, 38, -210.139, -202.165, 210.139, 202.165, 510, 43, 381.683, -205.619, -381.683, 205.619, 507, 711, 586.119, 338.984, -586.119, -338.984, -445, 697, 0, 0, 0, 0, -444, 38)
+"points": PackedVector2Array(-235.451, 198.452, 235.451, -198.452, -474.522, -253, -210.139, -202.165, 210.139, 202.165, 823.96, -129, 365.155, -179.456, -365.155, 179.456, 607.547, 755, 586.119, 338.984, -586.119, -338.984, -568.831, 758, 0, 0, 0, 0, -780.281, -49, 0, 0, 0, 0, -594.641, -196, 0, 0, 0, 0, -474.522, -253)
 }
-point_count = 5
+point_count = 7
 
 [node name="Playground" type="Node2D" groups=["level"]]
 y_sort_enabled = true
@@ -100,6 +101,9 @@ region_enabled = true
 region_rect = Rect2(-1950, -1200, 5100, 2850)
 
 [node name="ZombieSpawner" parent="." instance=ExtResource("4_naovq")]
-position = Vector2(156, -183)
+position = Vector2(448, -857)
 scale = Vector2(1.00733, 1)
-curve = SubResource("Curve2D_xby84")
+curve = SubResource("Curve2D_g4m5y")
+
+[node name="FullMarket" parent="." instance=ExtResource("5_ondwb")]
+position = Vector2(503, -543)

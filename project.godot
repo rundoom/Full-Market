@@ -92,6 +92,8 @@ mouse_left={
 
 2d_physics/layer_1="Touch"
 2d_physics/layer_2="Damage"
+2d_physics/layer_3="Pickable"
+2d_physics/layer_4="UI collision"
 
 [rendering]
 
