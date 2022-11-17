@@ -61,7 +61,7 @@ func _on_reload_time_timeout() -> void:
 
 func arm(is_arm: bool):
 	enabled = is_arm
-	$Polygon2D.visible = is_arm
+	$Sprite2D.visible = is_arm
 
 
 func _decide_firemod(is_automatic: bool):

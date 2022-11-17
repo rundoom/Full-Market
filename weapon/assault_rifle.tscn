@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsevgd8nuxikq"]
+[gd_scene load_steps=4 format=3 uid="uid://dsevgd8nuxikq"]
 
 [ext_resource type="PackedScene" uid="uid://btwufhjl24n5j" path="res://weapon/basic_ranged.tscn" id="1_vgb0w"]
+[ext_resource type="Texture2D" uid="uid://b6awf5ctuqe17" path="res://weapon/weaponary.png" id="2_gg6vp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb6re"]
+resource_local_to_scene = true
+atlas = ExtResource("2_gg6vp")
+region = Rect2(241, 187, 129, 45)
 
 [node name="AssaultRifle" instance=ExtResource("1_vgb0w")]
 SPREAD = 0.1
@@ -13,8 +19,9 @@ wait_time = 0.1
 [node name="ReloadTime" parent="." index="1"]
 wait_time = 3.0
 
-[node name="Polygon2D" parent="." index="2"]
-polygon = PackedVector2Array(-8.05356, 0.658119, -8.05356, 2.65812, -7.05356, 2.65812, -7.05356, 1.65812, -5.62044, 1.65812, -5.51693, 2.22539, -5.31347, 2.22539, -5.19211, 1.65812, -4.05356, 1.65812, -4.05356, 1.41726, -3.255, 1.4169, -3.2651, 0.83218, -4.05356, 0.83218, -4.05356, 0.658119)
+[node name="BulletOuput" parent="." index="2"]
+position = Vector2(62.6696, -2.146)
 
-[node name="BulletOuput" parent="." index="3"]
-position = Vector2(60.9859, -2.146)
+[node name="Sprite2D" parent="." index="6"]
+position = Vector2(29.7452, 2.52554)
+texture = SubResource("AtlasTexture_wb6re")
