@@ -29,6 +29,7 @@ radius = 52.0865
 radius = 63.0317
 
 [node name="Hero" type="CharacterBody2D" groups=["zombie_attractor"]]
+collision_layer = 9
 motion_mode = 1
 script = ExtResource("1_nn66o")
 MAX_HP = 100
@@ -135,6 +136,36 @@ offset_bottom = 248.0
 scale = Vector2(5, 5)
 text = "PAUSED"
 
+[node name="ShoppingReminder" type="Label" parent="UIContainer"]
+visible = false
+offset_left = 912.0
+offset_top = 260.0
+offset_right = 1082.0
+offset_bottom = 312.0
+text = "PRESS \"E\" 
+to shop at Full Market"
+horizontal_alignment = 1
+
+[node name="Shopping" type="VBoxContainer" parent="UIContainer"]
+visible = false
+offset_left = 951.5
+offset_top = 208.5
+offset_right = 1026.5
+offset_bottom = 248.5
+
+[node name="HealButton" type="Button" parent="UIContainer/Shopping"]
+layout_mode = 2
+offset_right = 181.0
+offset_bottom = 31.0
+text = "Heal 20$"
+
+[node name="UpgradeWeapon" type="Button" parent="UIContainer/Shopping"]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 181.0
+offset_bottom = 66.0
+text = "Buy AssaultRifle for 100$"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2(2, 2)
@@ -188,6 +219,8 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Picker/Collector"]
 shape = ExtResource("2_lepoo")
 
+[connection signal="pressed" from="UIContainer/Shopping/HealButton" to="." method="_on_heal_button_pressed"]
+[connection signal="pressed" from="UIContainer/Shopping/UpgradeWeapon" to="." method="upgrade_weapon"]
 [connection signal="body_entered" from="ZombieNotify" to="." method="_on_zombie_notify_body_entered"]
 [connection signal="body_exited" from="ZombieNotify" to="." method="_on_zombie_notify_body_exited"]
 [connection signal="body_entered" from="ZombieCharge" to="." method="_on_zombie_charge_body_entered"]

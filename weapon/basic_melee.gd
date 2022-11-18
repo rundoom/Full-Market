@@ -22,4 +22,4 @@ func _physics_process(delta: float) -> void:
 
 func arm(is_arm: bool):
 	enabled = is_arm
-	$Polygon2D.visible = is_arm
+	$CollisionShape2D.visible = is_arm

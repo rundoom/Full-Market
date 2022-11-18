@@ -9,13 +9,20 @@ var current_attack_type := AttackType.RANGED
 var combo_tween: Tween
 var xp_melee := 0
 var xp_ranged := 0
-var money := 0:
+var money := 5000:
 	set(value):
 		money = value
 		$UIContainer/MoneyCount.text = str(value)
 		
-@onready var current_ranged := $RangedSlot.get_child(0)
+var is_shopping_avaliable := false:
+	set(value):
+		is_shopping_avaliable = value
+		$UIContainer.is_shopping_avaliable = value
+		$UIContainer/ShoppingReminder.visible = value
+
+@onready var current_ranged := $RangedSlot.get_child(0) as Node2D
 @onready var current_melee := $MeleeSlot.get_child(0)
+
 @export var MAX_HP: int
 @onready var current_hp: float:
 	set(value):
@@ -28,6 +35,13 @@ var Pistol := preload("res://weapon/pistol.tscn")
 var AssaultRifle := preload("res://weapon/assault_rifle.tscn")
 var Minigun := preload("res://weapon/minigun.tscn")
 
+var weapon_upgrades := {
+	"Pistol" : {"scene": Pistol, "cost": 0, "next": "AssaultRifle"},
+	"AssaultRifle" : {"scene": AssaultRifle, "cost": 100, "next": "Shotgun"},
+	"Shotgun" : {"scene": Shotgun, "cost": 300, "next": "Minigun"},
+	"Minigun" : {"scene": Minigun, "cost": 1000, "next": null}
+}
+
 var combo_counter: int:
 	set(value):
 		combo_counter = value
@@ -37,6 +51,7 @@ var combo_counter: int:
 func _ready() -> void:
 	combo_counter = 0
 	current_hp = MAX_HP
+	money = money
 
 func _physics_process(delta: float) -> void:
 	var direction_y := Input.get_axis("w", "s")
@@ -75,28 +90,22 @@ func _on_zombie_notify_body_exited(body: Node2D) -> void:
 	if "is_hero_visible" in body: body.is_hero_visible = false
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("1"):
-		var old_ranged = current_ranged
-		current_ranged = Pistol.instantiate()
+func upgrade_weapon():
+	var old_ranged = current_ranged
+	var current_entity = weapon_upgrades[old_ranged.name]
+	var next_entity = weapon_upgrades[current_entity["next"]]
+	if money >= next_entity["cost"]:
+		money -= next_entity["cost"]
+		current_ranged = next_entity["scene"].instantiate()
 		old_ranged.queue_free()
 		$RangedSlot.add_child(current_ranged)
-	elif event.is_action_pressed("2"):
-		var old_ranged = current_ranged
-		current_ranged = Shotgun.instantiate()
-		old_ranged.queue_free()
-		$RangedSlot.add_child(current_ranged)
-	elif event.is_action_pressed("3"):
-		var old_ranged = current_ranged
-		current_ranged = AssaultRifle.instantiate()
-		old_ranged.queue_free()
-		$RangedSlot.add_child(current_ranged)
-	elif event.is_action_pressed("4"):
-		var old_ranged = current_ranged
-		current_ranged = Minigun.instantiate()
-		old_ranged.queue_free()
-		$RangedSlot.add_child(current_ranged)
-		
+		var yet_next_entity = weapon_upgrades.get(next_entity["next"])
+		if yet_next_entity != null:
+			$UIContainer/Shopping/UpgradeWeapon.text = "Buy " + next_entity["next"] + " for " + str(yet_next_entity["cost"]) + "$"
+		else:
+			$UIContainer/Shopping/UpgradeWeapon.text = "Maximum upgrade reached!"
+			$UIContainer/Shopping/UpgradeWeapon.disabled = true
+
 
 func update_combo(value: int):
 	combo.value = combo.max_value
@@ -134,3 +143,10 @@ func _on_zombie_charge_body_exited(body: Node2D) -> void:
 func _on_collector_body_entered(body: Node2D) -> void:
 	body.queue_free()
 	money += 1
+
+
+func _on_heal_button_pressed() -> void:
+	if money >= 20 and current_hp < MAX_HP:
+		current_hp = MAX_HP
+		money -= 20
+	

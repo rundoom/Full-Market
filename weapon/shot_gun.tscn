@@ -8,7 +8,7 @@ resource_local_to_scene = true
 atlas = ExtResource("2_58ems")
 region = Rect2(200, 142, 90, 24)
 
-[node name="ShotGun" instance=ExtResource("1_lh2xa")]
+[node name="Shotgun" instance=ExtResource("1_lh2xa")]
 SPREAD = 0.3
 BULLET_COUNT = 12
 BULLET_SPEED_SPRED = 400
