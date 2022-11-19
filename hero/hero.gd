@@ -9,6 +9,7 @@ var current_attack_type := AttackType.RANGED
 var combo_tween: Tween
 var xp_melee := 0
 var xp_ranged := 0
+@onready var animation := %Animation as AnimatedSprite2D
 var money := 5000:
 	set(value):
 		money = value
@@ -65,6 +66,16 @@ func _physics_process(delta: float) -> void:
 	switch_weapon()
 
 	move_and_slide()
+	
+	if get_real_velocity() == Vector2.ZERO:
+		animation.animation = "stand"
+	else:
+		animation.animation = "run"
+		if get_real_velocity().x > 0:
+			$Rotator.scale.x = 1
+		elif get_real_velocity().x < 0:
+			$Rotator.scale.x = -1
+		
 	for i in get_slide_collision_count():
 		var collider = get_slide_collision(i).get_collider() as Node2D
 		if collider.is_in_group("zombie"):
