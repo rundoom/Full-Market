@@ -1,9 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3g3qosbmb5lo"]
+[gd_scene load_steps=13 format=3 uid="uid://c3g3qosbmb5lo"]
 
 [ext_resource type="Script" path="res://weapon/bullet.gd" id="1_65ouk"]
+[ext_resource type="Texture2D" uid="uid://faoo58fv5gms" path="res://weapon/bullet.svg" id="2_xoiiy"]
+[ext_resource type="Texture2D" uid="uid://31lpocqipv08" path="res://weapon/sparcle_red.svg" id="3_8chea"]
+[ext_resource type="Texture2D" uid="uid://b4m7m7yjekg3c" path="res://weapon/sparcle_green.png" id="4_43ejb"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uhx15"]
-radius = 3.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e68xr"]
+radius = 2.0
+height = 8.0
+
+[sub_resource type="Curve" id="Curve_ds6bn"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 46.1538), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nhix4"]
+curve = SubResource("Curve_ds6bn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_duke4"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_curve = SubResource("CurveTexture_nhix4")
+scale_min = 0.1
+scale_max = 0.1
+
+[sub_resource type="Curve" id="Curve_r1kmv"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 50.9615), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_42hdh"]
+curve = SubResource("Curve_r1kmv")
+
+[sub_resource type="CurveTexture" id="CurveTexture_phhua"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cawyh"]
+lifetime_randomness = 0.3
+particle_flag_align_y = true
+gravity = Vector3(0, 98, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
+damping_curve = SubResource("CurveTexture_42hdh")
+scale_curve = SubResource("CurveTexture_phhua")
+turbulence_noise_strength = 7.78
+turbulence_noise_scale = 2.47
 
 [node name="Bullet" type="AnimatableBody2D"]
 top_level = true
@@ -13,11 +58,34 @@ sync_to_physics = false
 script = ExtResource("1_65ouk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_uhx15")
+visible = false
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_e68xr")
 
 [node name="Lifetime" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="Bullet" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_xoiiy")
+
+[node name="BigSparcle" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 2
+lifetime = 0.15
+one_shot = true
+explosiveness = 0.85
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_duke4")
+texture = ExtResource("3_8chea")
+
+[node name="SmallSparcle" type="GPUParticles2D" parent="."]
+amount = 5
+lifetime = 0.1
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_cawyh")
+texture = ExtResource("4_43ejb")
 
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

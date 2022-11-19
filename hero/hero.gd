@@ -9,7 +9,7 @@ var current_attack_type := AttackType.RANGED
 var combo_tween: Tween
 var xp_melee := 0
 var xp_ranged := 0
-@onready var animation := %Animation as AnimatedSprite2D
+@onready var animation := %AnimationPlayer as AnimationPlayer
 var money := 5000:
 	set(value):
 		money = value
@@ -21,7 +21,7 @@ var is_shopping_avaliable := false:
 		$UIContainer.is_shopping_avaliable = value
 		$UIContainer/ShoppingReminder.visible = value
 
-@onready var current_ranged := $RangedSlot.get_child(0) as Node2D
+@onready var current_ranged := $Rotator/RangedSlot.get_child(0) as Node2D
 @onready var current_melee := $MeleeSlot.get_child(0)
 
 @export var MAX_HP: int
@@ -68,13 +68,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if get_real_velocity() == Vector2.ZERO:
-		animation.animation = "stand"
+		animation.current_animation = "stand"
 	else:
-		animation.animation = "run"
-		if get_real_velocity().x > 0:
-			$Rotator.scale.x = 1
-		elif get_real_velocity().x < 0:
-			$Rotator.scale.x = -1
+		animation.current_animation = "run"
+			
+	var angle_to_mouse = global_position.direction_to(mouse_pos).angle()
+	$Rotator.scale.x = 1 if cos(angle_to_mouse) > 0 else -1
 		
 	for i in get_slide_collision_count():
 		var collider = get_slide_collision(i).get_collider() as Node2D

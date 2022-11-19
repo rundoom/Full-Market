@@ -1,11 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://db3auxgtppuy2"]
+[gd_scene load_steps=3 format=3 uid="uid://db3auxgtppuy2"]
 
 [ext_resource type="PackedScene" uid="uid://btwufhjl24n5j" path="res://weapon/basic_ranged.tscn" id="1_ttt16"]
-[ext_resource type="Texture2D" uid="uid://b6awf5ctuqe17" path="res://weapon/weaponary.png" id="2_3rppn"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i576p"]
-atlas = ExtResource("2_3rppn")
-region = Rect2(8, 403, 60, 33)
+[ext_resource type="Texture2D" uid="uid://b4rj7vg8xga8o" path="res://weapon/pistol.svg" id="2_on3wp"]
 
 [node name="Pistol" instance=ExtResource("1_ttt16")]
 SPREAD = 0.1
@@ -19,9 +15,10 @@ wait_time = 0.1
 wait_time = 2.0
 
 [node name="BulletOuput" parent="." index="2"]
-position = Vector2(32, -3)
+position = Vector2(41, 2)
 
 [node name="Sprite2D" parent="." index="6"]
-position = Vector2(5, 5)
-texture = SubResource("AtlasTexture_i576p")
+position = Vector2(17, 8)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_on3wp")
 offset = Vector2(20, -6)

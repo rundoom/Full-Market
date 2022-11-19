@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cdw4uncpvcxf8"]
+[gd_scene load_steps=61 format=3 uid="uid://cdw4uncpvcxf8"]
 
 [ext_resource type="Script" path="res://hero/hero.gd" id="1_nn66o"]
 [ext_resource type="PackedScene" uid="uid://m0py817i1pv0" path="res://weapon/basic_melee.tscn" id="2_0o263"]
@@ -235,6 +235,121 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_ylo08"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animation:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"run"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RangedSlot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, -26)]
+}
+
+[sub_resource type="Animation" id="Animation_c4gs6"]
+resource_name = "run"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animation:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"run"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RangedSlot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(10, -26), Vector2(11, -26), Vector2(13, -27), Vector2(11, -27), Vector2(11, -24), Vector2(12, -28), Vector2(14, -34), Vector2(14, -33), Vector2(10, -32)]
+}
+
+[sub_resource type="Animation" id="Animation_sbe5y"]
+resource_name = "stand"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"stand"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RangedSlot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(10, -26)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lahav"]
+_data = {
+"RESET": SubResource("Animation_ylo08"),
+"run": SubResource("Animation_c4gs6"),
+"stand": SubResource("Animation_sbe5y")
+}
+
 [node name="Hero" type="CharacterBody2D" groups=["zombie_attractor"]]
 collision_layer = 9
 motion_mode = 1
@@ -264,7 +379,6 @@ show_percentage = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UIContainer/ComboCounter"]
-layout_mode = 0
 offset_left = -1.0
 offset_top = -3.0
 offset_right = 89.0
@@ -285,7 +399,6 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="RangedLabel" type="Label" parent="UIContainer/XPRanged"]
-layout_mode = 0
 offset_left = -55.0
 offset_right = 12.0
 offset_bottom = 26.0
@@ -303,7 +416,6 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MeleeLabel" type="Label" parent="UIContainer/XPMelee"]
-layout_mode = 0
 offset_left = -41.0
 offset_right = 15.0
 offset_bottom = 26.0
@@ -324,7 +436,6 @@ offset_bottom = 106.0
 text = "0"
 
 [node name="MoneyLabel" type="Label" parent="UIContainer/MoneyCount"]
-layout_mode = 0
 offset_left = -68.5
 offset_top = -0.5
 offset_right = -11.5
@@ -358,13 +469,11 @@ offset_right = 1026.5
 offset_bottom = 248.5
 
 [node name="HealButton" type="Button" parent="UIContainer/Shopping"]
-layout_mode = 2
 offset_right = 181.0
 offset_bottom = 31.0
 text = "Heal 20$"
 
 [node name="UpgradeWeapon" type="Button" parent="UIContainer/Shopping"]
-layout_mode = 2
 offset_top = 35.0
 offset_right = 181.0
 offset_bottom = 66.0
@@ -385,10 +494,6 @@ debug_color = Color(0, 0.6, 0.266667, 0.0862745)
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.254902, 0.576471, 1, 1)
 polygon = PackedVector2Array(0, -16, -5, -15, -11, -12, -15, -5, -16, 3, -11, 12, -3, 16, 5, 15, 11, 11, 15, 6, 16, -3, 12, -10, 6, -15)
-
-[node name="RangedSlot" type="Node2D" parent="."]
-
-[node name="Pistol" parent="RangedSlot" instance=ExtResource("2_7j5sd")]
 
 [node name="MeleeSlot" type="Node2D" parent="."]
 
@@ -433,14 +538,23 @@ shape = SubResource("CapsuleShape2D_0tl1q")
 [node name="Rotator" type="Marker2D" parent="."]
 position = Vector2(5, -2)
 
+[node name="RangedSlot" type="Node2D" parent="Rotator"]
+position = Vector2(10, -26)
+
+[node name="Pistol" parent="Rotator/RangedSlot" instance=ExtResource("2_7j5sd")]
+
 [node name="Animation" type="AnimatedSprite2D" parent="Rotator"]
-unique_name_in_owner = true
 texture_filter = 4
 position = Vector2(18, 2)
 scale = Vector2(0.1, 0.1)
 frames = SubResource("SpriteFrames_tknrg")
-animation = &"stand"
-playing = true
+animation = &"run"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rotator"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_lahav")
+}
 
 [connection signal="pressed" from="UIContainer/Shopping/HealButton" to="." method="_on_heal_button_pressed"]
 [connection signal="pressed" from="UIContainer/Shopping/UpgradeWeapon" to="." method="upgrade_weapon"]
