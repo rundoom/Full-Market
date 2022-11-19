@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3g3qosbmb5lo"]
+[gd_scene load_steps=9 format=3 uid="uid://c3g3qosbmb5lo"]
 
 [ext_resource type="Script" path="res://weapon/bullet.gd" id="1_65ouk"]
 [ext_resource type="Texture2D" uid="uid://faoo58fv5gms" path="res://weapon/bullet.svg" id="2_xoiiy"]
 [ext_resource type="Texture2D" uid="uid://b4m7m7yjekg3c" path="res://weapon/sparcle_green.png" id="4_43ejb"]
 [ext_resource type="Texture2D" uid="uid://c1dnfcx7f7xe1" path="res://weapon/sparcle_red.png" id="4_tthe3"]
+[ext_resource type="Script" path="res://weapon/SpareBullet.gd" id="5_4pisc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e68xr"]
 radius = 2.0
@@ -70,4 +71,41 @@ scale_amount_max = 0.2
 scale_amount_curve = SubResource("Curve_fukik")
 color_ramp = SubResource("Gradient_y4dbh")
 
+[node name="SpareBullet" type="RigidBody2D" parent="."]
+z_index = -1
+z_as_relative = false
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 2.0
+freeze = true
+linear_velocity = Vector2(0, -600)
+linear_damp = 5.0
+angular_damp = 5.0
+script = ExtResource("5_4pisc")
+
+[node name="Bullet" type="Sprite2D" parent="SpareBullet"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_xoiiy")
+
+[node name="SmallSparcle" type="CPUParticles2D" parent="SpareBullet"]
+emitting = false
+lifetime = 0.5
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.8
+fixed_fps = 30
+draw_order = 1
+texture = ExtResource("4_43ejb")
+direction = Vector2(-1, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+angular_velocity_min = 50.0
+angular_velocity_max = 50.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_fukik")
+color_ramp = SubResource("Gradient_y4dbh")
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
