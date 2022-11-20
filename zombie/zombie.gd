@@ -7,7 +7,7 @@ var is_hero_visible := false
 var Money = preload("res://valuables/money.tscn")
 
 
-var current_hp := 4:
+var current_hp := 6:
 	set(value):
 		current_hp = value
 		var tween := create_tween()

@@ -6,7 +6,7 @@ var enabled = false
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("zombie") and "current_hp" in body:
-		body.current_hp -= 2
+		body.current_hp -= 3
 
 
 func _physics_process(delta: float) -> void:
