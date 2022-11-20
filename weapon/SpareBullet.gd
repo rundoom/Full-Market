@@ -7,7 +7,6 @@ func start_acting():
 	tween.set_ease(Tween.EASE_IN)
 	angular_velocity = randf_range(10, 50)
 	$SmallSparcle.emitting = true
-#	get_tree().create_timer(0.05).timeout.connect(func(): $SmallSparcle.emitting = true)
 	tween.tween_property(self, "gravity_scale", 0, 0.5)
 	tween.tween_interval(2)
 	tween.tween_property($Bullet, "scale", Vector2.ZERO, 2)
