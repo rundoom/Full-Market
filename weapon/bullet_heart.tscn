@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx7dmedlvdw6s"]
+
+[ext_resource type="PackedScene" uid="uid://c3g3qosbmb5lo" path="res://weapon/bullet.tscn" id="1_gpkjf"]
+[ext_resource type="Texture2D" uid="uid://cy8i2ggf0jtgl" path="res://weapon/bullet_heart.svg" id="2_jth5q"]
+
+[node name="BulletHeart" instance=ExtResource("1_gpkjf")]
+
+[node name="Bullet" parent="." index="2"]
+texture = ExtResource("2_jth5q")
+
+[node name="Bullet" parent="SpareBullet" index="0"]
+texture = ExtResource("2_jth5q")

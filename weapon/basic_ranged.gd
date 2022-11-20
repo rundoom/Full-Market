@@ -2,7 +2,7 @@ extends Node2D
 class_name BasicRanged 
 
 
-const Bullet := preload("res://weapon/bullet.tscn")
+@export var Bullet := preload("res://weapon/bullet.tscn")
 @onready var shoot_cooldown := $ShootCooldown as Timer
 @export_range(0, PI, 0.1) var SPREAD : float
 @export var BULLET_COUNT := 1

@@ -539,6 +539,7 @@ shape = SubResource("CapsuleShape2D_0tl1q")
 position = Vector2(5, -2)
 
 [node name="RangedSlot" type="Node2D" parent="Rotator"]
+unique_name_in_owner = true
 position = Vector2(10, -26)
 
 [node name="Pistol" parent="Rotator/RangedSlot" instance=ExtResource("2_7j5sd")]

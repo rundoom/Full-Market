@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://8g0lm68uj2wn" path="res://zombie/zombie_spawner.tscn" id="4_naovq"]
 [ext_resource type="PackedScene" uid="uid://c51bwamfyghcx" path="res://building/full_market.tscn" id="5_ondwb"]
 
-[sub_resource type="Curve2D" id="Curve2D_r8ucp"]
+[sub_resource type="Curve2D" id="Curve2D_urgng"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(-235.451, 198.452, 235.451, -198.452, -474.522, -253, -210.139, -202.165, 210.139, 202.165, 823.96, -129, 365.155, -179.456, -365.155, 179.456, 607.547, 755, 586.119, 338.984, -586.119, -338.984, -568.831, 758, 0, 0, 0, 0, -780.281, -49, 0, 0, 0, 0, -594.641, -196, 0, 0, 0, 0, -474.522, -253)
@@ -20,81 +20,81 @@ glow_enabled = true
 y_sort_enabled = true
 
 [node name="Hero" parent="." instance=ExtResource("1_oy7wj")]
-position = Vector2(-698, 438)
+position = Vector2(681, -28)
 
 [node name="ZombieSpawner" parent="Hero" instance=ExtResource("4_naovq")]
 position = Vector2(14, -298)
 scale = Vector2(1.00733, 1)
-curve = SubResource("Curve2D_r8ucp")
+curve = SubResource("Curve2D_urgng")
 
 [node name="Zombie" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(146, 130)
+position = Vector2(-503, -661)
 
 [node name="Zombie2" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(191, 157)
+position = Vector2(-458, -634)
 
 [node name="Zombie3" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(88, 133)
+position = Vector2(-561, -658)
 
 [node name="Zombie4" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(180, 108)
+position = Vector2(-469, -683)
 
 [node name="Zombie5" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(310, 143)
+position = Vector2(-339, -648)
 
 [node name="Zombie6" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(355, 170)
+position = Vector2(-294, -621)
 
 [node name="Zombie7" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(252, 146)
+position = Vector2(-397, -645)
 
 [node name="Zombie8" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(344, 121)
+position = Vector2(-305, -670)
 
 [node name="Zombie9" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(285, 278)
+position = Vector2(-364, -513)
 
 [node name="Zombie10" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(330, 305)
+position = Vector2(-319, -486)
 
 [node name="Zombie11" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(227, 281)
+position = Vector2(-422, -510)
 
 [node name="Zombie12" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(319, 256)
+position = Vector2(-330, -535)
 
 [node name="Zombie13" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(269, 75)
+position = Vector2(-380, -716)
 
 [node name="Zombie14" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(314, 102)
+position = Vector2(-335, -689)
 
 [node name="Zombie15" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(211, 78)
+position = Vector2(-438, -713)
 
 [node name="Zombie16" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(303, 53)
+position = Vector2(-346, -738)
 
 [node name="Zombie17" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(433, 88)
+position = Vector2(-216, -703)
 
 [node name="Zombie18" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(478, 115)
+position = Vector2(-171, -676)
 
 [node name="Zombie19" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(375, 91)
+position = Vector2(-274, -700)
 
 [node name="Zombie20" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(467, 66)
+position = Vector2(-182, -725)
 
 [node name="Zombie21" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(408, 223)
+position = Vector2(-241, -568)
 
 [node name="Zombie22" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(453, 250)
+position = Vector2(-196, -541)
 
 [node name="Zombie23" parent="." instance=ExtResource("2_2280h")]
-position = Vector2(350, 226)
+position = Vector2(-299, -565)
 
 [node name="FloorTest" type="Sprite2D" parent="."]
 texture_repeat = 3
@@ -104,6 +104,7 @@ texture = ExtResource("3_j50kw")
 centered = false
 region_enabled = true
 region_rect = Rect2(-1950, -1200, 5100, 2850)
+metadata/_edit_lock_ = true
 
 [node name="FullMarket" parent="." instance=ExtResource("5_ondwb")]
 position = Vector2(503, -543)

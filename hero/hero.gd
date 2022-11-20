@@ -21,7 +21,7 @@ var is_shopping_avaliable := false:
 		$UIContainer.is_shopping_avaliable = value
 		$UIContainer/ShoppingReminder.visible = value
 
-@onready var current_ranged := $Rotator/RangedSlot.get_child(0) as Node2D
+@onready var current_ranged := %RangedSlot.get_child(0) as Node2D
 @onready var current_melee := $MeleeSlot.get_child(0)
 
 @export var MAX_HP: int
@@ -108,7 +108,7 @@ func upgrade_weapon():
 		money -= next_entity["cost"]
 		current_ranged = next_entity["scene"].instantiate()
 		old_ranged.queue_free()
-		$RangedSlot.add_child(current_ranged)
+		%RangedSlot.add_child(current_ranged)
 		var yet_next_entity = weapon_upgrades.get(next_entity["next"])
 		if yet_next_entity != null:
 			$UIContainer/Shopping/UpgradeWeapon.text = "Buy " + next_entity["next"] + " for " + str(yet_next_entity["cost"]) + "$"
