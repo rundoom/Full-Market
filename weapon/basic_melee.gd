@@ -22,3 +22,5 @@ func _physics_process(delta: float) -> void:
 
 func arm(is_arm: bool):
 	enabled = is_arm
+	if !enabled:
+		$SwingAnimation.current_animation = "still"
