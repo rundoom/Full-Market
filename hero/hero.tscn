@@ -406,7 +406,6 @@ show_percentage = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UIContainer/ComboCounter"]
-layout_mode = 0
 offset_left = -1.0
 offset_top = -3.0
 offset_right = 89.0
@@ -427,7 +426,6 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="RangedLabel" type="Label" parent="UIContainer/XPRanged"]
-layout_mode = 0
 offset_left = -55.0
 offset_right = 12.0
 offset_bottom = 26.0
@@ -445,7 +443,6 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MeleeLabel" type="Label" parent="UIContainer/XPMelee"]
-layout_mode = 0
 offset_left = -41.0
 offset_right = 15.0
 offset_bottom = 26.0
@@ -466,7 +463,6 @@ offset_bottom = 106.0
 text = "0"
 
 [node name="MoneyLabel" type="Label" parent="UIContainer/MoneyCount"]
-layout_mode = 0
 offset_left = -68.5
 offset_top = -0.5
 offset_right = -11.5
@@ -500,13 +496,11 @@ offset_right = 1026.5
 offset_bottom = 248.5
 
 [node name="HealButton" type="Button" parent="UIContainer/Shopping"]
-layout_mode = 2
 offset_right = 181.0
 offset_bottom = 31.0
 text = "Heal 20$"
 
 [node name="UpgradeWeapon" type="Button" parent="UIContainer/Shopping"]
-layout_mode = 2
 offset_top = 35.0
 offset_right = 181.0
 offset_bottom = 66.0

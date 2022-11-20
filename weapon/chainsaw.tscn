@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfee5yc0k06rw"]
+
+[ext_resource type="PackedScene" uid="uid://m0py817i1pv0" path="res://weapon/basic_melee.tscn" id="1_ionu8"]
+
+[node name="Chainsaw" instance=ExtResource("1_ionu8")]
