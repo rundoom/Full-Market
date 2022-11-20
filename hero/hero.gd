@@ -22,7 +22,7 @@ var is_shopping_avaliable := false:
 		$UIContainer/ShoppingReminder.visible = value
 
 @onready var current_ranged := %RangedSlot.get_child(0) as Node2D
-@onready var current_melee := $MeleeSlot.get_child(0)
+@onready var current_melee := %MeleeSlot.get_child(0)
 
 @export var MAX_HP: int
 @onready var current_hp: float:

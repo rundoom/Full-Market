@@ -1,0 +1,203 @@
+[gd_scene load_steps=13 format=3 uid="uid://bwtyc56axyn4g"]
+
+[ext_resource type="PackedScene" uid="uid://m0py817i1pv0" path="res://weapon/basic_melee.tscn" id="1_8v3qg"]
+[ext_resource type="Texture2D" uid="uid://bscwexgggpbv3" path="res://weapon/knife.svg" id="2_un1fc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b4f8v"]
+
+[sub_resource type="Animation" id="Animation_xk8w4"]
+resource_name = "still"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(31, 23)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Knife:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"still"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Knife:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dv5qs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(31, 23)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Knife:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"still"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Knife:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_l5b6k"]
+resource_name = "swing"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Knife:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"swing"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Knife:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(31, 23), Vector2(40, 27), Vector2(50, 22)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_px1vh"]
+_data = {
+"RESET": SubResource("Animation_dv5qs"),
+"still": SubResource("Animation_xk8w4"),
+"swing": SubResource("Animation_l5b6k")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dag8y"]
+atlas = ExtResource("2_un1fc")
+region = Rect2(0, 0, 945, 453)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f5yn"]
+atlas = ExtResource("2_un1fc")
+region = Rect2(0, 0, 945, 453)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo24w"]
+atlas = ExtResource("2_un1fc")
+region = Rect2(945, 0, 945, 453)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45vqk"]
+atlas = ExtResource("2_un1fc")
+region = Rect2(1890, 0, 945, 453)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eva2a"]
+animations = [{
+"frames": [SubResource("AtlasTexture_dag8y")],
+"loop": true,
+"name": &"still",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_3f5yn"), SubResource("AtlasTexture_jo24w"), SubResource("AtlasTexture_45vqk")],
+"loop": true,
+"name": &"swing",
+"speed": 5.0
+}]
+
+[node name="Knife" instance=ExtResource("1_8v3qg")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(31, 23)
+shape = SubResource("CircleShape2D_b4f8v")
+disabled = false
+
+[node name="SwingAnimation" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_px1vh")
+}
+
+[node name="Knife" parent="." index="2"]
+position = Vector2(26, 45)
+scale = Vector2(0.1, 0.1)
+frames = SubResource("SpriteFrames_eva2a")
+animation = &"still"

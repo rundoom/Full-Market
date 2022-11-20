@@ -1,93 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://m0py817i1pv0"]
+[gd_scene load_steps=2 format=3 uid="uid://m0py817i1pv0"]
 
 [ext_resource type="Script" path="res://weapon/basic_melee.gd" id="1_2bg0i"]
-[ext_resource type="Texture2D" uid="uid://dgorjfkhe53ya" path="res://weapon/predator_knife_pixel_art_by_russianboss50_ddyjqga-pre.png" id="2_50xqu"]
-
-[sub_resource type="Animation" id="Animation_ehsb6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_cfdvr"]
-resource_name = "swing"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8, 1.4, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [-0.261799, -0.261799, 1.0472, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape2D/Knife:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.11421]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vo6ms"]
-_data = {
-"RESET": SubResource("Animation_ehsb6"),
-"swing": SubResource("Animation_cfdvr")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rt015"]
-size = Vector2(63, 4)
 
 [node name="BasicMelee" type="Area2D"]
 script = ExtResource("1_2bg0i")
 
-[node name="SwingAnimation" type="AnimationPlayer" parent="."]
-playback_process_mode = 0
-playback_speed = 5.0
-libraries = {
-"": SubResource("AnimationLibrary_vo6ms")
-}
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(30.5, 4)
-shape = SubResource("RectangleShape2D_rt015")
 disabled = true
 
-[node name="Knife" type="Sprite2D" parent="CollisionShape2D"]
-position = Vector2(-24.0775, -1.53696)
-rotation = 1.11421
+[node name="SwingAnimation" type="AnimationPlayer" parent="."]
+
+[node name="Knife" type="AnimatedSprite2D" parent="."]
+position = Vector2(21, 35)
 scale = Vector2(0.08, 0.08)
-texture = ExtResource("2_50xqu")
 offset = Vector2(124.742, -267.082)
-flip_h = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
