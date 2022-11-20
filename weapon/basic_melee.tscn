@@ -16,7 +16,7 @@ disabled = true
 
 [node name="Knife" type="AnimatedSprite2D" parent="."]
 position = Vector2(21, 35)
-scale = Vector2(0.08, 0.08)
+scale = Vector2(0.1, 0.1)
 offset = Vector2(124.742, -267.082)
 
 [node name="SwingSound" type="AudioStreamPlayer2D" parent="."]

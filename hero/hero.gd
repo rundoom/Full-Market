@@ -22,7 +22,7 @@ var is_shopping_avaliable := false:
 		$UIContainer/ShoppingReminder.visible = value
 
 @onready var current_ranged := %RangedSlot.get_child(0) as Node2D
-@onready var current_melee := %MeleeSlot.get_child(0)
+@onready var current_melee := %MeleeSlot.get_child(0) as Node2D
 
 @export var MAX_HP: int
 @onready var current_hp: float:
@@ -41,6 +41,14 @@ var weapon_upgrades := {
 	"AssaultRifle" : {"scene": AssaultRifle, "cost": 100, "next": "Shotgun"},
 	"Shotgun" : {"scene": Shotgun, "cost": 300, "next": "Minigun"},
 	"Minigun" : {"scene": Minigun, "cost": 1000, "next": null}
+}
+
+var Knife = preload("res://weapon/knife.tscn")
+var Chainsaw = preload("res://weapon/chainsaw.tscn")
+
+var weapon_melee_upgrades := {
+	"Knife" : {"scene": Knife, "cost": 0, "next": "Chainsaw"},
+	"Chainsaw" : {"scene": Chainsaw, "cost": 1000, "next": null}
 }
 
 var combo_counter: int:
@@ -115,6 +123,23 @@ func upgrade_weapon():
 		else:
 			$UIContainer/Shopping/UpgradeWeapon.text = "Maximum upgrade reached!"
 			$UIContainer/Shopping/UpgradeWeapon.disabled = true
+			
+			
+func upgrade_melee_weapon():
+	var old_melee = current_melee
+	var current_entity = weapon_melee_upgrades[old_melee.name]
+	var next_entity = weapon_melee_upgrades[current_entity["next"]]
+	if money >= next_entity["cost"]:
+		money -= next_entity["cost"]
+		current_melee = next_entity["scene"].instantiate()
+		old_melee.queue_free()
+		%MeleeSlot.add_child(current_melee)
+		var yet_next_entity = weapon_melee_upgrades.get(next_entity["next"])
+		if yet_next_entity != null:
+			$UIContainer/Shopping/UpgradeMeleeWeapon.text = "Buy " + next_entity["next"] + " for " + str(yet_next_entity["cost"]) + "$"
+		else:
+			$UIContainer/Shopping/UpgradeMeleeWeapon.text = "Maximum upgrade reached!"
+			$UIContainer/Shopping/UpgradeMeleeWeapon.disabled = true
 
 
 func update_combo(value: int):

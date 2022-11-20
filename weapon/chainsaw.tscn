@@ -1,5 +1,167 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfee5yc0k06rw"]
+[gd_scene load_steps=11 format=3 uid="uid://dfee5yc0k06rw"]
 
 [ext_resource type="PackedScene" uid="uid://m0py817i1pv0" path="res://weapon/basic_melee.tscn" id="1_ionu8"]
+[ext_resource type="Texture2D" uid="uid://c5m8uxwvte0j6" path="res://weapon/chainsaw.svg" id="2_k5h2o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oftas"]
+radius = 13.0
+height = 90.0
+
+[sub_resource type="Animation" id="Animation_0yaxi"]
+resource_name = "swing"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Knife:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"wryy"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Knife:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_q2vbl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Knife:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"wryy"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Knife:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_6x5qo"]
+resource_name = "still"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xlm2g"]
+_data = {
+"RESET": SubResource("Animation_q2vbl"),
+"still": SubResource("Animation_6x5qo"),
+"swing": SubResource("Animation_0yaxi")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tucco"]
+atlas = ExtResource("2_k5h2o")
+region = Rect2(0, 0, 945, 451)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imuo5"]
+atlas = ExtResource("2_k5h2o")
+region = Rect2(945, 0, 945, 451)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_54w42"]
+animations = [{
+"frames": [SubResource("AtlasTexture_tucco"), SubResource("AtlasTexture_imuo5")],
+"loop": true,
+"name": &"wryy",
+"speed": 5.0
+}]
 
 [node name="Chainsaw" instance=ExtResource("1_ionu8")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(32, 32)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_oftas")
+
+[node name="SwingAnimation" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_xlm2g")
+}
+
+[node name="Knife" parent="." index="2"]
+position = Vector2(23, 47)
+frames = SubResource("SpriteFrames_54w42")
+animation = &"wryy"

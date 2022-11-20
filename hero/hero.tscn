@@ -406,6 +406,7 @@ show_percentage = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UIContainer/ComboCounter"]
+layout_mode = 0
 offset_left = -1.0
 offset_top = -3.0
 offset_right = 89.0
@@ -426,6 +427,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="RangedLabel" type="Label" parent="UIContainer/XPRanged"]
+layout_mode = 0
 offset_left = -55.0
 offset_right = 12.0
 offset_bottom = 26.0
@@ -443,6 +445,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MeleeLabel" type="Label" parent="UIContainer/XPMelee"]
+layout_mode = 0
 offset_left = -41.0
 offset_right = 15.0
 offset_bottom = 26.0
@@ -463,6 +466,7 @@ offset_bottom = 106.0
 text = "0"
 
 [node name="MoneyLabel" type="Label" parent="UIContainer/MoneyCount"]
+layout_mode = 0
 offset_left = -68.5
 offset_top = -0.5
 offset_right = -11.5
@@ -496,15 +500,24 @@ offset_right = 1026.5
 offset_bottom = 248.5
 
 [node name="HealButton" type="Button" parent="UIContainer/Shopping"]
+layout_mode = 2
 offset_right = 181.0
 offset_bottom = 31.0
 text = "Heal 20$"
 
 [node name="UpgradeWeapon" type="Button" parent="UIContainer/Shopping"]
+layout_mode = 2
 offset_top = 35.0
 offset_right = 181.0
 offset_bottom = 66.0
 text = "Buy AssaultRifle for 100$"
+
+[node name="UpgradeMeleeWeapon" type="Button" parent="UIContainer/Shopping"]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 181.0
+offset_bottom = 66.0
+text = "Buy Chainsaw for 1000$"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -586,16 +599,16 @@ position = Vector2(-17, -25)
 
 [node name="Knife" parent="Rotator/MeleeSlot" instance=ExtResource("3_p6y38")]
 
-[node name="MeleeDetector" type="RayCast2D" parent="Rotator/MeleeSlot"]
+[node name="MeleeDetector" type="RayCast2D" parent="Rotator"]
 unique_name_in_owner = true
-visible = false
-position = Vector2(12, 27)
+position = Vector2(-5, 2)
 target_position = Vector2(79, 0)
 collision_mask = 3
 collide_with_areas = true
 
 [connection signal="pressed" from="UIContainer/Shopping/HealButton" to="." method="_on_heal_button_pressed"]
 [connection signal="pressed" from="UIContainer/Shopping/UpgradeWeapon" to="." method="upgrade_weapon"]
+[connection signal="pressed" from="UIContainer/Shopping/UpgradeMeleeWeapon" to="." method="upgrade_melee_weapon"]
 [connection signal="body_entered" from="ZombieNotify" to="." method="_on_zombie_notify_body_entered"]
 [connection signal="body_exited" from="ZombieNotify" to="." method="_on_zombie_notify_body_exited"]
 [connection signal="body_entered" from="ZombieCharge" to="." method="_on_zombie_charge_body_entered"]

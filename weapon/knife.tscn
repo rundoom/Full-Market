@@ -300,7 +300,6 @@ blend_times = [&"swing", &"still", 0.1]
 
 [node name="Knife" parent="." index="2"]
 position = Vector2(25, 48)
-scale = Vector2(0.1, 0.1)
 frames = SubResource("SpriteFrames_eva2a")
 animation = &"still"
 
