@@ -28,3 +28,9 @@ func arm(is_arm: bool):
 
 func randomize_sound_pitch():
 	$SwingSound.pitch_scale = randf_range(0.8, 1.2)
+
+
+func _on_area_entered(area: Area2D) -> void:
+	var body = area.get_parent()
+	if body.is_in_group("zombie") and "current_hp" in body:
+		body.current_hp -= 3

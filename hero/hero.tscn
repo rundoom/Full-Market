@@ -594,6 +594,7 @@ position = Vector2(-17, -25)
 
 [node name="MeleeDetector" type="RayCast2D" parent="Rotator/MeleeSlot"]
 unique_name_in_owner = true
+visible = false
 position = Vector2(12, 27)
 target_position = Vector2(79, 0)
 collision_mask = 3

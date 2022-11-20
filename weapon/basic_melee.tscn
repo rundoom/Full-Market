@@ -3,9 +3,12 @@
 [ext_resource type="Script" path="res://weapon/basic_melee.gd" id="1_2bg0i"]
 
 [node name="BasicMelee" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_2bg0i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(30.5, 4)
 disabled = true
 
@@ -18,4 +21,5 @@ offset = Vector2(124.742, -267.082)
 
 [node name="SwingSound" type="AudioStreamPlayer2D" parent="."]
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
