@@ -292,6 +292,7 @@ shape = SubResource("CircleShape2D_b4f8v")
 disabled = false
 
 [node name="SwingAnimation" parent="." index="1"]
+playback_speed = 1.2
 libraries = {
 "": SubResource("AnimationLibrary_px1vh")
 }
