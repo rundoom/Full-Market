@@ -12,6 +12,7 @@ radius = 25.0
 height = 72.0
 
 [node name="Zombie" type="CharacterBody2D" groups=["zombie"]]
+scale = Vector2(1.7, 1.7)
 motion_mode = 1
 safe_margin = 20.0
 script = ExtResource("1_2hyxj")
