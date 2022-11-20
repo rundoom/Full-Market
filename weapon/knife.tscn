@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bwtyc56axyn4g"]
+[gd_scene load_steps=14 format=3 uid="uid://bwtyc56axyn4g"]
 
 [ext_resource type="PackedScene" uid="uid://m0py817i1pv0" path="res://weapon/basic_melee.tscn" id="1_8v3qg"]
 [ext_resource type="Texture2D" uid="uid://bscwexgggpbv3" path="res://weapon/knife.svg" id="2_un1fc"]
+[ext_resource type="AudioStream" uid="uid://bblx0ahmpgqnf" path="res://weapon/взмах ножом.wav" id="3_di6s6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b4f8v"]
 
@@ -143,6 +144,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SwingSound:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_l5b6k"]
 resource_name = "swing"
@@ -207,6 +220,32 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(25, 48), Vector2(26, 45), Vector2(29, 45)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SwingSound:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"randomize_sound_pitch"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_px1vh"]
 _data = {
@@ -262,3 +301,6 @@ position = Vector2(25, 48)
 scale = Vector2(0.1, 0.1)
 frames = SubResource("SpriteFrames_eva2a")
 animation = &"still"
+
+[node name="SwingSound" parent="." index="3"]
+stream = ExtResource("3_di6s6")

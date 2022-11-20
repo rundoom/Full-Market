@@ -23,4 +23,8 @@ func _physics_process(delta: float) -> void:
 func arm(is_arm: bool):
 	enabled = is_arm
 	if !enabled:
-		$SwingAnimation.current_animation = "still"
+		$SwingAnimation.queue("still")
+
+
+func randomize_sound_pitch():
+	$SwingSound.pitch_scale = randf_range(0.8, 1.2)
