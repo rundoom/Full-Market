@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 	velocity = Vector2(direction_x, direction_y).normalized() * SPEED
 	
 	var mouse_pos := get_global_mouse_position()
-	$RayCast2D.global_rotation = global_position.direction_to(mouse_pos).angle()
+	%MeleeDetector.global_rotation = global_position.direction_to(mouse_pos).angle()
 	
 	switch_weapon()
 
@@ -82,7 +82,7 @@ func _physics_process(delta: float) -> void:
 		
 
 func switch_weapon():
-	current_attack_type = AttackType.MELEE if $RayCast2D.is_colliding() else AttackType.RANGED
+	current_attack_type = AttackType.MELEE if %MeleeDetector.is_colliding() else AttackType.RANGED
 	match current_attack_type:
 		AttackType.MELEE:
 			current_ranged.arm(false)

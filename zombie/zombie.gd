@@ -37,5 +37,6 @@ func _on_tree_exiting() -> void:
 
 
 func _on_dmg_sponge_body_entered(body: Node2D) -> void:
+	if body.is_in_group("bullet"):
 		body.queue_free()
 		current_hp -= 1
