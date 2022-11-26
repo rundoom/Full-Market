@@ -6,15 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://c1dnfcx7f7xe1" path="res://weapon/sparcle_red.png" id="4_tthe3"]
 [ext_resource type="Script" path="res://weapon/SpareBullet.gd" id="5_4pisc"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v8gwl"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pib2w"]
 radius = 2.0
 height = 8.0
 
-[sub_resource type="Curve" id="Curve_w8rua"]
+[sub_resource type="Curve" id="Curve_njxsh"]
 _data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Gradient" id="Gradient_5u6wj"]
+[sub_resource type="Gradient" id="Gradient_gwcry"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Bullet" type="AnimatableBody2D" groups=["bullet"]]
@@ -27,7 +27,7 @@ script = ExtResource("1_65ouk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 rotation = 1.57079
-shape = SubResource("CapsuleShape2D_v8gwl")
+shape = SubResource("CapsuleShape2D_pib2w")
 
 [node name="Lifetime" type="Timer" parent="."]
 wait_time = 2.0
@@ -52,8 +52,8 @@ initial_velocity_min = 100.0
 initial_velocity_max = 150.0
 scale_amount_min = 0.2
 scale_amount_max = 0.3
-scale_amount_curve = SubResource("Curve_w8rua")
-color_ramp = SubResource("Gradient_5u6wj")
+scale_amount_curve = SubResource("Curve_njxsh")
+color_ramp = SubResource("Gradient_gwcry")
 
 [node name="BigSparcle" type="CPUParticles2D" parent="."]
 modulate = Color(2, 2, 2, 1)
@@ -70,8 +70,8 @@ initial_velocity_min = 100.0
 initial_velocity_max = 150.0
 scale_amount_min = 0.2
 scale_amount_max = 0.3
-scale_amount_curve = SubResource("Curve_w8rua")
-color_ramp = SubResource("Gradient_5u6wj")
+scale_amount_curve = SubResource("Curve_njxsh")
+color_ramp = SubResource("Gradient_gwcry")
 
 [node name="SpareBullet" type="RigidBody2D" parent="."]
 z_index = -1
@@ -107,8 +107,8 @@ angular_velocity_min = 50.0
 angular_velocity_max = 50.0
 scale_amount_min = 0.2
 scale_amount_max = 0.3
-scale_amount_curve = SubResource("Curve_w8rua")
-color_ramp = SubResource("Gradient_5u6wj")
+scale_amount_curve = SubResource("Curve_njxsh")
+color_ramp = SubResource("Gradient_gwcry")
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

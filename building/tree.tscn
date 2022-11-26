@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://b68uhuf8h4olv"]
+
+[ext_resource type="PackedScene" uid="uid://b5oavo12tu8dp" path="res://building/building.tscn" id="1_wn3xs"]
+[ext_resource type="Texture2D" uid="uid://pnax4hk1w6ey" path="res://building/floor/деревья.svg" id="2_tarpq"]
+
+[node name="Tree" instance=ExtResource("1_wn3xs")]
+
+[node name="Line2D" parent="." index="0"]
+visible = false
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(56, -243.5)
+texture = ExtResource("2_tarpq")
+hframes = 3
+frame = 0
+
+[node name="CollisionPolygon2D" parent="." index="2"]
+visible = false
+polygon = PackedVector2Array(4.09998, 466, 90.1, 397, 9.09998, 332, -110.9, 418)
+
+[node name="TransparencyDetector" parent="." index="3"]
+position = Vector2(56, -243.5)
+
+[node name="CollisionPolygon2D" parent="TransparencyDetector" index="0"]
+visible = false
+polygon = PackedVector2Array(-167, 279.5, -290, 60.5, -234, -206.5, -84, -299.5, 41, -209.5, 164, 12.5, 20, 316.5)
+
+[editable path="TransparencyDetector"]

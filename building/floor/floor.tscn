@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://n0ch5plenljm"]
+[gd_scene load_steps=7 format=3 uid="uid://n0ch5plenljm"]
 
 [ext_resource type="PackedScene" uid="uid://b5oavo12tu8dp" path="res://building/building.tscn" id="1_5fldb"]
 [ext_resource type="Texture2D" uid="uid://6txm2wum4wcb" path="res://building/floor/floors.svg" id="1_px5au"]
+[ext_resource type="PackedScene" uid="uid://b68uhuf8h4olv" path="res://building/tree.tscn" id="1_wwa3f"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xvyqt"]
+scenes/1/scene = ExtResource("1_wwa3f")
 scenes/2/scene = ExtResource("1_5fldb")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tmonm"]

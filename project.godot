@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Full Market"
-run/main_scene="res://test/playground.tscn"
+run/main_scene="res://production/level.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 run/max_fps=60
 
