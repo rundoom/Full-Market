@@ -61,6 +61,8 @@ func _ready() -> void:
 	combo_counter = 0
 	current_hp = MAX_HP
 	money = money
+	%MeleeDetector.add_exception(self)
+
 
 func _physics_process(delta: float) -> void:
 	var direction_y := Input.get_axis("w", "s")

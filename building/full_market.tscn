@@ -6,7 +6,6 @@
 
 [node name="FullMarket" type="StaticBody2D"]
 position = Vector2(-5, -45)
-rotation = -0.0818593
 collision_layer = 3
 script = ExtResource("1_i3lg6")
 

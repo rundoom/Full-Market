@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bueucdn3ebsfx"
-path="res://.godot/imported/дома с дверью.svg-df95b6c756938a43893aeff0a3d7c041.ctex"
+uid="uid://6txm2wum4wcb"
+path="res://.godot/imported/floors.svg-28eebc0c6961e1464f54246fc0045821.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://building/floor/дома с дверью.svg"
-dest_files=["res://.godot/imported/дома с дверью.svg-df95b6c756938a43893aeff0a3d7c041.ctex"]
+source_file="res://building/floor/floors.svg"
+dest_files=["res://.godot/imported/floors.svg-28eebc0c6961e1464f54246fc0045821.ctex"]
 
 [params]
 
@@ -32,6 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=3.0
+svg/scale=2.0
 editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

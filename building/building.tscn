@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5oavo12tu8dp"]
+
+[ext_resource type="Script" path="res://building/building.gd" id="1_64ems"]
+[ext_resource type="Texture2D" uid="uid://duxpep8jbrvil" path="res://building/floor/дома без дверей.svg" id="1_oxu4f"]
+[ext_resource type="PackedScene" uid="uid://cglmx3vb0q7vl" path="res://building/transparency_detector.tscn" id="2_gkkix"]
+
+[node name="Building" type="StaticBody2D"]
+script = ExtResource("1_64ems")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(4.90002, -406)
+points = PackedVector2Array(215, 401, -6, 233, -227, 401)
+width = 8.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.90002, -406)
+texture = ExtResource("1_oxu4f")
+hframes = 6
+frame = 1
+region_rect = Rect2(1977, 5, 497, 1174)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(4.90002, -406)
+polygon = PackedVector2Array(-8, 556, 216, 404, -6, 235, -227, 407)
+
+[node name="TransparencyDetector" parent="." instance=ExtResource("2_gkkix")]
+position = Vector2(4.90002, -406)
+transparency_reciever_path = NodePath("..")
+
+[node name="CollisionPolygon2D" parent="TransparencyDetector" index="0"]
+polygon = PackedVector2Array(-233, 396, -243, -426, -3, -582, 237, -422, 211, 400)
+
+[editable path="TransparencyDetector"]
