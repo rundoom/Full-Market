@@ -1,0 +1,19 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture2D"
+path="res://.godot/imported/Плитка тротур2.svg-f60327b0829ede6b36516f1c85f5d806.res"
+group_file="floor"
+valid=true
+[deps]
+
+
+source_file="res://building/floor/Плитка тротур2.svg"
+dest_files=["res://.godot/imported/Плитка тротур2.svg-f60327b0829ede6b36516f1c85f5d806.res"]
+
+[params]
+
+atlas_file="floor"
+import_mode=0
+crop_to_region=false
+trim_alpha_border_from_region=true

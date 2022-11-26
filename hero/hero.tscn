@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://cdw4uncpvcxf8"]
+[gd_scene load_steps=61 format=3 uid="uid://cdw4uncpvcxf8"]
 
 [ext_resource type="Script" path="res://hero/hero.gd" id="1_nn66o"]
 [ext_resource type="PackedScene" uid="uid://db3auxgtppuy2" path="res://weapon/pistol.tscn" id="2_7j5sd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://UI/UIContainer.gd" id="3_e8fp7"]
 [ext_resource type="PackedScene" uid="uid://bwtyc56axyn4g" path="res://weapon/knife.tscn" id="3_p6y38"]
 [ext_resource type="Script" path="res://hero/Picker.gd" id="4_l1sxa"]
+[ext_resource type="Texture2D" uid="uid://uvxejgojwl0p" path="res://core/white_circle.svg" id="6_85mor"]
 [ext_resource type="Texture2D" uid="uid://ccggm68r0di66" path="res://hero/Девочка кул.svg" id="7_1tf17"]
 
 [sub_resource type="SystemFont" id="SystemFont_4kcal"]
@@ -26,9 +27,8 @@ radius = 52.0865
 [sub_resource type="CircleShape2D" id="CircleShape2D_tks1c"]
 radius = 63.0317
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0tl1q"]
-radius = 22.0
-height = 80.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_pxkub"]
+radius = 23.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eni52"]
 atlas = ExtResource("7_1tf17")
@@ -384,7 +384,7 @@ _data = {
 }
 
 [node name="Hero" type="CharacterBody2D" groups=["zombie_attractor"]]
-collision_layer = 9
+collision_layer = 25
 motion_mode = 1
 script = ExtResource("1_nn66o")
 MAX_HP = 100
@@ -398,15 +398,14 @@ script = ExtResource("3_e8fp7")
 
 [node name="ComboCounter" type="ProgressBar" parent="UIContainer"]
 unique_name_in_owner = true
-offset_left = 942.0
-offset_top = 32.0
-offset_right = 1030.0
-offset_bottom = 59.0
+offset_left = 940.0
+offset_top = 8.0
+offset_right = 1028.0
+offset_bottom = 35.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UIContainer/ComboCounter"]
-layout_mode = 0
 offset_left = -1.0
 offset_top = -3.0
 offset_right = 89.0
@@ -417,17 +416,16 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="XPRanged" type="Label" parent="UIContainer"]
-offset_left = 1100.0
-offset_top = 32.0
-offset_right = 1140.0
-offset_bottom = 58.0
+offset_left = 1098.0
+offset_top = 8.0
+offset_right = 1138.0
+offset_bottom = 34.0
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="RangedLabel" type="Label" parent="UIContainer/XPRanged"]
-layout_mode = 0
 offset_left = -55.0
 offset_right = 12.0
 offset_bottom = 26.0
@@ -435,17 +433,16 @@ text = "Ranged: "
 metadata/_edit_use_anchors_ = true
 
 [node name="XPMelee" type="Label" parent="UIContainer"]
-offset_left = 891.0
-offset_top = 32.0
-offset_right = 931.0
-offset_bottom = 58.0
+offset_left = 889.0
+offset_top = 8.0
+offset_right = 929.0
+offset_bottom = 34.0
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MeleeLabel" type="Label" parent="UIContainer/XPMelee"]
-layout_mode = 0
 offset_left = -41.0
 offset_right = 15.0
 offset_bottom = 26.0
@@ -453,20 +450,19 @@ text = "Melee: "
 metadata/_edit_use_anchors_ = true
 
 [node name="HP" type="ProgressBar" parent="UIContainer"]
-offset_left = 1257.0
-offset_top = 34.0
-offset_right = 1426.0
-offset_bottom = 61.0
+offset_left = 1255.0
+offset_top = 10.0
+offset_right = 1424.0
+offset_bottom = 37.0
 
 [node name="MoneyCount" type="Label" parent="UIContainer"]
-offset_left = 1342.0
-offset_top = 80.0
-offset_right = 1382.0
-offset_bottom = 106.0
+offset_left = 1340.0
+offset_top = 56.0
+offset_right = 1380.0
+offset_bottom = 82.0
 text = "0"
 
 [node name="MoneyLabel" type="Label" parent="UIContainer/MoneyCount"]
-layout_mode = 0
 offset_left = -68.5
 offset_top = -0.5
 offset_right = -11.5
@@ -500,31 +496,30 @@ offset_right = 1026.5
 offset_bottom = 248.5
 
 [node name="HealButton" type="Button" parent="UIContainer/Shopping"]
-layout_mode = 2
 offset_right = 181.0
 offset_bottom = 31.0
 text = "Heal 20$"
 
 [node name="UpgradeWeapon" type="Button" parent="UIContainer/Shopping"]
-layout_mode = 2
 offset_top = 35.0
 offset_right = 181.0
 offset_bottom = 66.0
 text = "Buy AssaultRifle for 100$"
 
 [node name="UpgradeMeleeWeapon" type="Button" parent="UIContainer/Shopping"]
-layout_mode = 2
 offset_top = 35.0
 offset_right = 181.0
 offset_bottom = 66.0
 text = "Buy Chainsaw for 1000$"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-4, -48)
 current = true
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="ZombieNotify" type="Area2D" parent="."]
+position = Vector2(-4, -48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieNotify"]
 visible = false
@@ -532,6 +527,7 @@ shape = SubResource("CircleShape2D_d1ket")
 debug_color = Color(0, 0.6, 0.266667, 0.0862745)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-4, -48)
 color = Color(0.254902, 0.576471, 1, 1)
 polygon = PackedVector2Array(0, -16, -5, -15, -11, -12, -15, -5, -16, 3, -11, 12, -3, 16, 5, 15, 11, 11, 15, 6, 16, -3, 12, -10, 6, -15)
 
@@ -542,6 +538,7 @@ visible = false
 shape = SubResource("CircleShape2D_iay8a")
 
 [node name="Picker" type="Node2D" parent="."]
+position = Vector2(-4, -48)
 
 [node name="Magnet" type="Area2D" parent="Picker"]
 visible = false
@@ -567,18 +564,22 @@ collision_mask = 4
 shape = ExtResource("2_lepoo")
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(4, 29)
-shape = SubResource("CapsuleShape2D_0tl1q")
+shape = SubResource("CircleShape2D_pxkub")
 
 [node name="Rotator" type="Marker2D" parent="."]
-position = Vector2(5, -2)
+position = Vector2(1, -50)
 
 [node name="RangedSlot" type="Node2D" parent="Rotator"]
 unique_name_in_owner = true
 position = Vector2(10, -26)
 
 [node name="Pistol" parent="Rotator/RangedSlot" instance=ExtResource("2_7j5sd")]
+
+[node name="Shadow" type="Sprite2D" parent="Rotator"]
+modulate = Color(0, 0, 0, 0.345098)
+position = Vector2(-1, 60)
+scale = Vector2(0.23, 0.108333)
+texture = ExtResource("6_85mor")
 
 [node name="Animation" type="AnimatedSprite2D" parent="Rotator"]
 texture_filter = 4

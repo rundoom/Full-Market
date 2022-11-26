@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cglmx3vb0q7vl"]
+
+[ext_resource type="Script" path="res://building/transparency_detector.gd" id="1_uyfpv"]
+
+[node name="TransparencyDetector" type="Area2D"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_uyfpv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

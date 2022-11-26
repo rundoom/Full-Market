@@ -1,0 +1,19 @@
+[remap]
+
+importer="texture_atlas"
+type="Texture2D"
+path="res://.godot/imported/плитка 300.svg-f4962bc7d8ce58d658a1cfdfbe13666d.res"
+group_file="floor"
+valid=true
+[deps]
+
+
+source_file="res://building/floor/плитка 300.svg"
+dest_files=["res://.godot/imported/плитка 300.svg-f4962bc7d8ce58d658a1cfdfbe13666d.res"]
+
+[params]
+
+atlas_file="floor"
+import_mode=0
+crop_to_region=false
+trim_alpha_border_from_region=true

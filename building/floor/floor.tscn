@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://n0ch5plenljm"]
+
+[ext_resource type="Texture2D" uid="uid://b1dhx4lw62qmt" path="res://building/floor/out_floor.png" id="1_0ntql"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ltguc"]
+texture = ExtResource("1_0ntql")
+separation = Vector2i(2, 3)
+texture_region_size = Vector2i(329, 230)
+1:0/0 = 0
+2:0/0 = 0
+0:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+4:0/0 = 0
+3:0/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ok83n"]
+tile_shape = 1
+tile_layout = 4
+tile_size = Vector2i(322, 225)
+sources/0 = SubResource("TileSetAtlasSource_ltguc")
+
+[node name="Floor" type="TileMap"]
+tile_set = SubResource("TileSet_ok83n")
+cell_quadrant_size = 128
+format = 2
+layer_0/tile_data = PackedInt32Array(3276846, 0, 0, 2359352, 131072, 0)

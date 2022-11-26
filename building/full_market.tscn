@@ -1,29 +1,45 @@
 [gd_scene load_steps=4 format=3 uid="uid://c51bwamfyghcx"]
 
 [ext_resource type="Script" path="res://building/full_market.gd" id="1_i3lg6"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_olf6n"]
-size = Vector2(1149, 635)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqsh8"]
-size = Vector2(440, 330)
+[ext_resource type="Texture2D" uid="uid://bhkqj27pbfg85" path="res://building/floor/магаз_ярче_хз_зачем_тип_горит_ждет.svg" id="2_8l3kk"]
+[ext_resource type="PackedScene" uid="uid://cglmx3vb0q7vl" path="res://building/transparency_detector.tscn" id="3_cw8u7"]
 
 [node name="FullMarket" type="StaticBody2D"]
+position = Vector2(-5, -45)
+rotation = -0.0818593
+collision_layer = 3
 script = ExtResource("1_i3lg6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 4)
-shape = SubResource("RectangleShape2D_olf6n")
-debug_color = Color(0.215686, 0.623529, 0.403922, 0.419608)
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(558, 94, 2, -219, -502, -2)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="МагазЯрчеХзЗачемТипГоритЖдет" type="Sprite2D" parent="."]
+position = Vector2(-33.6519, -114.195)
+scale = Vector2(0.79357, 0.79357)
+texture = ExtResource("2_8l3kk")
 
 [node name="ShoppingArea" type="Area2D" parent="."]
+position = Vector2(1.0871, 47.195)
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShoppingArea"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="ShoppingArea"]
 position = Vector2(16, 482)
-shape = SubResource("RectangleShape2D_tqsh8")
-debug_color = Color(0.333333, 0.568627, 0.690196, 0.219608)
+polygon = PackedVector2Array(-721.087, -445.195, -516, -529, -14, -328, 202, -419, 291, -405, 293, -316, -15, -164)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1.0871, 47.195)
+polygon = PackedVector2Array(-497.087, -50.195, -183, 87, -204, 102, -198, 120, -178, 130, -150, 126, -151, 96, -97, 118, -97, 127, -117, 127, -112, 148, -87, 159, -67, 153, -63, 130, 3, 160, 100, 120, 85, 133, 94, 150, 126, 160, 144, 144, 126, 126, 123, 111, 168, 94, 249, 78, 286, 97, 307, 81, 309, 166, 551, 48, 427.913, -29.195, 2.9129, -271.195)
+
+[node name="TransparencyDetector2" parent="." instance=ExtResource("3_cw8u7")]
+transparency_reciever_path = NodePath("..")
+
+[node name="CollisionPolygon2D" parent="TransparencyDetector2" index="0"]
+polygon = PackedVector2Array(552.207, 93.4657, 624, -124, 615, -216, 388, -473, -53, -655, -356, -526, -349, -418, -433, -384, -422, -314, -515, -231, -510, 1, 9, -229, 435, 21)
 
 [connection signal="body_entered" from="ShoppingArea" to="." method="_on_shopping_area_body_entered"]
 [connection signal="body_exited" from="ShoppingArea" to="." method="_on_shopping_area_body_exited"]
+
+[editable path="TransparencyDetector2"]

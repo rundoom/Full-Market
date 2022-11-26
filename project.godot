@@ -28,7 +28,6 @@ run/max_fps=60
 [debug]
 
 gdscript/warnings/unused_parameter=0
-gdscript/warnings/return_value_discarded=0
 
 [display]
 
@@ -99,6 +98,7 @@ interaction={
 2d_physics/layer_2="Damage"
 2d_physics/layer_3="Pickable"
 2d_physics/layer_4="Interactions"
+2d_physics/layer_5="Transparency"
 
 [rendering]
 

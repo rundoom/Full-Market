@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://uvxejgojwl0p" path="res://core/white_circle.svg" id="2_ix2t1"]
 [ext_resource type="Texture2D" uid="uid://djk7sbmj5o2y" path="res://zombie/Zombie 1.svg" id="2_n5emj"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nskxr"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ebck"]
 radius = 13.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sns36"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_at6se"]
 radius = 25.0
 height = 72.0
 
@@ -20,7 +20,7 @@ script = ExtResource("1_2hyxj")
 [node name="Toucher" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(1, 9)
-shape = SubResource("CapsuleShape2D_nskxr")
+shape = SubResource("CapsuleShape2D_0ebck")
 debug_color = Color(0, 1, 0.180392, 0.419608)
 
 [node name="CenterPos" type="Marker2D" parent="."]
@@ -46,7 +46,7 @@ collision_mask = 2
 
 [node name="DmgSponge" type="CollisionShape2D" parent="DmgSponge"]
 position = Vector2(-1, -3)
-shape = SubResource("CapsuleShape2D_sns36")
+shape = SubResource("CapsuleShape2D_at6se")
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="body_entered" from="DmgSponge" to="." method="_on_dmg_sponge_body_entered"]
