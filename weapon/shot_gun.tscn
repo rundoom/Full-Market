@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b6awf5ctuqe17" path="res://weapon/weaponary.png" id="2_58ems"]
 [ext_resource type="AudioStream" uid="uid://xssyo2wrkyyt" path="res://weapon/Дробовик выстрел перезорядка.wav" id="2_udah5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_80y2h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fauc1"]
 resource_local_to_scene = true
 atlas = ExtResource("2_58ems")
 region = Rect2(200, 142, 90, 24)
@@ -27,5 +27,5 @@ stream = ExtResource("2_udah5")
 [node name="Sprite2D" parent="." index="6"]
 position = Vector2(-2, -1)
 scale = Vector2(0.7, 0.7)
-texture = SubResource("AtlasTexture_80y2h")
+texture = SubResource("AtlasTexture_fauc1")
 offset = Vector2(45, 0)

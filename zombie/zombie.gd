@@ -15,6 +15,11 @@ var current_hp := 6:
 		tween.tween_property(self, "modulate", Color.WHITE, 0.1)
 		if value <= 0:
 			queue_free()
+			
+
+func _ready() -> void:
+#	Avoid stuck in walls
+	move_and_slide()
 
 
 func _physics_process(delta: float) -> void:
@@ -40,8 +45,11 @@ func _physics_process(delta: float) -> void:
 func _on_tree_exiting() -> void:
 	var hero := get_tree().get_first_node_in_group("zombie_attractor") as Node2D
 	var loot = Money.instantiate()
+	var level = get_tree().get_first_node_in_group("level")
 	loot.global_position = global_position
-	get_tree().get_first_node_in_group("level").add_child.call_deferred(loot)
+	level.add_child.call_deferred(loot)
+	
+	
 
 
 func on_bullet_entered(bullet: Node2D) -> void:

@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://c51bwamfyghcx" path="res://building/full_market.tscn" id="3_a4b04"]
 [ext_resource type="AudioStream" uid="uid://sumf4pwok15g" path="res://для игры 3.wav" id="4_tdcku"]
 
-[sub_resource type="Curve2D" id="Curve2D_lj48k"]
+[sub_resource type="Curve2D" id="Curve2D_4shec"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(-235.451, 198.452, 235.451, -198.452, -474.522, -253, -210.139, -202.165, 210.139, 202.165, 823.96, -129, 365.155, -179.456, -365.155, 179.456, 607.547, 755, 586.119, 338.984, -586.119, -338.984, -568.831, 758, 0, 0, 0, 0, -780.281, -49, 0, 0, 0, 0, -594.641, -196, 0, 0, 0, 0, -474.522, -253)
+"points": PackedVector2Array(0, 0, 0, 0, -1019.08, -331, 0, 0, 0, 0, 1015.25, -301, 0, 0, 0, 0, 1045.92, 829, 0, 0, 0, 0, -1055.89, 813, 0, 0, 0, 0, -1019.08, -331)
 }
-point_count = 7
+point_count = 5
 
 [node name="Level" groups=["level"] instance=ExtResource("1_1ctfv")]
 layer_0/name = "Ground"
@@ -22,9 +22,9 @@ layer_1/tile_data = PackedInt32Array(327686, 0, 131072, 327684, 0, 131072, 32768
 [node name="Hero" parent="." index="0" instance=ExtResource("2_p6p2y")]
 
 [node name="ZombieSpawner" parent="Hero" index="8" instance=ExtResource("3_56408")]
-position = Vector2(14, -298)
-scale = Vector2(1.00733, 1)
-curve = SubResource("Curve2D_lj48k")
+position = Vector2(-15.1244, -312)
+scale = Vector2(0.978208, 1)
+curve = SubResource("Curve2D_4shec")
 
 [node name="FullMarket" parent="." index="1" instance=ExtResource("3_a4b04")]
 position = Vector2(1022, -597)

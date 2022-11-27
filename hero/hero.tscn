@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ccggm68r0di66" path="res://hero/Девочка кул.svg" id="7_1tf17"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d1ket"]
-radius = 430.785
+radius = 1122.3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iay8a"]
 radius = 52.0865
