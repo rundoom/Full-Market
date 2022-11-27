@@ -1,16 +1,227 @@
-[gd_scene load_steps=7 format=3 uid="uid://eon1kp7fae5u"]
+[gd_scene load_steps=10 format=3 uid="uid://eon1kp7fae5u"]
 
 [ext_resource type="Script" path="res://zombie/zombie.gd" id="1_2hyxj"]
 [ext_resource type="Texture2D" uid="uid://uvxejgojwl0p" path="res://core/white_circle.svg" id="2_ix2t1"]
-[ext_resource type="Texture2D" uid="uid://djk7sbmj5o2y" path="res://zombie/Zombie 1.svg" id="2_n5emj"]
 [ext_resource type="Texture2D" uid="uid://ev6ppe560wm1" path="res://zombie/zombie_dis.svg" id="3_d6s10"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5fh2s"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p4rc7"]
 radius = 13.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sh6fa"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0n13o"]
 radius = 25.0
 height = 72.0
+
+[sub_resource type="Animation" id="Animation_k3fps"]
+resource_name = "Walk"
+length = 0.25
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterPos/Skeleton2D/Pants/LegL:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-68.6278, 29.4118), Vector2(-98.0386, 29.412)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterPos/Skeleton2D/Pants/LegL:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.169719]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterPos/Skeleton2D/Pants/LegR:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(39.2156, 9.804), Vector2(68.6281, -29.4115)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CenterPos/Skeleton2D/Pants/LegR:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.162983]
+}
+
+[sub_resource type="Animation" id="Animation_on7gx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterPos/Skeleton2D/Pants/LegL:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-68.6278, 29.4118)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterPos/Skeleton2D/Pants/LegL:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterPos/Skeleton2D/Pants/LegR:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(39.2156, 9.804)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CenterPos/Skeleton2D/Pants/LegR:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CenterPos/Skeleton2D/Body/HandL:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-225.49, 127.451)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CenterPos/Skeleton2D/Body/HandL:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CenterPos/Skeleton2D/Body/HandR:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-49.0196, 117.647)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CenterPos/Skeleton2D/Body/HandR:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1jlja"]
+resource_name = "Attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterPos/Skeleton2D/Body/HandL:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-225.49, 127.451), Vector2(-294.118, 127.451), Vector2(-225.49, 127.451)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterPos/Skeleton2D/Body/HandL:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.278806, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterPos/Skeleton2D/Body/HandR:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-49.0196, 117.647), Vector2(-166.667, 117.647), Vector2(-49.0196, 117.647)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CenterPos/Skeleton2D/Body/HandR:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.432834, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wptjj"]
+_data = {
+"Attack": SubResource("Animation_1jlja"),
+"RESET": SubResource("Animation_on7gx"),
+"Walk": SubResource("Animation_k3fps")
+}
 
 [node name="Zombie" type="CharacterBody2D" groups=["zombie"]]
 scale = Vector2(1.7, 1.7)
@@ -21,7 +232,7 @@ script = ExtResource("1_2hyxj")
 [node name="Toucher" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(1, 9)
-shape = SubResource("CapsuleShape2D_5fh2s")
+shape = SubResource("CapsuleShape2D_p4rc7")
 debug_color = Color(0, 1, 0.180392, 0.419608)
 
 [node name="CenterPos" type="Marker2D" parent="."]
@@ -45,7 +256,6 @@ frame = 2
 [node name="LegL" type="Sprite2D" parent="CenterPos/Skeleton2D/Pants"]
 show_behind_parent = true
 position = Vector2(-68.6278, 29.4118)
-scale = Vector2(1, 1)
 texture = ExtResource("3_d6s10")
 hframes = 8
 frame = 4
@@ -53,7 +263,6 @@ frame = 4
 [node name="LegR" type="Sprite2D" parent="CenterPos/Skeleton2D/Pants"]
 show_behind_parent = true
 position = Vector2(39.2156, 9.804)
-scale = Vector2(1, 1)
 texture = ExtResource("3_d6s10")
 hframes = 8
 frame = 3
@@ -67,7 +276,6 @@ frame = 5
 
 [node name="Shirt" type="Sprite2D" parent="CenterPos/Skeleton2D/Body"]
 position = Vector2(-9.80396, 98.0392)
-scale = Vector2(1, 1)
 texture = ExtResource("3_d6s10")
 hframes = 8
 frame = 6
@@ -75,14 +283,12 @@ frame = 6
 [node name="HandL" type="Sprite2D" parent="CenterPos/Skeleton2D/Body"]
 show_behind_parent = true
 position = Vector2(-225.49, 127.451)
-scale = Vector2(1, 1)
 texture = ExtResource("3_d6s10")
 hframes = 8
 frame = 1
 
 [node name="HandR" type="Sprite2D" parent="CenterPos/Skeleton2D/Body"]
 position = Vector2(-49.0196, 117.647)
-scale = Vector2(1, 1)
 texture = ExtResource("3_d6s10")
 hframes = 8
 frame = 7
@@ -93,14 +299,6 @@ scale = Vector2(0.06, 0.06)
 texture = ExtResource("3_d6s10")
 hframes = 8
 
-[node name="Zombie1" type="Sprite2D" parent="CenterPos"]
-modulate = Color(0.364706, 0.415686, 1, 0.168627)
-texture_filter = 6
-position = Vector2(2.00272e-05, 0)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_n5emj")
-offset = Vector2(565, -186)
-
 [node name="DmgSponge" type="Area2D" parent="."]
 visible = false
 collision_layer = 2
@@ -108,7 +306,11 @@ collision_mask = 2
 
 [node name="DmgSponge" type="CollisionShape2D" parent="DmgSponge"]
 position = Vector2(-1, -3)
-shape = SubResource("CapsuleShape2D_sh6fa")
+shape = SubResource("CapsuleShape2D_0n13o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wptjj")
+}
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
-[connection signal="body_entered" from="DmgSponge" to="." method="_on_dmg_sponge_body_entered"]

@@ -25,6 +25,16 @@ func _physics_process(delta: float) -> void:
 		$CenterPos.scale.x = -1 if cos(target_rotation) > 0 else 1
 		velocity = Vector2.RIGHT.rotated(target_rotation) * current_speed
 		move_and_slide()
+		if get_slide_collision_count() == 0: $AnimationPlayer.current_animation = "Walk"
+		for i in get_slide_collision_count():
+			var collider = get_slide_collision(i).get_collider() as Node2D
+			if collider.is_in_group("zombie_attractor"):
+				collider.current_hp -= 0.2
+				$AnimationPlayer.current_animation = "Attack"
+			else:
+				$AnimationPlayer.current_animation = "Walk"
+	else :
+		$AnimationPlayer.current_animation = "RESET"
 
 
 func _on_tree_exiting() -> void:
@@ -34,7 +44,6 @@ func _on_tree_exiting() -> void:
 	get_tree().get_first_node_in_group("level").add_child.call_deferred(loot)
 
 
-func _on_dmg_sponge_body_entered(body: Node2D) -> void:
-	if body.is_in_group("bullet"):
-		body.queue_free()
-		current_hp -= 1
+func on_bullet_entered(bullet: Node2D) -> void:
+		if bullet.is_in_group("bullet"):
+			current_hp -= 1

@@ -76,11 +76,6 @@ func _physics_process(delta: float) -> void:
 	var angle_to_mouse = global_position.direction_to(mouse_pos).angle()
 	$Rotator.scale.x = 1 if cos(angle_to_mouse) > 0 else -1
 		
-	for i in get_slide_collision_count():
-		var collider = get_slide_collision(i).get_collider() as Node2D
-		if collider.is_in_group("zombie"):
-			current_hp -= 0.5
-		
 
 func switch_weapon():
 	current_attack_type = AttackType.MELEE if %MeleeDetector.is_colliding() else AttackType.RANGED

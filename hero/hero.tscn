@@ -459,7 +459,6 @@ position_smoothing_enabled = true
 position = Vector2(-4, -48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieNotify"]
-visible = false
 shape = SubResource("CircleShape2D_d1ket")
 debug_color = Color(0, 0.6, 0.266667, 0.0862745)
 
