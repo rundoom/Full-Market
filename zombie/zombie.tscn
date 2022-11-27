@@ -35,60 +35,63 @@ texture = ExtResource("2_ix2t1")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="CenterPos"]
 
-[node name="ZombieDis5" type="Sprite2D" parent="CenterPos/Skeleton2D"]
-position = Vector2(15.7647, 2.82353)
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("3_d6s10")
-hframes = 8
-frame = 5
-
-[node name="ZombieDis6" type="Sprite2D" parent="CenterPos/Skeleton2D"]
-position = Vector2(15.1765, 8.70588)
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("3_d6s10")
-hframes = 8
-frame = 6
-
-[node name="ZombieDis" type="Sprite2D" parent="CenterPos/Skeleton2D"]
-position = Vector2(-3.64706, -14.8235)
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("3_d6s10")
-hframes = 8
-
-[node name="ZombieDis2" type="Sprite2D" parent="CenterPos/Skeleton2D"]
-position = Vector2(2.23529, 10.4706)
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("3_d6s10")
-hframes = 8
-frame = 1
-
-[node name="ZombieDis7" type="Sprite2D" parent="CenterPos/Skeleton2D"]
-position = Vector2(12.2353, 21.0588)
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("3_d6s10")
-hframes = 8
-frame = 4
-
-[node name="ZombieDis4" type="Sprite2D" parent="CenterPos/Skeleton2D"]
-position = Vector2(18.7059, 19.8824)
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("3_d6s10")
-hframes = 8
-frame = 3
-
-[node name="ZombieDis3" type="Sprite2D" parent="CenterPos/Skeleton2D"]
+[node name="Pants" type="Sprite2D" parent="CenterPos/Skeleton2D"]
 position = Vector2(16.3529, 19.2941)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("3_d6s10")
 hframes = 8
 frame = 2
 
-[node name="ZombieDis8" type="Sprite2D" parent="CenterPos/Skeleton2D"]
-position = Vector2(12.8235, 9.88235)
+[node name="LegL" type="Sprite2D" parent="CenterPos/Skeleton2D/Pants"]
+show_behind_parent = true
+position = Vector2(-68.6278, 29.4118)
+scale = Vector2(1, 1)
+texture = ExtResource("3_d6s10")
+hframes = 8
+frame = 4
+
+[node name="LegR" type="Sprite2D" parent="CenterPos/Skeleton2D/Pants"]
+show_behind_parent = true
+position = Vector2(39.2156, 9.804)
+scale = Vector2(1, 1)
+texture = ExtResource("3_d6s10")
+hframes = 8
+frame = 3
+
+[node name="Body" type="Sprite2D" parent="CenterPos/Skeleton2D"]
+position = Vector2(15.7647, 2.82353)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("3_d6s10")
 hframes = 8
+frame = 5
+
+[node name="Shirt" type="Sprite2D" parent="CenterPos/Skeleton2D/Body"]
+position = Vector2(-9.80396, 98.0392)
+scale = Vector2(1, 1)
+texture = ExtResource("3_d6s10")
+hframes = 8
+frame = 6
+
+[node name="HandL" type="Sprite2D" parent="CenterPos/Skeleton2D/Body"]
+show_behind_parent = true
+position = Vector2(-225.49, 127.451)
+scale = Vector2(1, 1)
+texture = ExtResource("3_d6s10")
+hframes = 8
+frame = 1
+
+[node name="HandR" type="Sprite2D" parent="CenterPos/Skeleton2D/Body"]
+position = Vector2(-49.0196, 117.647)
+scale = Vector2(1, 1)
+texture = ExtResource("3_d6s10")
+hframes = 8
 frame = 7
+
+[node name="Head" type="Sprite2D" parent="CenterPos/Skeleton2D"]
+position = Vector2(-3.64706, -14.8235)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("3_d6s10")
+hframes = 8
 
 [node name="Zombie1" type="Sprite2D" parent="CenterPos"]
 modulate = Color(0.364706, 0.415686, 1, 0.168627)
