@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ev6ppe560wm1" path="res://zombie/zombie_dis.svg" id="3_d6s10"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q6404"]
-radius = 13.0
+radius = 8.30326
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ayvwq"]
 radius = 25.0
@@ -231,7 +231,8 @@ script = ExtResource("1_2hyxj")
 
 [node name="Toucher" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(1, 9)
+position = Vector2(5.96046e-08, 2.94118)
+rotation = -1.57219
 shape = SubResource("CapsuleShape2D_q6404")
 debug_color = Color(0, 1, 0.180392, 0.419608)
 
@@ -305,6 +306,7 @@ hframes = 8
 frame = 3
 
 [node name="DmgSponge" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
