@@ -64,7 +64,7 @@ func release_spare():
 		spare.global_rotation = part.global_rotation
 		part.get_parent().remove_child(part)
 		spare.add_child(part)
-		level.add_child(spare)
+		level.add_child.call_deferred(spare)
 		part.global_scale = cached_scale
 		
 

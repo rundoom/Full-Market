@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://uvxejgojwl0p" path="res://core/white_circle.svg" id="2_ix2t1"]
 [ext_resource type="Texture2D" uid="uid://ev6ppe560wm1" path="res://zombie/zombie_dis.svg" id="3_d6s10"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cncrh"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q6404"]
 radius = 13.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_doh1s"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ayvwq"]
 radius = 25.0
 height = 72.0
 
-[sub_resource type="Animation" id="Animation_naqid"]
+[sub_resource type="Animation" id="Animation_ri4hy"]
 resource_name = "Attack"
 length = 0.25
 loop_mode = 2
@@ -64,7 +64,7 @@ tracks/3/keys = {
 "values": [0.0, 0.637083]
 }
 
-[sub_resource type="Animation" id="Animation_puh1o"]
+[sub_resource type="Animation" id="Animation_sk1es"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -163,7 +163,7 @@ tracks/7/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_pv4hx"]
+[sub_resource type="Animation" id="Animation_68h16"]
 resource_name = "Walk"
 length = 0.3
 loop_mode = 2
@@ -216,11 +216,11 @@ tracks/3/keys = {
 "values": [0.0, -0.222414]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_a0dnt"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mi5nc"]
 _data = {
-"Attack": SubResource("Animation_naqid"),
-"RESET": SubResource("Animation_puh1o"),
-"Walk": SubResource("Animation_pv4hx")
+"Attack": SubResource("Animation_ri4hy"),
+"RESET": SubResource("Animation_sk1es"),
+"Walk": SubResource("Animation_68h16")
 }
 
 [node name="Zombie" type="CharacterBody2D" groups=["zombie"]]
@@ -232,7 +232,7 @@ script = ExtResource("1_2hyxj")
 [node name="Toucher" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(1, 9)
-shape = SubResource("CapsuleShape2D_cncrh")
+shape = SubResource("CapsuleShape2D_q6404")
 debug_color = Color(0, 1, 0.180392, 0.419608)
 
 [node name="CenterPos" type="Marker2D" parent="."]
@@ -305,17 +305,16 @@ hframes = 8
 frame = 3
 
 [node name="DmgSponge" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
 [node name="DmgSponge" type="CollisionShape2D" parent="DmgSponge"]
-position = Vector2(-1, -3)
-shape = SubResource("CapsuleShape2D_doh1s")
+position = Vector2(-1.17647, -19.4118)
+shape = SubResource("CapsuleShape2D_ayvwq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_a0dnt")
+"": SubResource("AnimationLibrary_mi5nc")
 }
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

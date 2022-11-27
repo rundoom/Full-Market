@@ -7,9 +7,9 @@
 [node name="Minigun" instance=ExtResource("1_g76i0")]
 Bullet = ExtResource("2_oho2u")
 SPREAD = 0.3
-BULLET_COUNT = 3
+BULLET_COUNT = 2
 BULLET_SPEED_SPRED = 100
-MAG_SIZE = 500
+MAG_SIZE = 200
 AUTOMATIC = true
 
 [node name="ShootCooldown" parent="." index="0"]
