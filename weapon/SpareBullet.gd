@@ -2,6 +2,7 @@ extends RigidBody2D
 
 
 func start_acting():
+	if !is_inside_tree(): return
 	freeze = false
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
