@@ -13,7 +13,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.RIGHT.rotated(rotation) * speed
-	move_and_collide(velocity * delta)
+	var collision = move_and_collide(velocity * delta)
+	if collision != null: queue_free()
 
 
 func _on_lifetime_timeout() -> void:

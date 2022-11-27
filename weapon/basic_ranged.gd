@@ -43,7 +43,8 @@ func handle_shoot():
 				bullet.speed = randi_range(bullet.speed - BULLET_SPEED_SPRED, bullet.speed + BULLET_SPEED_SPRED) 
 				bullet.global_position = $BulletOuput.global_position
 				bullet.global_rotation = (randf_range(bullet_direction - SPREAD, bullet_direction + SPREAD) + randf_range(bullet_direction - SPREAD, bullet_direction + SPREAD)) / 2
-				add_child(bullet)
+				var level = get_tree().get_first_node_in_group("level")
+				level.add_child(bullet)
 			$ShootSound.pitch_scale = randf_range(0.8, 1.2)
 			$ShootSound.play()
 			shoot_cooldown.start()
