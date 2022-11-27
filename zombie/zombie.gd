@@ -29,8 +29,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_tree_exiting() -> void:
 	var hero := get_tree().get_first_node_in_group("zombie_attractor") as Node2D
-	if hero != null:
-		hero.combo_counter += 1
 	var loot = Money.instantiate()
 	loot.global_position = global_position
 	get_tree().get_first_node_in_group("level").add_child.call_deferred(loot)

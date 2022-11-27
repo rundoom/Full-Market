@@ -5,10 +5,7 @@ const SPEED = 300.0
 
 enum AttackType {MELEE, RANGED}
 var current_attack_type := AttackType.RANGED
-@onready var combo = %ComboCounter
-var combo_tween: Tween
-var xp_melee := 0
-var xp_ranged := 0
+
 @onready var animation := %AnimationPlayer as AnimationPlayer
 var money := 5000:
 	set(value):
@@ -51,14 +48,8 @@ var weapon_melee_upgrades := {
 	"Chainsaw" : {"scene": Chainsaw, "cost": 1000, "next": null}
 }
 
-var combo_counter: int:
-	set(value):
-		combo_counter = value
-		update_combo(value)
-
 
 func _ready() -> void:
-	combo_counter = 0
 	current_hp = MAX_HP
 	money = money
 	%MeleeDetector.add_exception(self)
@@ -142,27 +133,6 @@ func upgrade_melee_weapon():
 		else:
 			$UIContainer/Shopping/UpgradeMeleeWeapon.text = "Maximum upgrade reached!"
 			$UIContainer/Shopping/UpgradeMeleeWeapon.disabled = true
-
-
-func update_combo(value: int):
-	combo.value = combo.max_value
-	combo.get_node(^"Label").text = str(combo_counter)
-	
-	match current_attack_type:
-		AttackType.MELEE:
-			xp_melee += value
-			$UIContainer/XPMelee.text = str(xp_melee)
-		AttackType.RANGED:
-			xp_ranged += value
-			$UIContainer/XPRanged.text = str(xp_ranged)
-	
-	if value != 0:
-		if combo_tween != null: combo_tween.kill()
-		combo_tween = create_tween()
-		combo_tween.tween_property(combo, ^"value", 0, clampf(10/combo_counter, 1.0, 10))
-		combo_tween.finished.connect(func(): combo_counter = 0)
-	else:
-		combo.value = 0
 
 
 func _on_zombie_charge_body_entered(body: Node2D) -> void:
