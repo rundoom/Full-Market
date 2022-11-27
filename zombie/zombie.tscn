@@ -11,76 +11,77 @@ radius = 13.0
 radius = 25.0
 height = 72.0
 
-[sub_resource type="Animation" id="Animation_6l3qm"]
+[sub_resource type="Animation" id="Animation_naqid"]
 resource_name = "Attack"
-length = 0.4
+length = 0.25
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CenterPos/Skeleton2D/Body/HandL:position")
+tracks/0/path = NodePath("CenterPos/SpriteHolder/HandL:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-225.49, 127.451), Vector2(-294.118, 127.451), Vector2(-225.49, 127.451)]
+"values": [Vector2(2.2353, 10.4706), Vector2(-4.82353, 9.88235)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CenterPos/Skeleton2D/Body/HandL:rotation")
+tracks/1/path = NodePath("CenterPos/SpriteHolder/HandL:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 0.278806, 0.0]
+"values": [0.0, 0.5604]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CenterPos/Skeleton2D/Body/HandR:position")
+tracks/2/path = NodePath("CenterPos/SpriteHolder/HandR:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-49.0196, 117.647), Vector2(-166.667, 117.647), Vector2(-49.0196, 117.647)]
+"values": [Vector2(12.8235, 9.88235), Vector2(2.82353, 8.70588)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CenterPos/Skeleton2D/Body/HandR:rotation")
+tracks/3/path = NodePath("CenterPos/SpriteHolder/HandR:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 0.432834, 0.0]
+"values": [0.0, 0.637083]
 }
 
-[sub_resource type="Animation" id="Animation_od5kl"]
+[sub_resource type="Animation" id="Animation_puh1o"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CenterPos/Skeleton2D/Pants/LegL:position")
+tracks/0/path = NodePath("CenterPos/SpriteHolder/HandL:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-68.6278, 29.4118)]
+"values": [Vector2(2.2353, 10.4706)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CenterPos/Skeleton2D/Pants/LegL:rotation")
+tracks/1/path = NodePath("CenterPos/SpriteHolder/HandL:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -92,19 +93,19 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CenterPos/Skeleton2D/Pants/LegR:position")
+tracks/2/path = NodePath("CenterPos/SpriteHolder/HandR:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(39.2156, 9.804)]
+"values": [Vector2(12.8235, 9.88235)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CenterPos/Skeleton2D/Pants/LegR:rotation")
+tracks/3/path = NodePath("CenterPos/SpriteHolder/HandR:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -116,19 +117,19 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CenterPos/Skeleton2D/Body/HandL:position")
+tracks/4/path = NodePath("CenterPos/SpriteHolder/LegL:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-225.49, 127.451)]
+"values": [Vector2(12.2352, 21.0588)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CenterPos/Skeleton2D/Body/HandL:rotation")
+tracks/5/path = NodePath("CenterPos/SpriteHolder/LegL:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -140,19 +141,19 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CenterPos/Skeleton2D/Body/HandR:position")
+tracks/6/path = NodePath("CenterPos/SpriteHolder/LegR:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-49.0196, 117.647)]
+"values": [Vector2(18.7058, 19.8823)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("CenterPos/Skeleton2D/Body/HandR:rotation")
+tracks/7/path = NodePath("CenterPos/SpriteHolder/LegR:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -162,65 +163,64 @@ tracks/7/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_gatp3"]
+[sub_resource type="Animation" id="Animation_pv4hx"]
 resource_name = "Walk"
-length = 0.25
+length = 0.5
 loop_mode = 2
-step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CenterPos/Skeleton2D/Pants/LegL:position")
+tracks/0/path = NodePath("CenterPos/SpriteHolder/LegL:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-68.6278, 29.4118), Vector2(-98.0386, 29.412)]
+"values": [Vector2(12.2352, 21.0588), Vector2(5.17647, 24.5882)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CenterPos/Skeleton2D/Pants/LegL:rotation")
+tracks/1/path = NodePath("CenterPos/SpriteHolder/LegL:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 0.169719]
+"values": [0.0, 0.430395]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CenterPos/Skeleton2D/Pants/LegR:position")
+tracks/2/path = NodePath("CenterPos/SpriteHolder/LegR:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(39.2156, 9.804), Vector2(68.6281, -29.4115)]
+"values": [Vector2(18.7058, 19.8823), Vector2(21.6471, 18.7059)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CenterPos/Skeleton2D/Pants/LegR:rotation")
+tracks/3/path = NodePath("CenterPos/SpriteHolder/LegR:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, -0.162983]
+"values": [0.0, -0.222414]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7634j"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a0dnt"]
 _data = {
-"Attack": SubResource("Animation_6l3qm"),
-"RESET": SubResource("Animation_od5kl"),
-"Walk": SubResource("Animation_gatp3")
+"Attack": SubResource("Animation_naqid"),
+"RESET": SubResource("Animation_puh1o"),
+"Walk": SubResource("Animation_pv4hx")
 }
 
 [node name="Zombie" type="CharacterBody2D" groups=["zombie"]]
@@ -244,60 +244,65 @@ position = Vector2(4, 22)
 scale = Vector2(0.1, 0.06)
 texture = ExtResource("2_ix2t1")
 
-[node name="Skeleton2D" type="Skeleton2D" parent="CenterPos"]
+[node name="SpriteHolder" type="Node2D" parent="CenterPos"]
 
-[node name="Pants" type="Sprite2D" parent="CenterPos/Skeleton2D"]
+[node name="Pants" type="Sprite2D" parent="CenterPos/SpriteHolder"]
 position = Vector2(16.3529, 19.2941)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("3_d6s10")
 hframes = 8
 frame = 2
 
-[node name="LegL" type="Sprite2D" parent="CenterPos/Skeleton2D/Pants"]
-show_behind_parent = true
-position = Vector2(-68.6278, 29.4118)
-texture = ExtResource("3_d6s10")
-hframes = 8
-frame = 4
-
-[node name="LegR" type="Sprite2D" parent="CenterPos/Skeleton2D/Pants"]
-show_behind_parent = true
-position = Vector2(39.2156, 9.804)
-texture = ExtResource("3_d6s10")
-hframes = 8
-frame = 3
-
-[node name="Body" type="Sprite2D" parent="CenterPos/Skeleton2D"]
+[node name="Body" type="Sprite2D" parent="CenterPos/SpriteHolder"]
 position = Vector2(15.7647, 2.82353)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("3_d6s10")
 hframes = 8
 frame = 5
 
-[node name="Shirt" type="Sprite2D" parent="CenterPos/Skeleton2D/Body"]
-position = Vector2(-9.80396, 98.0392)
+[node name="Shirt" type="Sprite2D" parent="CenterPos/SpriteHolder"]
+position = Vector2(15.1765, 8.70588)
+scale = Vector2(0.06, 0.06)
 texture = ExtResource("3_d6s10")
 hframes = 8
 frame = 6
 
-[node name="HandL" type="Sprite2D" parent="CenterPos/Skeleton2D/Body"]
-show_behind_parent = true
-position = Vector2(-225.49, 127.451)
-texture = ExtResource("3_d6s10")
-hframes = 8
-frame = 1
-
-[node name="HandR" type="Sprite2D" parent="CenterPos/Skeleton2D/Body"]
-position = Vector2(-49.0196, 117.647)
-texture = ExtResource("3_d6s10")
-hframes = 8
-frame = 7
-
-[node name="Head" type="Sprite2D" parent="CenterPos/Skeleton2D"]
+[node name="Head" type="Sprite2D" parent="CenterPos/SpriteHolder"]
 position = Vector2(-3.64706, -14.8235)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("3_d6s10")
 hframes = 8
+
+[node name="HandL" type="Sprite2D" parent="CenterPos/SpriteHolder"]
+show_behind_parent = true
+position = Vector2(2.2353, 10.4706)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("3_d6s10")
+hframes = 8
+frame = 1
+
+[node name="HandR" type="Sprite2D" parent="CenterPos/SpriteHolder"]
+position = Vector2(12.8235, 9.88235)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("3_d6s10")
+hframes = 8
+frame = 7
+
+[node name="LegL" type="Sprite2D" parent="CenterPos/SpriteHolder"]
+show_behind_parent = true
+position = Vector2(12.2352, 21.0588)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("3_d6s10")
+hframes = 8
+frame = 4
+
+[node name="LegR" type="Sprite2D" parent="CenterPos/SpriteHolder"]
+show_behind_parent = true
+position = Vector2(18.7058, 19.8823)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("3_d6s10")
+hframes = 8
+frame = 3
 
 [node name="DmgSponge" type="Area2D" parent="."]
 visible = false
@@ -310,7 +315,7 @@ shape = SubResource("CapsuleShape2D_doh1s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_7634j")
+"": SubResource("AnimationLibrary_a0dnt")
 }
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

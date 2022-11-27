@@ -5,6 +5,7 @@ var speed := randf_range(80, 150)
 var current_speed := 0.0
 var is_hero_visible := false
 var Money = preload("res://valuables/money.tscn")
+var Spare = preload("res://core/spare.tscn") as PackedScene
 
 
 var current_hp := 6:
@@ -14,6 +15,7 @@ var current_hp := 6:
 		tween.tween_property(self, "modulate", Color.RED, 0.1)
 		tween.tween_property(self, "modulate", Color.WHITE, 0.1)
 		if value <= 0:
+			release_spare()
 			queue_free()
 			
 
@@ -49,8 +51,22 @@ func _on_tree_exiting() -> void:
 	loot.global_position = global_position
 	level.add_child.call_deferred(loot)
 	
-	
 
+func release_spare():
+	var level = get_tree().get_first_node_in_group("level")
+	var sprites_holder = $CenterPos/SpriteHolder as Node2D
+	var parts = sprites_holder.get_children()
+	for part in parts:
+		var spare = Spare.instantiate()
+		var cached_scale = part.global_scale
+		spare.spare_sprite = part
+		spare.global_position = part.global_position
+		spare.global_rotation = part.global_rotation
+		part.get_parent().remove_child(part)
+		spare.add_child(part)
+		level.add_child(spare)
+		part.global_scale = cached_scale
+		
 
 func on_bullet_entered(bullet: Node2D) -> void:
 		if bullet.is_in_group("bullet"):

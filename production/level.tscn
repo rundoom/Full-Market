@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://c484nwfigcv46"]
+[gd_scene load_steps=8 format=3 uid="uid://c484nwfigcv46"]
 
 [ext_resource type="PackedScene" uid="uid://n0ch5plenljm" path="res://building/floor/floor.tscn" id="1_1ctfv"]
 [ext_resource type="PackedScene" uid="uid://cdw4uncpvcxf8" path="res://hero/hero.tscn" id="2_p6p2y"]
 [ext_resource type="PackedScene" uid="uid://8g0lm68uj2wn" path="res://zombie/zombie_spawner.tscn" id="3_56408"]
 [ext_resource type="PackedScene" uid="uid://c51bwamfyghcx" path="res://building/full_market.tscn" id="3_a4b04"]
 [ext_resource type="AudioStream" uid="uid://sumf4pwok15g" path="res://для игры 3.wav" id="4_tdcku"]
+[ext_resource type="PackedScene" uid="uid://eon1kp7fae5u" path="res://zombie/zombie.tscn" id="6_uq2ao"]
 
-[sub_resource type="Curve2D" id="Curve2D_4shec"]
+[sub_resource type="Curve2D" id="Curve2D_ytf1l"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1019.08, -331, 0, 0, 0, 0, 1015.25, -301, 0, 0, 0, 0, 1045.92, 829, 0, 0, 0, 0, -1055.89, 813, 0, 0, 0, 0, -1019.08, -331)
@@ -24,7 +25,7 @@ layer_1/tile_data = PackedInt32Array(327686, 0, 131072, 327684, 0, 131072, 32768
 [node name="ZombieSpawner" parent="Hero" index="8" instance=ExtResource("3_56408")]
 position = Vector2(-15.1244, -312)
 scale = Vector2(0.978208, 1)
-curve = SubResource("Curve2D_4shec")
+curve = SubResource("Curve2D_ytf1l")
 
 [node name="FullMarket" parent="." index="1" instance=ExtResource("3_a4b04")]
 position = Vector2(1022, -597)
@@ -34,3 +35,6 @@ process_mode = 3
 stream = ExtResource("4_tdcku")
 volume_db = 4.0
 autoplay = true
+
+[node name="Zombie" parent="." index="3" instance=ExtResource("6_uq2ao")]
+position = Vector2(427, -20)

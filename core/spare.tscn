@@ -6,10 +6,6 @@
 collision_layer = 0
 collision_mask = 0
 gravity_scale = 2.0
-linear_velocity = Vector2(0, -600)
 linear_damp = 5.0
 angular_damp = 5.0
 script = ExtResource("1_t7qry")
-
-[node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
