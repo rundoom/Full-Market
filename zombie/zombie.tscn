@@ -165,7 +165,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_pv4hx"]
 resource_name = "Walk"
-length = 0.5
+length = 0.3
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -174,7 +174,7 @@ tracks/0/path = NodePath("CenterPos/SpriteHolder/LegL:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(12.2352, 21.0588), Vector2(5.17647, 24.5882)]
@@ -186,7 +186,7 @@ tracks/1/path = NodePath("CenterPos/SpriteHolder/LegL:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 0.430395]
@@ -198,7 +198,7 @@ tracks/2/path = NodePath("CenterPos/SpriteHolder/LegR:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(18.7058, 19.8823), Vector2(21.6471, 18.7059)]
@@ -210,7 +210,7 @@ tracks/3/path = NodePath("CenterPos/SpriteHolder/LegR:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, -0.222414]
@@ -236,7 +236,7 @@ shape = SubResource("CapsuleShape2D_cncrh")
 debug_color = Color(0, 1, 0.180392, 0.419608)
 
 [node name="CenterPos" type="Marker2D" parent="."]
-position = Vector2(-4, -4)
+position = Vector2(-4.11765, -19.4118)
 
 [node name="Shadow" type="Sprite2D" parent="CenterPos"]
 modulate = Color(0, 0, 0, 0.345098)

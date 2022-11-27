@@ -10,17 +10,21 @@ collision_layer = 3
 script = ExtResource("1_i3lg6")
 
 [node name="Line2D" type="Line2D" parent="."]
+position = Vector2(-13.8319, 1.84833)
+rotation = -0.0850892
 points = PackedVector2Array(558, 94, 2, -219, -502, -2)
 width = 5.0
 default_color = Color(0, 0, 0, 1)
 
 [node name="МагазЯрчеХзЗачемТипГоритЖдет" type="Sprite2D" parent="."]
-position = Vector2(-33.6519, -114.195)
+position = Vector2(-47.4838, -112.347)
+rotation = -0.0850892
 scale = Vector2(0.79357, 0.79357)
 texture = ExtResource("2_8l3kk")
 
 [node name="ShoppingArea" type="Area2D" parent="."]
-position = Vector2(1.0871, 47.195)
+position = Vector2(-12.7448, 49.0433)
+rotation = -0.0850892
 collision_layer = 0
 collision_mask = 8
 
@@ -29,10 +33,13 @@ position = Vector2(16, 482)
 polygon = PackedVector2Array(-721.087, -445.195, -516, -529, -14, -328, 202, -419, 291, -405, 293, -316, -15, -164)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(1.0871, 47.195)
-polygon = PackedVector2Array(-497.087, -50.195, -208.087, 85.805, -212.087, 123.805, -162.087, 140.805, -118.087, 156.805, -71.0871, 165.805, -47.0871, 140.805, 3, 160, 78.9129, 130.805, 100.913, 161.805, 142.913, 159.805, 140.913, 107.805, 242.913, 79.805, 286, 97, 309, 166, 551, 48, 427.913, -29.195, 2.9129, -271.195)
+position = Vector2(-12.7448, 49.0433)
+rotation = -0.0850892
+polygon = PackedVector2Array(-497.087, -50.195, 3, 160, 65.0826, 139.994, 100.913, 161.805, 166.397, 140.607, 170.368, 105.818, 260.028, 78.339, 313.668, 167.219, 551, 48, 427.913, -29.195, 2.9129, -271.195)
 
 [node name="TransparencyDetector2" parent="." instance=ExtResource("3_cw8u7")]
+position = Vector2(-13.8319, 1.84833)
+rotation = -0.0850892
 transparency_reciever_path = NodePath("..")
 
 [node name="CollisionPolygon2D" parent="TransparencyDetector2" index="0"]
