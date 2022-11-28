@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c51bwamfyghcx"]
 
 [ext_resource type="Script" path="res://building/full_market.gd" id="1_i3lg6"]
-[ext_resource type="Texture2D" uid="uid://bhkqj27pbfg85" path="res://building/floor/магаз_ярче_хз_зачем_тип_горит_ждет.svg" id="2_8l3kk"]
+[ext_resource type="Texture2D" uid="uid://ckhddxg8ve5jm" path="res://building/floor/магаз оригинал.svg" id="2_gilvv"]
 [ext_resource type="PackedScene" uid="uid://cglmx3vb0q7vl" path="res://building/transparency_detector.tscn" id="3_cw8u7"]
 
 [node name="FullMarket" type="StaticBody2D"]
@@ -17,10 +17,10 @@ width = 5.0
 default_color = Color(0, 0, 0, 1)
 
 [node name="МагазЯрчеХзЗачемТипГоритЖдет" type="Sprite2D" parent="."]
-position = Vector2(-47.4838, -112.347)
+position = Vector2(-50, -72)
 rotation = -0.0850892
 scale = Vector2(0.79357, 0.79357)
-texture = ExtResource("2_8l3kk")
+texture = ExtResource("2_gilvv")
 
 [node name="ShoppingArea" type="Area2D" parent="."]
 position = Vector2(-12.7448, 49.0433)
