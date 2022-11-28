@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://weapon/basic_ranged.gd" id="1_liwxu"]
 [ext_resource type="AudioStream" uid="uid://buio5iw1388g0" path="res://weapon/пистолет 1.wav" id="2_3xgcu"]
-[ext_resource type="Texture2D" uid="uid://uvxejgojwl0p" path="res://core/white_circle.svg" id="3_wijuy"]
+[ext_resource type="Texture2D" uid="uid://bojjyiq2qahfy" path="res://weapon/Круг.svg" id="3_xgcxw"]
 [ext_resource type="Texture2D" uid="uid://b6awf5ctuqe17" path="res://weapon/weaponary.png" id="4_wk8l1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8qr2d"]
@@ -35,15 +35,14 @@ update_scale = false
 top_level = true
 
 [node name="ReloadBar" type="TextureProgressBar" parent="UI"]
-modulate = Color(1, 1, 1, 0.443137)
+modulate = Color(1, 1, 1, 0.72549)
 offset_left = 14.0
 offset_top = -73.0
 offset_right = 314.0
 offset_bottom = 227.0
 scale = Vector2(0.152552, 0.152552)
 fill_mode = 4
-texture_progress = ExtResource("3_wijuy")
-tint_progress = Color(0.870588, 0.117647, 0.32549, 1)
+texture_progress = ExtResource("3_xgcxw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
