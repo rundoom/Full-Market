@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bscwexgggpbv3" path="res://weapon/knife.svg" id="2_un1fc"]
 [ext_resource type="AudioStream" uid="uid://bblx0ahmpgqnf" path="res://weapon/взмах ножом.wav" id="3_di6s6"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vpblr"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_a3dv4"]
 radius = 22.0
 
-[sub_resource type="Animation" id="Animation_jwcr1"]
+[sub_resource type="Animation" id="Animation_8fhi4"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -94,7 +94,7 @@ tracks/6/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_xlvqb"]
+[sub_resource type="Animation" id="Animation_rlveq"]
 resource_name = "still"
 length = 0.001
 tracks/0/type = "value"
@@ -158,7 +158,7 @@ tracks/4/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_c6dvt"]
+[sub_resource type="Animation" id="Animation_lbatp"]
 resource_name = "swing"
 length = 0.5
 tracks/0/type = "value"
@@ -248,37 +248,37 @@ tracks/6/keys = {
 }]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_f6ubi"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v7e8w"]
 _data = {
-"RESET": SubResource("Animation_jwcr1"),
-"still": SubResource("Animation_xlvqb"),
-"swing": SubResource("Animation_c6dvt")
+"RESET": SubResource("Animation_8fhi4"),
+"still": SubResource("Animation_rlveq"),
+"swing": SubResource("Animation_lbatp")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u6hgg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wd01"]
 atlas = ExtResource("2_un1fc")
 region = Rect2(0, 0, 945, 453)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uv1vs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_theq7"]
 atlas = ExtResource("2_un1fc")
 region = Rect2(0, 0, 945, 453)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b41up"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww8m4"]
 atlas = ExtResource("2_un1fc")
 region = Rect2(945, 0, 945, 453)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u7xn8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0hdn"]
 atlas = ExtResource("2_un1fc")
 region = Rect2(1890, 0, 945, 453)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_d18gb"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_w422q"]
 animations = [{
-"frames": [SubResource("AtlasTexture_u6hgg")],
+"frames": [SubResource("AtlasTexture_5wd01")],
 "loop": true,
 "name": &"still",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_uv1vs"), SubResource("AtlasTexture_b41up"), SubResource("AtlasTexture_u7xn8")],
+"frames": [SubResource("AtlasTexture_theq7"), SubResource("AtlasTexture_ww8m4"), SubResource("AtlasTexture_p0hdn")],
 "loop": true,
 "name": &"swing",
 "speed": 5.0
@@ -288,19 +288,19 @@ animations = [{
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(31, 23)
-shape = SubResource("CircleShape2D_vpblr")
+shape = SubResource("CircleShape2D_a3dv4")
 disabled = false
 
 [node name="SwingAnimation" parent="." index="1"]
 playback_speed = 1.2
 libraries = {
-"": SubResource("AnimationLibrary_f6ubi")
+"": SubResource("AnimationLibrary_v7e8w")
 }
 blend_times = [&"swing", &"still", 0.1]
 
 [node name="Knife" parent="." index="2"]
 position = Vector2(25, 48)
-frames = SubResource("SpriteFrames_d18gb")
+frames = SubResource("SpriteFrames_w422q")
 animation = &"still"
 
 [node name="SwingSound" parent="." index="3"]

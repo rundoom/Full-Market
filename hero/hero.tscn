@@ -1,11 +1,15 @@
-[gd_scene load_steps=59 format=3 uid="uid://cdw4uncpvcxf8"]
+[gd_scene load_steps=63 format=3 uid="uid://cdw4uncpvcxf8"]
 
 [ext_resource type="Script" path="res://hero/hero.gd" id="1_nn66o"]
 [ext_resource type="PackedScene" uid="uid://db3auxgtppuy2" path="res://weapon/pistol.tscn" id="2_7j5sd"]
 [ext_resource type="Shape2D" uid="uid://e0lfel375pb2" path="res://hero/hitbox_shape.tres" id="2_lepoo"]
+[ext_resource type="Texture2D" uid="uid://b74bbissy5j2r" path="res://hero/hp_under.svg" id="3_772wo"]
 [ext_resource type="Script" path="res://UI/UIContainer.gd" id="3_e8fp7"]
 [ext_resource type="PackedScene" uid="uid://bwtyc56axyn4g" path="res://weapon/knife.tscn" id="3_p6y38"]
+[ext_resource type="Texture2D" uid="uid://bm8u5b3q46c3d" path="res://hero/hp_inner.svg" id="4_4ym6p"]
+[ext_resource type="Texture2D" uid="uid://2p64vvbe3tqx" path="res://hero/hp_over.svg" id="4_c81vf"]
 [ext_resource type="Script" path="res://hero/Picker.gd" id="4_l1sxa"]
+[ext_resource type="Texture2D" uid="uid://tox1l7s4f6ef" path="res://valuables/Монета.svg" id="6_4ek8q"]
 [ext_resource type="Texture2D" uid="uid://uvxejgojwl0p" path="res://core/white_circle.svg" id="6_85mor"]
 [ext_resource type="Texture2D" uid="uid://ccggm68r0di66" path="res://hero/Девочка кул.svg" id="7_1tf17"]
 
@@ -16,7 +20,7 @@ radius = 1122.3
 radius = 52.0865
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tks1c"]
-radius = 63.0317
+radius = 120.037
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pxkub"]
 radius = 23.0
@@ -387,26 +391,28 @@ scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, -1000, 0)
 script = ExtResource("3_e8fp7")
 
-[node name="HP" type="ProgressBar" parent="UIContainer"]
-offset_left = 1255.0
-offset_top = 10.0
-offset_right = 1424.0
-offset_bottom = 37.0
+[node name="HP" type="TextureProgressBar" parent="UIContainer"]
+offset_left = 1185.5
+offset_top = 34.0
+offset_right = 1353.5
+offset_bottom = 67.0
+step = 0.0
+value = 14.0
+texture_under = ExtResource("3_772wo")
+texture_over = ExtResource("4_c81vf")
+texture_progress = ExtResource("4_4ym6p")
 
 [node name="MoneyCount" type="Label" parent="UIContainer"]
-offset_left = 1340.0
-offset_top = 56.0
-offset_right = 1380.0
-offset_bottom = 82.0
+offset_left = 1290.0
+offset_top = 93.5
+offset_right = 1330.0
+offset_bottom = 119.5
 text = "0"
 
-[node name="MoneyLabel" type="Label" parent="UIContainer/MoneyCount"]
-layout_mode = 0
-offset_left = -68.5
-offset_top = -0.5
-offset_right = -11.5
-offset_bottom = 25.5
-text = "Money:"
+[node name="Монета" type="Sprite2D" parent="UIContainer/MoneyCount"]
+position = Vector2(-27.5, 10)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_4ek8q")
 
 [node name="Paused" type="Label" parent="UIContainer"]
 visible = false
@@ -481,12 +487,10 @@ shape = SubResource("CircleShape2D_iay8a")
 position = Vector2(-4, -48)
 
 [node name="Magnet" type="Area2D" parent="Picker"]
-visible = false
 collision_layer = 0
 collision_mask = 4
 gravity_space_override = 3
 gravity_point = true
-gravity_point_distance_scale = 0.05
 gravity_point_center = Vector2(0, 0)
 gravity_direction = Vector2(0, 0)
 script = ExtResource("4_l1sxa")
@@ -508,6 +512,12 @@ shape = SubResource("CircleShape2D_pxkub")
 
 [node name="Rotator" type="Marker2D" parent="."]
 position = Vector2(1, -50)
+
+[node name="MeleeDetector" type="RayCast2D" parent="Rotator"]
+unique_name_in_owner = true
+target_position = Vector2(130, 0)
+collision_mask = 3
+collide_with_areas = true
 
 [node name="RangedSlot" type="Node2D" parent="Rotator"]
 unique_name_in_owner = true
@@ -539,13 +549,6 @@ unique_name_in_owner = true
 position = Vector2(-17, -25)
 
 [node name="Knife" parent="Rotator/MeleeSlot" instance=ExtResource("3_p6y38")]
-
-[node name="MeleeDetector" type="RayCast2D" parent="Rotator"]
-unique_name_in_owner = true
-position = Vector2(-5, 2)
-target_position = Vector2(100, 0)
-collision_mask = 3
-collide_with_areas = true
 
 [connection signal="pressed" from="UIContainer/Shopping/HealButton" to="." method="_on_heal_button_pressed"]
 [connection signal="pressed" from="UIContainer/Shopping/UpgradeWeapon" to="." method="upgrade_weapon"]

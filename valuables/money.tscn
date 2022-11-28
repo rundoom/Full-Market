@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccft33p8b7r7v"]
+[gd_scene load_steps=3 format=3 uid="uid://ccft33p8b7r7v"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tuffk"]
+[ext_resource type="Texture2D" uid="uid://tox1l7s4f6ef" path="res://valuables/Монета.svg" id="1_3tk7f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_edhm5"]
 
 [node name="Money" type="RigidBody2D"]
 collision_layer = 4
@@ -8,5 +10,10 @@ collision_mask = 0
 gravity_scale = 0.0
 linear_damp = 1.0
 
+[node name="Монета" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_3tk7f")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_tuffk")
+shape = SubResource("CircleShape2D_edhm5")

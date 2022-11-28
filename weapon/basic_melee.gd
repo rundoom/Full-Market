@@ -4,6 +4,10 @@ extends Area2D
 var enabled = false
 
 
+func _ready() -> void:
+	$SwingAnimation.play("still")
+
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("zombie") and "current_hp" in body:
 		body.current_hp -= 3

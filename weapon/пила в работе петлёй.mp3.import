@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5oaq7ropff16"
+path="res://.godot/imported/пила в работе петлёй.mp3-935f24d280ae5eddbaf5cfedd9d1017f.mp3str"
+
+[deps]
+
+source_file="res://weapon/пила в работе петлёй.mp3"
+dest_files=["res://.godot/imported/пила в работе петлёй.mp3-935f24d280ae5eddbaf5cfedd9d1017f.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

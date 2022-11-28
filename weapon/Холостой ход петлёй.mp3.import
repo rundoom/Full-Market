@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cit4oa33rw1v4"
+path="res://.godot/imported/Холостой ход петлёй.mp3-c57d75e7db1c25d83e3d3c4f6b3ff303.mp3str"
+
+[deps]
+
+source_file="res://weapon/Холостой ход петлёй.mp3"
+dest_files=["res://.godot/imported/Холостой ход петлёй.mp3-c57d75e7db1c25d83e3d3c4f6b3ff303.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djkuwunci3nbu"
+path="res://.godot/imported/начало работы пилы не петля.mp3-833f06873704a92140eeb212114cc258.mp3str"
+
+[deps]
+
+source_file="res://weapon/начало работы пилы не петля.mp3"
+dest_files=["res://.godot/imported/начало работы пилы не петля.mp3-833f06873704a92140eeb212114cc258.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

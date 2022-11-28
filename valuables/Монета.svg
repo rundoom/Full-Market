@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Vectornator (http://vectornator.io/) -->
+
+<svg
+   height="12.477863"
+   stroke-miterlimit="10"
+   style="clip-rule:evenodd;fill-rule:nonzero;stroke-linecap:round;stroke-linejoin:round"
+   version="1.1"
+   viewBox="0 0 9.854441 12.477864"
+   width="9.8544407"
+   xml:space="preserve"
+   id="svg17"
+   sodipodi:docname="Монета.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:vectornator="http://vectornator.io"><sodipodi:namedview
+   id="namedview19"
+   pagecolor="#ffffff"
+   bordercolor="#000000"
+   borderopacity="0.25"
+   inkscape:showpageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#d1d1d1"
+   showgrid="false"
+   inkscape:zoom="10.803729"
+   inkscape:cx="7.2660098"
+   inkscape:cy="15.041103"
+   inkscape:window-width="1920"
+   inkscape:window-height="991"
+   inkscape:window-x="-9"
+   inkscape:window-y="-9"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="svg17" />
+<defs
+   id="defs2" />
+<g
+   id="Layer-1"
+   vectornator:layerName="Layer 1"
+   transform="translate(-181.43148,-149.5445)">
+<path
+   d="m 181.729,154.608 c 0.642,-3.543 3.19,-5.336 5.463,-4.808 2.273,0.528 4.457,3.087 3.816,6.63 -0.642,3.544 -3.595,5.881 -5.868,5.353 -2.273,-0.528 -4.052,-3.631 -3.411,-7.175 z"
+   fill="#fab82f"
+   fill-rule="nonzero"
+   opacity="1"
+   stroke="#0a0809"
+   stroke-linecap="butt"
+   stroke-linejoin="round"
+   stroke-width="0.329274"
+   id="path4" />
+<path
+   d="m 184.132,160.735 0.313,-9.779 1.691,-0.093 -0.014,1.024 c 0,0 3.702,-1.412 3.797,2.081 0.104,3.815 -3.482,2.73 -3.482,2.73 l -0.076,3.966 z"
+   fill="#43274d"
+   fill-rule="nonzero"
+   opacity="1"
+   stroke="none"
+   id="path6" />
+<path
+   d="m 182.799,157.141 5.339,0.121 -0.011,1.627 -5.222,-0.045 z"
+   fill="#43274d"
+   fill-rule="nonzero"
+   opacity="1"
+   stroke="none"
+   id="path8" />
+<path
+   d="m 187.316,154.075 c 0,-0.397 0.209,-0.719 0.467,-0.719 0.258,0 0.466,0.322 0.466,0.719 0,0.397 -0.208,0.719 -0.466,0.719 -0.258,0 -0.467,-0.322 -0.467,-0.719 z"
+   fill="#fab82f"
+   fill-rule="nonzero"
+   opacity="1"
+   stroke="none"
+   id="path10" />
+<path
+   d="m 182.687,155.011 c -0.179,-0.196 -0.319,-1.376 0.259,-2.558 0.354,-0.723 1.35,-1.58 1.676,-1.822 0.44,-0.329 1.181,0.798 1.154,1.262 -0.011,0.192 -0.981,0.461 -1.558,1.097 -0.824,0.91 -1.361,2.207 -1.531,2.021 z"
+   fill="#f4ece2"
+   fill-opacity="0.747748"
+   fill-rule="nonzero"
+   opacity="1"
+   stroke="none"
+   id="path12" />
+<path
+   d="m 189.252,157.862 c 0.111,0.123 0.196,0.861 -0.167,1.595 -0.222,0.45 -0.844,0.979 -1.047,1.129 -0.275,0.203 -0.733,-0.504 -0.715,-0.793 0.007,-0.12 0.611,-0.283 0.972,-0.677 0.515,-0.564 0.852,-1.37 0.957,-1.254 z"
+   fill="#f4ece2"
+   fill-opacity="0.747748"
+   fill-rule="nonzero"
+   opacity="1"
+   stroke="none"
+   id="path14" />
+</g>
+</svg>

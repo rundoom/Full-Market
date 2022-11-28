@@ -1,13 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfee5yc0k06rw"]
+[gd_scene load_steps=14 format=3 uid="uid://dfee5yc0k06rw"]
 
 [ext_resource type="PackedScene" uid="uid://m0py817i1pv0" path="res://weapon/basic_melee.tscn" id="1_ionu8"]
 [ext_resource type="Texture2D" uid="uid://c5m8uxwvte0j6" path="res://weapon/chainsaw.svg" id="2_k5h2o"]
+[ext_resource type="AudioStream" uid="uid://cemwhfejohc50" path="res://weapon/chainsaw_full.mp3" id="3_2qg6p"]
+[ext_resource type="AudioStream" uid="uid://cit4oa33rw1v4" path="res://weapon/Холостой ход петлёй.mp3" id="3_rfyyc"]
+[ext_resource type="AudioStream" uid="uid://dpwyanpnk6l6a" path="res://weapon/пила останавливаеться.mp3" id="5_ap0e5"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xeln4"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r8urm"]
 radius = 13.0
 height = 90.0
 
-[sub_resource type="Animation" id="Animation_nb5t7"]
+[sub_resource type="Animation" id="Animation_54ii3"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -57,8 +60,44 @@ tracks/3/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Idling:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Stopping:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SwingSound:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
-[sub_resource type="Animation" id="Animation_i2goi"]
+[sub_resource type="Animation" id="Animation_3v656"]
 resource_name = "still"
 length = 0.001
 tracks/0/type = "value"
@@ -85,10 +124,33 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Idling:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SwingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
-[sub_resource type="Animation" id="Animation_bny46"]
+[sub_resource type="Animation" id="Animation_dxv41"]
 resource_name = "swing"
-length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -96,10 +158,10 @@ tracks/0/path = NodePath("CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, true, false, true, false, true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -120,30 +182,54 @@ tracks/2/path = NodePath("Knife:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SwingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Idling:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wtpg1"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5m3pv"]
 _data = {
-"RESET": SubResource("Animation_nb5t7"),
-"still": SubResource("Animation_i2goi"),
-"swing": SubResource("Animation_bny46")
+"RESET": SubResource("Animation_54ii3"),
+"still": SubResource("Animation_3v656"),
+"swing": SubResource("Animation_dxv41")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ysknb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc1et"]
 atlas = ExtResource("2_k5h2o")
 region = Rect2(0, 0, 945, 451)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wkcin"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5f5w"]
 atlas = ExtResource("2_k5h2o")
 region = Rect2(945, 0, 945, 451)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_o68g2"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_eu0sw"]
 animations = [{
-"frames": [SubResource("AtlasTexture_ysknb"), SubResource("AtlasTexture_wkcin")],
+"frames": [SubResource("AtlasTexture_bc1et"), SubResource("AtlasTexture_o5f5w")],
 "loop": true,
 "name": &"wryy",
 "speed": 5.0
@@ -154,14 +240,27 @@ animations = [{
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(32, 32)
 rotation = -1.57079
-shape = SubResource("CapsuleShape2D_xeln4")
+shape = SubResource("CapsuleShape2D_r8urm")
 
 [node name="SwingAnimation" parent="." index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_wtpg1")
+"": SubResource("AnimationLibrary_5m3pv")
 }
 
 [node name="Knife" parent="." index="2"]
 position = Vector2(23, 47)
-frames = SubResource("SpriteFrames_o68g2")
+frames = SubResource("SpriteFrames_eu0sw")
 animation = &"wryy"
+
+[node name="SwingSound" parent="." index="3"]
+stream = ExtResource("3_2qg6p")
+
+[node name="ImpactSound" parent="." index="4"]
+volume_db = 0.0
+
+[node name="Idling" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource("3_rfyyc")
+volume_db = 10.0
+
+[node name="Stopping" type="AudioStreamPlayer2D" parent="." index="6"]
+stream = ExtResource("5_ap0e5")
