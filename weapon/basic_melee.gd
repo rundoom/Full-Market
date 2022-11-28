@@ -27,7 +27,7 @@ func arm(is_arm: bool):
 
 
 func randomize_sound_pitch():
-	$SwingSound.pitch_scale = randf_range(0.8, 1.2)
+	$SwingSound.pitch_scale = randf_range(0.9, 1.1)
 
 
 func _on_area_entered(area: Area2D) -> void:
