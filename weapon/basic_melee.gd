@@ -34,3 +34,5 @@ func _on_area_entered(area: Area2D) -> void:
 	var body = area.get_parent()
 	if body.is_in_group("zombie") and "current_hp" in body:
 		body.current_hp -= 3
+		$ImpactSound.play()
+		

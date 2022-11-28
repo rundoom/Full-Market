@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://m0py817i1pv0"]
+[gd_scene load_steps=5 format=3 uid="uid://m0py817i1pv0"]
 
 [ext_resource type="Script" path="res://weapon/basic_melee.gd" id="1_2bg0i"]
+[ext_resource type="AudioStream" uid="uid://b60mctrp37skv" path="res://zombie/Попадание в плоть 1.wav" id="2_dmlao"]
+[ext_resource type="AudioStream" uid="uid://dndb1af5kjbei" path="res://zombie/Попадание в плоть 5.wav" id="3_3gc7l"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e56lt"]
+streams_count = 2
+playback_mode = 1
+random_volume_offset_db = 0.0
+stream_0/stream = ExtResource("2_dmlao")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_3gc7l")
+stream_1/weight = 1.0
 
 [node name="BasicMelee" type="Area2D"]
 collision_layer = 2
@@ -20,6 +31,10 @@ scale = Vector2(0.1, 0.1)
 offset = Vector2(124.742, -267.082)
 
 [node name="SwingSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="ImpactSound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_e56lt")
+volume_db = 20.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
