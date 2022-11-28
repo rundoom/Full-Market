@@ -1,7 +1,7 @@
 extends AnimatableBody2D
 
 
-var speed := 1000
+var speed := 2000
 @onready var spare := $SpareBullet as RigidBody2D
 var velocity := Vector2.ZERO
 

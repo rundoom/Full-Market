@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://core/spare.gd" id="1_t7qry"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q1fyj"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_5hnf4"]
 
 [node name="Spare" type="RigidBody2D"]
 collision_layer = 0
@@ -12,4 +12,4 @@ angular_damp = 5.0
 script = ExtResource("1_t7qry")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_q1fyj")
+shape = SubResource("CircleShape2D_5hnf4")
