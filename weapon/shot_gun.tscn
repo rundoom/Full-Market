@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b6awf5ctuqe17" path="res://weapon/weaponary.png" id="2_58ems"]
 [ext_resource type="AudioStream" uid="uid://xssyo2wrkyyt" path="res://weapon/Дробовик выстрел перезорядка.wav" id="2_udah5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_741jv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iv3q"]
 resource_local_to_scene = true
 atlas = ExtResource("2_58ems")
 region = Rect2(200, 142, 90, 24)
@@ -14,6 +14,9 @@ SPREAD = 0.3
 BULLET_COUNT = 12
 BULLET_SPEED_SPRED = 400
 MAG_SIZE = 6
+
+[node name="ShootCooldown" parent="." index="0"]
+wait_time = 0.8
 
 [node name="ReloadTime" parent="." index="1"]
 wait_time = 2.0
@@ -27,5 +30,5 @@ stream = ExtResource("2_udah5")
 [node name="Sprite2D" parent="." index="6"]
 position = Vector2(-2, -1)
 scale = Vector2(0.7, 0.7)
-texture = SubResource("AtlasTexture_741jv")
+texture = SubResource("AtlasTexture_2iv3q")
 offset = Vector2(45, 0)

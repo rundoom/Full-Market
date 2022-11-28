@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bo2ohd3untqmx"
+path="res://.godot/imported/Попадание в плоть с звуком пули 3.wav-0ce56bd4cc5abf534e8814d67cbbfb54.sample"
+
+[deps]
+
+source_file="res://zombie/Попадание в плоть с звуком пули 3.wav"
+dest_files=["res://.godot/imported/Попадание в плоть с звуком пули 3.wav-0ce56bd4cc5abf534e8814d67cbbfb54.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

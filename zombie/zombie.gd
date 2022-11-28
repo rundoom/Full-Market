@@ -6,6 +6,7 @@ var current_speed := 0.0
 var is_hero_visible := false
 var Money = preload("res://valuables/money.tscn")
 var Spare = preload("res://core/spare.tscn") as PackedScene
+@onready var bullet_sound = $BulletImpact as AudioStreamPlayer2D
 
 
 var current_hp := 6:
@@ -54,6 +55,7 @@ func _on_tree_exiting() -> void:
 
 func release_spare():
 	var level = get_tree().get_first_node_in_group("level")
+	
 	var sprites_holder = $CenterPos/SpriteHolder as Node2D
 	var parts = sprites_holder.get_children()
 	for part in parts:
@@ -71,3 +73,8 @@ func release_spare():
 func on_bullet_entered(bullet: Node2D) -> void:
 		if bullet.is_in_group("bullet"):
 			current_hp -= 1
+			if bullet_sound != null: bullet_sound.play()
+		if current_hp <= 0 and bullet_sound.get_parent() == self:
+			var level = get_tree().get_first_node_in_group("level")
+			remove_child(bullet_sound)
+			level.add_child(bullet_sound)

@@ -1,17 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://eon1kp7fae5u"]
+[gd_scene load_steps=13 format=3 uid="uid://eon1kp7fae5u"]
 
 [ext_resource type="Script" path="res://zombie/zombie.gd" id="1_2hyxj"]
 [ext_resource type="Texture2D" uid="uid://uvxejgojwl0p" path="res://core/white_circle.svg" id="2_ix2t1"]
 [ext_resource type="Texture2D" uid="uid://ev6ppe560wm1" path="res://zombie/zombie_dis.svg" id="3_d6s10"]
+[ext_resource type="AudioStream" uid="uid://dcc55aitw1cla" path="res://zombie/Попадание в плоть с звуком пули 1.wav" id="4_jeetc"]
+[ext_resource type="AudioStream" uid="uid://bo2ohd3untqmx" path="res://zombie/Попадание в плоть с звуком пули 3.wav" id="5_1yk3o"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c6nca"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o1yg4"]
 radius = 8.30326
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y3ean"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kbpna"]
 radius = 25.0
 height = 72.0
 
-[sub_resource type="Animation" id="Animation_34uei"]
+[sub_resource type="Animation" id="Animation_17pes"]
 resource_name = "Attack"
 length = 0.25
 loop_mode = 2
@@ -64,7 +66,7 @@ tracks/3/keys = {
 "values": [0.0, 0.637083]
 }
 
-[sub_resource type="Animation" id="Animation_y750y"]
+[sub_resource type="Animation" id="Animation_cwrkx"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -163,7 +165,7 @@ tracks/7/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_52558"]
+[sub_resource type="Animation" id="Animation_8nrcb"]
 resource_name = "Walk"
 length = 0.3
 loop_mode = 2
@@ -216,12 +218,21 @@ tracks/3/keys = {
 "values": [0.0, -0.222414]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ks21p"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aeak5"]
 _data = {
-"Attack": SubResource("Animation_34uei"),
-"RESET": SubResource("Animation_y750y"),
-"Walk": SubResource("Animation_52558")
+"Attack": SubResource("Animation_17pes"),
+"RESET": SubResource("Animation_cwrkx"),
+"Walk": SubResource("Animation_8nrcb")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0ub1m"]
+streams_count = 2
+playback_mode = 1
+random_volume_offset_db = 0.0
+stream_0/stream = ExtResource("4_jeetc")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_1yk3o")
+stream_1/weight = 1.0
 
 [node name="Zombie" type="CharacterBody2D" groups=["zombie"]]
 scale = Vector2(1.7, 1.7)
@@ -233,7 +244,7 @@ script = ExtResource("1_2hyxj")
 visible = false
 position = Vector2(5.96046e-08, 2.94118)
 rotation = -1.57219
-shape = SubResource("CapsuleShape2D_c6nca")
+shape = SubResource("CapsuleShape2D_o1yg4")
 debug_color = Color(0, 1, 0.180392, 0.419608)
 
 [node name="CenterPos" type="Marker2D" parent="."]
@@ -311,11 +322,15 @@ collision_mask = 2
 
 [node name="DmgSponge" type="CollisionShape2D" parent="DmgSponge"]
 position = Vector2(-1.17647, -19.4118)
-shape = SubResource("CapsuleShape2D_y3ean")
+shape = SubResource("CapsuleShape2D_kbpna")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ks21p")
+"": SubResource("AnimationLibrary_aeak5")
 }
+
+[node name="BulletImpact" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_0ub1m")
+volume_db = 15.0
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
