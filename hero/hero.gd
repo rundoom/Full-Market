@@ -62,7 +62,7 @@ func _physics_process(delta: float) -> void:
 	velocity = Vector2(direction_x, direction_y).normalized() * SPEED
 	
 	var mouse_pos := get_global_mouse_position()
-	%MeleeDetector.global_rotation = global_position.direction_to(mouse_pos).angle()
+	%MeleeDetector.global_rotation = %MeleeDetector.global_position.direction_to(mouse_pos).angle()
 	
 	switch_weapon()
 

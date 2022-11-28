@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cdw4uncpvcxf8"]
+[gd_scene load_steps=64 format=3 uid="uid://cdw4uncpvcxf8"]
 
 [ext_resource type="Script" path="res://hero/hero.gd" id="1_nn66o"]
 [ext_resource type="PackedScene" uid="uid://db3auxgtppuy2" path="res://weapon/pistol.tscn" id="2_7j5sd"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://tox1l7s4f6ef" path="res://valuables/Монета.svg" id="6_4ek8q"]
 [ext_resource type="Texture2D" uid="uid://uvxejgojwl0p" path="res://core/white_circle.svg" id="6_85mor"]
 [ext_resource type="Texture2D" uid="uid://ccggm68r0di66" path="res://hero/Девочка кул.svg" id="7_1tf17"]
+[ext_resource type="PackedScene" uid="uid://b72ucxav8ecse" path="res://hero/melee_detector.tscn" id="9_etps2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d1ket"]
 radius = 1122.3
@@ -513,11 +514,8 @@ shape = SubResource("CircleShape2D_pxkub")
 [node name="Rotator" type="Marker2D" parent="."]
 position = Vector2(1, -50)
 
-[node name="MeleeDetector" type="RayCast2D" parent="Rotator"]
-unique_name_in_owner = true
-target_position = Vector2(130, 0)
-collision_mask = 3
-collide_with_areas = true
+[node name="MeleeDetector" parent="Rotator" instance=ExtResource("9_etps2")]
+position = Vector2(-5, 2)
 
 [node name="RangedSlot" type="Node2D" parent="Rotator"]
 unique_name_in_owner = true
