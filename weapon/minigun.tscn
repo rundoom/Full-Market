@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://olu8bl1joys5"]
+[gd_scene load_steps=8 format=3 uid="uid://olu8bl1joys5"]
 
 [ext_resource type="PackedScene" uid="uid://btwufhjl24n5j" path="res://weapon/basic_ranged.tscn" id="1_g76i0"]
 [ext_resource type="Texture2D" uid="uid://ba3qmrtxcmqjx" path="res://weapon/minigun.svg" id="2_4m1vb"]
-[ext_resource type="PackedScene" uid="uid://bx7dmedlvdw6s" path="res://weapon/bullet_heart.tscn" id="2_oho2u"]
+[ext_resource type="Script" path="res://weapon/minigun.gd" id="2_lxqou"]
+[ext_resource type="AudioStream" uid="uid://bgxf4j83nqkms" path="res://weapon/Начало выстрела.mp3" id="3_5fdri"]
+[ext_resource type="Script" path="res://weapon/NonRepeatableAudio.gd" id="4_mwh18"]
+[ext_resource type="AudioStream" uid="uid://du60tq8dqp8s" path="res://weapon/Раскрутка.mp3" id="6_4yyqd"]
+[ext_resource type="AudioStream" uid="uid://dv6trij54d7cl" path="res://weapon/окончание раскрутки.mp3" id="7_6iuej"]
 
 [node name="Minigun" instance=ExtResource("1_g76i0")]
-Bullet = ExtResource("2_oho2u")
+script = ExtResource("2_lxqou")
 SPREAD = 0.3
 BULLET_COUNT = 2
 BULLET_SPEED_SPRED = 100
@@ -21,7 +25,22 @@ wait_time = 8.0
 [node name="BulletOuput" parent="." index="2"]
 position = Vector2(76, -6)
 
+[node name="ShootSound" parent="." index="3"]
+stream = ExtResource("3_5fdri")
+volume_db = 10.0
+script = ExtResource("4_mwh18")
+
 [node name="Sprite2D" parent="." index="6"]
 position = Vector2(37, -3)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_4m1vb")
+
+[node name="StartTime" type="Timer" parent="." index="7"]
+
+[node name="StartSound" type="AudioStreamPlayer2D" parent="." index="8"]
+stream = ExtResource("6_4yyqd")
+script = ExtResource("4_mwh18")
+
+[node name="EndSound" type="AudioStreamPlayer2D" parent="." index="9"]
+stream = ExtResource("7_6iuej")
+script = ExtResource("4_mwh18")

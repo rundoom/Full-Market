@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://o5oa5ehg4r52"
+uid="uid://du60tq8dqp8s"
 path="res://.godot/imported/Раскрутка.mp3-b04883333a54cdefe14b65e1de772e33.mp3str"
 
 [deps]
@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/Раскрутка.mp3-b04883333a54cdefe14b65
 
 [params]
 
-loop=true
-loop_offset=0
-bpm=0
+loop=false
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
