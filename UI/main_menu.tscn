@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dm57yqy8i24w3"]
+[gd_scene load_steps=9 format=3 uid="uid://dm57yqy8i24w3"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_viy3x"]
 [ext_resource type="Texture2D" uid="uid://ckbei154kbple" path="res://UI/UIBackground.svg" id="2_470qc"]
@@ -139,10 +139,6 @@ _data = {
 "ShakeButtons": SubResource("Animation_cmhxi")
 }
 
-[sub_resource type="Environment" id="Environment_0li8x"]
-background_mode = 3
-glow_enabled = true
-
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_viy3x")
 
@@ -161,7 +157,7 @@ texture_normal = ExtResource("3_2kjrv")
 offset_left = 110.0
 offset_top = 477.0
 offset_right = 754.0
-offset_bottom = 785.002
+offset_bottom = 785.001
 texture_normal = ExtResource("4_x4556")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -169,9 +165,6 @@ autoplay = "ShakeButtons"
 libraries = {
 "": SubResource("AnimationLibrary_u6hsp")
 }
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_0li8x")
 
 [node name="Window" type="Sprite2D" parent="."]
 position = Vector2(885, 653)
