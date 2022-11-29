@@ -1,9 +1,147 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm57yqy8i24w3"]
+[gd_scene load_steps=10 format=3 uid="uid://dm57yqy8i24w3"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_viy3x"]
 [ext_resource type="Texture2D" uid="uid://ckbei154kbple" path="res://UI/UIBackground.svg" id="2_470qc"]
 [ext_resource type="Texture2D" uid="uid://c5646cnnxws2s" path="res://UI/PlayButton.svg" id="3_2kjrv"]
 [ext_resource type="Texture2D" uid="uid://brjjk2dmhsobs" path="res://UI/ExitButton.svg" id="4_x4556"]
+[ext_resource type="Texture2D" uid="uid://xgmjm5b5mnr2" path="res://UI/window.svg" id="5_8ynau"]
+
+[sub_resource type="Animation" id="Animation_cmhxi"]
+resource_name = "ShakeButtons"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Play:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(155, 133), Vector2(179, 147), Vector2(141, 130), Vector2(148, 149), Vector2(177, 137), Vector2(165, 120)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Play:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Exit:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(110, 477), Vector2(110, 496), Vector2(112, 472), Vector2(92, 469), Vector2(127, 468), Vector2(139, 460)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Exit:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Window:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(2, 2, 2, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_iq0cd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Play:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(155, 133)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Play:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Exit:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(110, 477)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Exit:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Window:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u6hsp"]
+_data = {
+"RESET": SubResource("Animation_iq0cd"),
+"ShakeButtons": SubResource("Animation_cmhxi")
+}
+
+[sub_resource type="Environment" id="Environment_0li8x"]
+background_mode = 3
+glow_enabled = true
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_viy3x")
@@ -23,8 +161,21 @@ texture_normal = ExtResource("3_2kjrv")
 offset_left = 110.0
 offset_top = 477.0
 offset_right = 754.0
-offset_bottom = 785.0
+offset_bottom = 785.002
 texture_normal = ExtResource("4_x4556")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "ShakeButtons"
+libraries = {
+"": SubResource("AnimationLibrary_u6hsp")
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0li8x")
+
+[node name="Window" type="Sprite2D" parent="."]
+position = Vector2(885, 653)
+texture = ExtResource("5_8ynau")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
