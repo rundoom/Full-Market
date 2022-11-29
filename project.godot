@@ -13,9 +13,15 @@ _global_script_classes=[{
 "class": &"BasicRanged",
 "language": &"GDScript",
 "path": "res://weapon/basic_ranged.gd"
+}, {
+"base": "AudioStreamPlayer2D",
+"class": &"NonRepeatableAudio",
+"language": &"GDScript",
+"path": "res://weapon/NonRepeatableAudio.gd"
 }]
 _global_script_class_icons={
-"BasicRanged": ""
+"BasicRanged": "",
+"NonRepeatableAudio": ""
 }
 
 [application]

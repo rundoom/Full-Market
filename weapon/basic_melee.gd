@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 		global_rotation = global_position.direction_to(mouse_pos).angle()
 		scale.y = 1 if cos(rotation) > 0 else -1
 
-		if Input.is_action_pressed("mouse_left") and !$SwingAnimation.is_playing():
+		if Input.is_action_pressed("mouse_left"):
 			$SwingAnimation.play("swing")
 
 

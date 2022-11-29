@@ -442,20 +442,17 @@ offset_right = 1026.5
 offset_bottom = 248.5
 
 [node name="HealButton" type="Button" parent="UIContainer/Shopping"]
-layout_mode = 2
 offset_right = 181.0
 offset_bottom = 31.0
 text = "Heal 20$"
 
 [node name="UpgradeWeapon" type="Button" parent="UIContainer/Shopping"]
-layout_mode = 2
 offset_top = 35.0
 offset_right = 181.0
 offset_bottom = 66.0
 text = "Buy AssaultRifle for 100$"
 
 [node name="UpgradeMeleeWeapon" type="Button" parent="UIContainer/Shopping"]
-layout_mode = 2
 offset_top = 35.0
 offset_right = 181.0
 offset_bottom = 66.0

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://tox1l7s4f6ef" path="res://valuables/Монета.svg" id="1_3tk7f"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_edhm5"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_i743f"]
 
 [node name="Money" type="RigidBody2D"]
 collision_layer = 4
@@ -16,4 +16,4 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_3tk7f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_edhm5")
+shape = SubResource("CircleShape2D_i743f")
