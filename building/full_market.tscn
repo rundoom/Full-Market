@@ -30,12 +30,12 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="ShoppingArea"]
 position = Vector2(16, 482)
-polygon = PackedVector2Array(-721.087, -445.195, -516, -529, -14, -328, 202, -419, 291, -405, 293, -316, -15, -164)
+polygon = PackedVector2Array(-715.025, -467.398, -493.509, -569.943, -14, -328, 202, -419, 291, -405, 338.968, -328.32, -93.5469, -22.9731)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-12.7448, 49.0433)
 rotation = -0.0850892
-polygon = PackedVector2Array(-497.087, -50.195, 3, 160, 65.0826, 139.994, 100.913, 161.805, 166.397, 140.607, 170.368, 105.818, 260.028, 78.339, 313.668, 167.219, 551, 48, 427.913, -29.195, 2.9129, -271.195)
+polygon = PackedVector2Array(-475.346, -89.7661, 34.8747, 129.389, 170.368, 105.818, 265.651, 47.7061, 355.053, 152.684, 593.115, -2.64603, 427.913, -29.195, 2.9129, -271.195)
 
 [node name="TransparencyDetector2" parent="." instance=ExtResource("3_cw8u7")]
 position = Vector2(-13.8319, 1.84833)
