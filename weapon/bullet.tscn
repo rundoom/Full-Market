@@ -6,21 +6,21 @@
 [ext_resource type="Texture2D" uid="uid://c1dnfcx7f7xe1" path="res://weapon/sparcle_red.png" id="4_tthe3"]
 [ext_resource type="Script" path="res://weapon/SpareBullet.gd" id="5_4pisc"]
 
-[sub_resource type="Curve" id="Curve_rh07m"]
+[sub_resource type="Curve" id="Curve_o6hgq"]
 _data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Gradient" id="Gradient_3y7rq"]
+[sub_resource type="Gradient" id="Gradient_221tk"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="Curve" id="Curve_jbvm2"]
+[sub_resource type="Curve" id="Curve_713sg"]
 _data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Gradient" id="Gradient_tmk85"]
+[sub_resource type="Gradient" id="Gradient_eduwf"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yg0se"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_muibp"]
 radius = 2.0
 height = 8.0
 
@@ -53,8 +53,8 @@ initial_velocity_min = 100.0
 initial_velocity_max = 150.0
 scale_amount_min = 0.2
 scale_amount_max = 0.3
-scale_amount_curve = SubResource("Curve_rh07m")
-color_ramp = SubResource("Gradient_3y7rq")
+scale_amount_curve = SubResource("Curve_o6hgq")
+color_ramp = SubResource("Gradient_221tk")
 
 [node name="BigSparcle" type="CPUParticles2D" parent="."]
 modulate = Color(2, 2, 2, 1)
@@ -71,8 +71,8 @@ initial_velocity_min = 100.0
 initial_velocity_max = 150.0
 scale_amount_min = 0.2
 scale_amount_max = 0.3
-scale_amount_curve = SubResource("Curve_rh07m")
-color_ramp = SubResource("Gradient_3y7rq")
+scale_amount_curve = SubResource("Curve_o6hgq")
+color_ramp = SubResource("Gradient_221tk")
 
 [node name="SpareBullet" type="RigidBody2D" parent="."]
 collision_layer = 0
@@ -106,8 +106,8 @@ angular_velocity_min = 50.0
 angular_velocity_max = 50.0
 scale_amount_min = 0.2
 scale_amount_max = 0.3
-scale_amount_curve = SubResource("Curve_jbvm2")
-color_ramp = SubResource("Gradient_tmk85")
+scale_amount_curve = SubResource("Curve_713sg")
+color_ramp = SubResource("Gradient_eduwf")
 
 [node name="DamgeDealer" type="Area2D" parent="." groups=["bullet"]]
 collision_layer = 0
@@ -115,7 +115,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamgeDealer"]
 rotation = 1.57079
-shape = SubResource("CapsuleShape2D_yg0se")
+shape = SubResource("CapsuleShape2D_muibp")
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
