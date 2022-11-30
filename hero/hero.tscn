@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://cdw4uncpvcxf8"]
+[gd_scene load_steps=68 format=3 uid="uid://cdw4uncpvcxf8"]
 
 [ext_resource type="Script" path="res://hero/hero.gd" id="1_nn66o"]
 [ext_resource type="PackedScene" uid="uid://db3auxgtppuy2" path="res://weapon/pistol.tscn" id="2_7j5sd"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://uvxejgojwl0p" path="res://core/white_circle.svg" id="6_85mor"]
 [ext_resource type="Texture2D" uid="uid://ccggm68r0di66" path="res://hero/Девочка кул.svg" id="7_1tf17"]
 [ext_resource type="PackedScene" uid="uid://b72ucxav8ecse" path="res://hero/melee_detector.tscn" id="9_etps2"]
+[ext_resource type="AudioStream" uid="uid://p1b6gtua2peu" path="res://hero/шаги петля.mp3" id="14_v0hsp"]
+[ext_resource type="Script" path="res://weapon/NonRepeatableAudio.gd" id="15_x8ull"]
+[ext_resource type="AudioStream" uid="uid://uhghyno8ba3k" path="res://hero/Звук покупки.mp3" id="16_41vh1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d1ket"]
 radius = 1122.3
@@ -278,6 +281,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(-17, -25)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Steps:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_c4gs6"]
 resource_name = "run"
@@ -331,6 +346,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [Vector2(-16, -28), Vector2(-15, -28), Vector2(-12, -29), Vector2(-14, -29), Vector2(-14, -27), Vector2(-13, -30), Vector2(-11, -36), Vector2(-11, -35), Vector2(-16, -35)]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Steps")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_if_not_yet"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_sbe5y"]
 resource_name = "stand"
@@ -371,6 +400,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(-16, -28)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Steps:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lahav"]
 _data = {
@@ -378,6 +419,11 @@ _data = {
 "run": SubResource("Animation_c4gs6"),
 "stand": SubResource("Animation_sbe5y")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w7fgg"]
+streams_count = 1
+stream_0/stream = ExtResource("16_41vh1")
+stream_0/weight = 1.0
 
 [node name="Hero" type="CharacterBody2D" groups=["zombie_attractor"]]
 collision_layer = 25
@@ -544,6 +590,16 @@ unique_name_in_owner = true
 position = Vector2(-17, -25)
 
 [node name="Knife" parent="Rotator/MeleeSlot" instance=ExtResource("3_p6y38")]
+
+[node name="Steps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_v0hsp")
+volume_db = 5.0
+pitch_scale = 1.5
+script = ExtResource("15_x8ull")
+
+[node name="ShoppingSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_w7fgg")
+volume_db = 10.0
 
 [connection signal="pressed" from="UIContainer/Shopping/HealButton" to="." method="_on_heal_button_pressed"]
 [connection signal="pressed" from="UIContainer/Shopping/UpgradeWeapon" to="." method="upgrade_weapon"]

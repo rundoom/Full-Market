@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjkvnsa14qs2h"
+path="res://.godot/imported/дорожка 2.mp3-76889e5b5049ccb060439829d3970a22.mp3str"
+
+[deps]
+
+source_file="res://zombie/дорожка 2.mp3"
+dest_files=["res://.godot/imported/дорожка 2.mp3-76889e5b5049ccb060439829d3970a22.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

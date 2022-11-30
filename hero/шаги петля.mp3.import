@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://p1b6gtua2peu"
+path="res://.godot/imported/шаги петля.mp3-ea68a96c0b84c4cac71818f11098c245.mp3str"
+
+[deps]
+
+source_file="res://hero/шаги петля.mp3"
+dest_files=["res://.godot/imported/шаги петля.mp3-ea68a96c0b84c4cac71818f11098c245.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

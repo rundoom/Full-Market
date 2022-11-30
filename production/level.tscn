@@ -7,14 +7,14 @@
 [ext_resource type="AudioStream" uid="uid://sumf4pwok15g" path="res://для игры 3.wav" id="4_tdcku"]
 [ext_resource type="PackedScene" uid="uid://eon1kp7fae5u" path="res://zombie/zombie.tscn" id="6_uq2ao"]
 
-[sub_resource type="Curve2D" id="Curve2D_734en"]
+[sub_resource type="Curve2D" id="Curve2D_om2e7"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1019.08, -331, 0, 0, 0, 0, 1015.25, -301, 0, 0, 0, 0, 1045.92, 829, 0, 0, 0, 0, -1055.89, 813, 0, 0, 0, 0, -1019.08, -331)
 }
 point_count = 5
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4obom"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_twq4x"]
 distance = 121.753
 
 [node name="Level" groups=["level"] instance=ExtResource("1_1ctfv")]
@@ -29,7 +29,7 @@ position = Vector2(5135, 4051)
 [node name="ZombieSpawner" parent="Hero" index="8" instance=ExtResource("3_56408")]
 position = Vector2(-15.1244, -312)
 scale = Vector2(0.978208, 1)
-curve = SubResource("Curve2D_734en")
+curve = SubResource("Curve2D_om2e7")
 
 [node name="FullMarket" parent="." index="1" instance=ExtResource("3_a4b04")]
 position = Vector2(1022, -597)
@@ -48,19 +48,19 @@ position = Vector2(427, -20)
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(-1642, 7.99995)
 rotation = -3.7468
-shape = SubResource("WorldBoundaryShape2D_4obom")
+shape = SubResource("WorldBoundaryShape2D_twq4x")
 
 [node name="CollisionPolygon2D2" type="CollisionShape2D" parent="StaticBody2D" index="1"]
 position = Vector2(2637, -1083)
 rotation = -2.53603
-shape = SubResource("WorldBoundaryShape2D_4obom")
+shape = SubResource("WorldBoundaryShape2D_twq4x")
 
 [node name="CollisionPolygon2D3" type="CollisionShape2D" parent="StaticBody2D" index="2"]
 position = Vector2(7901, 4284)
 rotation = -0.61849
-shape = SubResource("WorldBoundaryShape2D_4obom")
+shape = SubResource("WorldBoundaryShape2D_twq4x")
 
 [node name="CollisionPolygon2D4" type="CollisionShape2D" parent="StaticBody2D" index="3"]
 position = Vector2(1355, 5328)
 rotation = 0.595584
-shape = SubResource("WorldBoundaryShape2D_4obom")
+shape = SubResource("WorldBoundaryShape2D_twq4x")

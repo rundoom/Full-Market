@@ -101,6 +101,7 @@ func upgrade_weapon():
 	var current_entity = weapon_upgrades[old_ranged.name]
 	var next_entity = weapon_upgrades[current_entity["next"]]
 	if money >= next_entity["cost"]:
+		$ShoppingSound.play()
 		money -= next_entity["cost"]
 		current_ranged = next_entity["scene"].instantiate()
 		old_ranged.queue_free()
@@ -118,6 +119,7 @@ func upgrade_melee_weapon():
 	var current_entity = weapon_melee_upgrades[old_melee.name]
 	var next_entity = weapon_melee_upgrades[current_entity["next"]]
 	if money >= next_entity["cost"]:
+		$ShoppingSound.play()
 		money -= next_entity["cost"]
 		current_melee = next_entity["scene"].instantiate()
 		old_melee.queue_free()
@@ -149,6 +151,7 @@ func _on_collector_body_entered(body: Node2D) -> void:
 
 func _on_heal_button_pressed() -> void:
 	if money >= 20 and current_hp < MAX_HP:
+		$ShoppingSound.play()
 		current_hp = MAX_HP
 		money -= 20
 	
