@@ -18,16 +18,22 @@ _global_script_classes=[{
 "class": &"NonRepeatableAudio",
 "language": &"GDScript",
 "path": "res://weapon/NonRepeatableAudio.gd"
+}, {
+"base": "RigidBody2D",
+"class": &"Spare",
+"language": &"GDScript",
+"path": "res://core/spare.gd"
 }]
 _global_script_class_icons={
 "BasicRanged": "",
-"NonRepeatableAudio": ""
+"NonRepeatableAudio": "",
+"Spare": ""
 }
 
 [application]
 
 config/name="Full Market"
-run/main_scene="res://UI/main_menu.tscn"
+run/main_scene="res://test/levelTest.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 run/max_fps=60
 

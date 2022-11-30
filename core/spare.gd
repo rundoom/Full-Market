@@ -1,7 +1,8 @@
 extends RigidBody2D
+class_name Spare
 
 
-var spare_sprite: Sprite2D
+@export var spare_sprite: Sprite2D
 
 
 func _ready() -> void:

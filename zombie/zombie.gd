@@ -6,6 +6,7 @@ var current_speed := 0.0
 var is_hero_visible := false
 var Money = preload("res://valuables/money.tscn")
 var Spare = preload("res://core/spare.tscn") as PackedScene
+var BloodDrop = preload("res://effects/blood_drops.tscn")
 @onready var bullet_sound = $BulletImpact as AudioStreamPlayer2D
 
 
@@ -15,6 +16,10 @@ var current_hp := 6:
 		var tween := create_tween()
 		tween.tween_property(self, "modulate", Color.RED, 0.1)
 		tween.tween_property(self, "modulate", Color.WHITE, 0.1)
+		var blood_drop = BloodDrop.instantiate()
+		var level = get_tree().get_first_node_in_group("level")
+		level.add_child.call_deferred(blood_drop)
+		blood_drop.global_position = global_position
 		if value <= 0:
 			release_spare()
 			queue_free()
