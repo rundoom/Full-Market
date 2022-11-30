@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://sumf4pwok15g" path="res://для игры 3.wav" id="4_tdcku"]
 [ext_resource type="PackedScene" uid="uid://eon1kp7fae5u" path="res://zombie/zombie.tscn" id="6_uq2ao"]
 
-[sub_resource type="Curve2D" id="Curve2D_om2e7"]
+[sub_resource type="Curve2D" id="Curve2D_wtsgc"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1019.08, -331, 0, 0, 0, 0, 1015.25, -301, 0, 0, 0, 0, 1045.92, 829, 0, 0, 0, 0, -1055.89, 813, 0, 0, 0, 0, -1019.08, -331)
@@ -29,7 +29,7 @@ position = Vector2(5135, 4051)
 [node name="ZombieSpawner" parent="Hero" index="8" instance=ExtResource("3_56408")]
 position = Vector2(-15.1244, -312)
 scale = Vector2(0.978208, 1)
-curve = SubResource("Curve2D_om2e7")
+curve = SubResource("Curve2D_wtsgc")
 
 [node name="FullMarket" parent="." index="1" instance=ExtResource("3_a4b04")]
 position = Vector2(1022, -597)
