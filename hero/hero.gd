@@ -7,7 +7,7 @@ enum AttackType {MELEE, RANGED}
 var current_attack_type := AttackType.RANGED
 
 @onready var animation := %AnimationPlayer as AnimationPlayer
-var money := 5000:
+@export var money := 0:
 	set(value):
 		money = value
 		$UIContainer/MoneyCount.text = str(value)

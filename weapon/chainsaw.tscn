@@ -7,11 +7,11 @@
 [ext_resource type="Script" path="res://weapon/NonRepeatableAudio.gd" id="4_t8w2l"]
 [ext_resource type="AudioStream" uid="uid://dpwyanpnk6l6a" path="res://weapon/пила останавливаеться.mp3" id="5_ap0e5"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vwtru"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7oe3s"]
 radius = 13.0
 height = 90.0
 
-[sub_resource type="Animation" id="Animation_ke74q"]
+[sub_resource type="Animation" id="Animation_bevcd"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -98,7 +98,7 @@ tracks/6/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_2x8bi"]
+[sub_resource type="Animation" id="Animation_nlt23"]
 resource_name = "still"
 length = 0.2
 tracks/0/type = "value"
@@ -152,7 +152,7 @@ tracks/3/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_tv4xj"]
+[sub_resource type="Animation" id="Animation_w5lkb"]
 resource_name = "swing"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -217,24 +217,24 @@ tracks/4/keys = {
 }]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ks3ou"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3xxvi"]
 _data = {
-"RESET": SubResource("Animation_ke74q"),
-"still": SubResource("Animation_2x8bi"),
-"swing": SubResource("Animation_tv4xj")
+"RESET": SubResource("Animation_bevcd"),
+"still": SubResource("Animation_nlt23"),
+"swing": SubResource("Animation_w5lkb")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ywws6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c84sp"]
 atlas = ExtResource("2_k5h2o")
 region = Rect2(0, 0, 945, 451)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q4eay"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwpv0"]
 atlas = ExtResource("2_k5h2o")
 region = Rect2(945, 0, 945, 451)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_3kd2e"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_1h3q7"]
 animations = [{
-"frames": [SubResource("AtlasTexture_ywws6"), SubResource("AtlasTexture_q4eay")],
+"frames": [SubResource("AtlasTexture_c84sp"), SubResource("AtlasTexture_vwpv0")],
 "loop": true,
 "name": &"wryy",
 "speed": 5.0
@@ -245,16 +245,16 @@ animations = [{
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(32, 32)
 rotation = -1.57079
-shape = SubResource("CapsuleShape2D_vwtru")
+shape = SubResource("CapsuleShape2D_7oe3s")
 
 [node name="SwingAnimation" parent="." index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_ks3ou")
+"": SubResource("AnimationLibrary_3xxvi")
 }
 
 [node name="Knife" parent="." index="2"]
 position = Vector2(23, 47)
-frames = SubResource("SpriteFrames_3kd2e")
+frames = SubResource("SpriteFrames_1h3q7")
 animation = &"wryy"
 
 [node name="SwingSound" parent="." index="3"]
