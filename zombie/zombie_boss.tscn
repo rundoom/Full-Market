@@ -1,8 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://buq042p3j5bhm"]
+[gd_scene load_steps=5 format=3 uid="uid://buq042p3j5bhm"]
 
 [ext_resource type="PackedScene" uid="uid://eon1kp7fae5u" path="res://zombie/zombie.tscn" id="1_j2kkt"]
 [ext_resource type="Script" path="res://ZombieBoss.gd" id="2_b5i42"]
+[ext_resource type="Script" path="res://zombie/WinScreen.gd" id="3_iowvb"]
+
+[sub_resource type="Curve2D" id="Curve2D_hjpfq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -0.333333, -64.6667, 0, 0, 0, 0, 40.3333, -47.6667, 0, 0, 0, 0, 38.3333, 4.66667, 0, 0, 0, 0, 6.66667, 27, 0, 0, 0, 0, -36.6667, 17, 0, 0, 0, 0, -28.6667, -62.6667, 0, 0, 0, 0, -0.333333, -64.6667)
+}
+point_count = 7
 
 [node name="ZombieBoss" instance=ExtResource("1_j2kkt")]
 scale = Vector2(3, 3)
 script = ExtResource("2_b5i42")
+
+[node name="Timer" type="Timer" parent="." index="6"]
+wait_time = 0.3
+autostart = true
+
+[node name="ZombieSpawner" type="Path2D" parent="." index="7"]
+curve = SubResource("Curve2D_hjpfq")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ZombieSpawner" index="0"]
+position = Vector2(-0.333333, -64.6667)
+rotation = 0.395955
+
+[node name="WinScreen" type="CanvasLayer" parent="." index="8"]
+process_mode = 3
+visible = false
+script = ExtResource("3_iowvb")
+
+[node name="Label" type="Label" parent="WinScreen" index="0"]
+offset_left = -176.0
+offset_top = 170.0
+offset_right = 82.0
+offset_bottom = 248.0
+scale = Vector2(9, 9)
+text = "Wow! You have killed
+A primal zombie
+Now your market is saved!"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

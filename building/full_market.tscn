@@ -56,6 +56,9 @@ z_index = -1
 z_as_relative = false
 texture = ExtResource("4_i41rr")
 
+[node name="BossSpawn" type="Marker2D" parent="." groups=["boss_spawn"]]
+position = Vector2(-130, 339)
+
 [connection signal="body_entered" from="ShoppingArea" to="." method="_on_shopping_area_body_entered"]
 [connection signal="body_exited" from="ShoppingArea" to="." method="_on_shopping_area_body_exited"]
 

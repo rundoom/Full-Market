@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmoh5rbvdwvgf"]
+[gd_scene load_steps=10 format=3 uid="uid://dmoh5rbvdwvgf"]
 
 [ext_resource type="PackedScene" uid="uid://n0ch5plenljm" path="res://building/floor/floor.tscn" id="1_fnkoq"]
 [ext_resource type="PackedScene" uid="uid://cdw4uncpvcxf8" path="res://hero/hero.tscn" id="2_4l6qb"]
@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://c51bwamfyghcx" path="res://building/full_market.tscn" id="4_lp4gs"]
 [ext_resource type="AudioStream" uid="uid://cgt87jvp6i676" path="res://для игры 3.mp3" id="5_2emlu"]
 [ext_resource type="PackedScene" uid="uid://eon1kp7fae5u" path="res://zombie/zombie.tscn" id="6_0664d"]
+[ext_resource type="PackedScene" uid="uid://buq042p3j5bhm" path="res://zombie/zombie_boss.tscn" id="7_arsnk"]
 
-[sub_resource type="Curve2D" id="Curve2D_mmd01"]
+[sub_resource type="Curve2D" id="Curve2D_7xys1"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1019.08, -331, 0, 0, 0, 0, 1015.25, -301, 0, 0, 0, 0, 1045.92, 829, 0, 0, 0, 0, -1055.89, 813, 0, 0, 0, 0, -1019.08, -331)
@@ -30,7 +31,7 @@ money = 10000
 [node name="ZombieSpawner" parent="Hero" index="8" instance=ExtResource("3_dwyjk")]
 position = Vector2(-15.1244, -312)
 scale = Vector2(0.978208, 1)
-curve = SubResource("Curve2D_mmd01")
+curve = SubResource("Curve2D_7xys1")
 
 [node name="FullMarket" parent="." index="1" instance=ExtResource("4_lp4gs")]
 position = Vector2(1022, -597)
@@ -64,3 +65,6 @@ shape = SubResource("WorldBoundaryShape2D_dnqcb")
 position = Vector2(1355, 5328)
 rotation = 0.595584
 shape = SubResource("WorldBoundaryShape2D_dnqcb")
+
+[node name="ZombieBoss" parent="." index="5" instance=ExtResource("7_arsnk")]
+position = Vector2(837, 303)

@@ -12,9 +12,18 @@ var BloodDrop = preload("res://effects/blood_drops.tscn")
 @onready var bullet_sound = $BulletImpact as AudioStreamPlayer2D
 
 
-@export var current_hp := 6:
+var current_hp := 6:
 	set(value):
 		current_hp = value
+		lose_hp(current_hp)
+
+
+func _ready() -> void:
+#	Avoid stuck in walls
+	move_and_slide()
+	
+
+func lose_hp(hp_val):
 		var tween := create_tween()
 		tween.tween_property(self, "modulate", Color.RED, 0.1)
 		tween.tween_property(self, "modulate", Color.WHITE, 0.1)
@@ -22,14 +31,9 @@ var BloodDrop = preload("res://effects/blood_drops.tscn")
 		var level = get_tree().get_first_node_in_group("level")
 		level.add_child.call_deferred(blood_drop)
 		blood_drop.global_position = global_position
-		if value <= 0:
+		if hp_val <= 0:
 			release_spare()
 			queue_free()
-			
-
-func _ready() -> void:
-#	Avoid stuck in walls
-	move_and_slide()
 
 
 func _physics_process(delta: float) -> void:
