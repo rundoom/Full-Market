@@ -8,7 +8,7 @@ func handle_shoot():
 	if Input.is_action_just_released("mouse_left"):
 		$ShootSound.stop()
 		starting = false
-		if current_mag > 0: $EndSound.play_if_not_yet()
+		if current_mag > 0 and $ReloadTime.is_stopped(): $EndSound.play_if_not_yet()
 	if INPUT_ACTION.call():
 		if !starting and !$StartSound.playing and $ReloadTime.is_stopped():
 			$StartSound.finished.connect(func(): if INPUT_ACTION.call(): starting = true)

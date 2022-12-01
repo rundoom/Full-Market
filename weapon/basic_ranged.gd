@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 
 func handle_shoot():
 	if INPUT_ACTION.call():
-		if current_mag > 0 and shoot_cooldown.is_stopped():
+		if current_mag > 0 and shoot_cooldown.is_stopped() and $ReloadTime.is_stopped():
 			var bullet_direction := $BulletOuput.global_rotation as float
 			for i in BULLET_COUNT:
 				var bullet := Bullet.instantiate()
@@ -69,4 +69,11 @@ func _decide_firemod(is_automatic: bool):
 			INPUT_ACTION = func() -> bool: return Input.is_action_pressed("mouse_left")
 		else:
 			INPUT_ACTION = func() -> bool: return Input.is_action_just_pressed("mouse_left")
-	
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("reload") and $ReloadTime.is_stopped() and current_mag != MAG_SIZE:
+		$ReloadTime.start()
+		var reloader := create_tween()
+		reloader.tween_property(reload_bar, "value", 0, $ReloadTime.wait_time)
+
