@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://buq042p3j5bhm"]
+[gd_scene load_steps=6 format=3 uid="uid://buq042p3j5bhm"]
 
 [ext_resource type="PackedScene" uid="uid://eon1kp7fae5u" path="res://zombie/zombie.tscn" id="1_j2kkt"]
 [ext_resource type="Script" path="res://ZombieBoss.gd" id="2_b5i42"]
@@ -9,6 +9,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -0.333333, -64.6667, 0, 0, 0, 0, 40.3333, -47.6667, 0, 0, 0, 0, 38.3333, 4.66667, 0, 0, 0, 0, 6.66667, 27, 0, 0, 0, 0, -36.6667, 17, 0, 0, 0, 0, -28.6667, -62.6667, 0, 0, 0, 0, -0.333333, -64.6667)
 }
 point_count = 7
+
+[sub_resource type="LabelSettings" id="LabelSettings_aybrb"]
+font_size = 151
 
 [node name="ZombieBoss" instance=ExtResource("1_j2kkt")]
 scale = Vector2(3, 3)
@@ -31,14 +34,15 @@ visible = false
 script = ExtResource("3_iowvb")
 
 [node name="Label" type="Label" parent="WinScreen" index="0"]
-offset_left = -176.0
-offset_top = 170.0
-offset_right = 82.0
-offset_bottom = 248.0
-scale = Vector2(9, 9)
+offset_left = 4.0
+offset_top = 98.0
+offset_right = 1938.0
+offset_bottom = 938.0
 text = "Wow! You have killed
 A primal zombie
-Now your market is saved!"
+Now your market is saved!
+Press \"Space\" to restart"
+label_settings = SubResource("LabelSettings_aybrb")
 horizontal_alignment = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

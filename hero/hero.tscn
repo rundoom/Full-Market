@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://cdw4uncpvcxf8"]
+[gd_scene load_steps=69 format=3 uid="uid://cdw4uncpvcxf8"]
 
 [ext_resource type="Script" path="res://hero/hero.gd" id="1_nn66o"]
 [ext_resource type="PackedScene" uid="uid://db3auxgtppuy2" path="res://weapon/pistol.tscn" id="2_7j5sd"]
@@ -16,6 +16,12 @@
 [ext_resource type="AudioStream" uid="uid://p1b6gtua2peu" path="res://hero/шаги петля.mp3" id="14_v0hsp"]
 [ext_resource type="Script" path="res://weapon/NonRepeatableAudio.gd" id="15_x8ull"]
 [ext_resource type="AudioStream" uid="uid://uhghyno8ba3k" path="res://hero/Звук покупки.mp3" id="16_41vh1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ri04c"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_qups0"]
+font_size = 32
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d1ket"]
 radius = 1122.3
@@ -462,17 +468,18 @@ offset_left = 863.0
 offset_top = 222.0
 offset_right = 925.0
 offset_bottom = 248.0
-scale = Vector2(5, 5)
 text = "PAUSED"
+label_settings = SubResource("LabelSettings_ri04c")
 
 [node name="ShoppingReminder" type="Label" parent="UIContainer"]
 visible = false
-offset_left = 912.0
-offset_top = 260.0
-offset_right = 1082.0
-offset_bottom = 312.0
+offset_left = 846.0
+offset_top = 263.0
+offset_right = 1186.0
+offset_bottom = 359.0
 text = "PRESS \"E\" 
 to shop at Full Market"
+label_settings = SubResource("LabelSettings_qups0")
 horizontal_alignment = 1
 
 [node name="Shopping" type="VBoxContainer" parent="UIContainer"]
@@ -483,17 +490,20 @@ offset_right = 1026.5
 offset_bottom = 248.5
 
 [node name="HealButton" type="Button" parent="UIContainer/Shopping"]
+layout_mode = 2
 offset_right = 181.0
 offset_bottom = 31.0
 text = "Heal 5$"
 
 [node name="UpgradeWeapon" type="Button" parent="UIContainer/Shopping"]
+layout_mode = 2
 offset_top = 35.0
 offset_right = 181.0
 offset_bottom = 66.0
 text = "Buy AssaultRifle for 20$"
 
 [node name="UpgradeMeleeWeapon" type="Button" parent="UIContainer/Shopping"]
+layout_mode = 2
 offset_top = 35.0
 offset_right = 181.0
 offset_bottom = 66.0

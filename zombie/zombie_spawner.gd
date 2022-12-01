@@ -2,7 +2,7 @@ extends Path2D
 
 
 const Zombie := preload("res://zombie/zombie.tscn")
-const ZombieBoss := preload("res://zombie/zombie.tscn")
+const ZombieBoss := preload("res://zombie/zombie_boss.tscn")
 @onready var level = get_tree().get_first_node_in_group("level") 
 
 

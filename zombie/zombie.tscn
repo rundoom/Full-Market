@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://eon1kp7fae5u"]
+[gd_scene load_steps=18 format=3 uid="uid://eon1kp7fae5u"]
 
 [ext_resource type="Script" path="res://zombie/zombie.gd" id="1_2hyxj"]
 [ext_resource type="Texture2D" uid="uid://uvxejgojwl0p" path="res://core/white_circle.svg" id="2_ix2t1"]
 [ext_resource type="Texture2D" uid="uid://ev6ppe560wm1" path="res://zombie/zombie_dis.svg" id="3_d6s10"]
 [ext_resource type="AudioStream" uid="uid://dcc55aitw1cla" path="res://zombie/Попадание в плоть с звуком пули 1.wav" id="4_jeetc"]
 [ext_resource type="AudioStream" uid="uid://bo2ohd3untqmx" path="res://zombie/Попадание в плоть с звуком пули 3.wav" id="5_1yk3o"]
+[ext_resource type="Script" path="res://zombie/BulletImpact.gd" id="6_sfcwt"]
 [ext_resource type="AudioStream" uid="uid://qql2yp38jmea" path="res://zombie/дорожка 1.mp3" id="6_vqldy"]
 [ext_resource type="AudioStream" uid="uid://bjkvnsa14qs2h" path="res://zombie/дорожка 2.mp3" id="7_6em6t"]
 [ext_resource type="AudioStream" uid="uid://dtcy3egqufalw" path="res://zombie/дорожка 3.mp3" id="8_3j7k7"]
@@ -346,6 +347,7 @@ libraries = {
 [node name="BulletImpact" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_884qd")
 volume_db = 15.0
+script = ExtResource("6_sfcwt")
 
 [node name="ZombieSound" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_etdhl")
@@ -353,3 +355,4 @@ volume_db = 10.0
 autoplay = true
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="finished" from="BulletImpact" to="BulletImpact" method="_on_finished"]
