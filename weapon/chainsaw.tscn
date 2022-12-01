@@ -249,6 +249,7 @@ rotation = -1.57079
 shape = SubResource("CapsuleShape2D_32qye")
 
 [node name="SwingAnimation" parent="." index="1"]
+playback_speed = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_k7alo")
 }

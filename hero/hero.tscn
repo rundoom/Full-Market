@@ -507,7 +507,7 @@ layout_mode = 2
 offset_top = 35.0
 offset_right = 181.0
 offset_bottom = 66.0
-text = "Buy Chainsaw for 120$"
+text = "Buy Chainsaw for 80$"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-4, -48)

@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://c51bwamfyghcx"]
+[gd_scene load_steps=6 format=3 uid="uid://c51bwamfyghcx"]
 
 [ext_resource type="Script" path="res://building/full_market.gd" id="1_i3lg6"]
 [ext_resource type="Texture2D" uid="uid://ckhddxg8ve5jm" path="res://building/floor/магаз оригинал.svg" id="2_gilvv"]
 [ext_resource type="PackedScene" uid="uid://cglmx3vb0q7vl" path="res://building/transparency_detector.tscn" id="3_cw8u7"]
 [ext_resource type="Texture2D" uid="uid://bwtdqj5i8gavk" path="res://building/shop_bottom.svg" id="4_i41rr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aufu5"]
+size = Vector2(416.574, 38)
 
 [node name="FullMarket" type="StaticBody2D"]
 position = Vector2(-5, -45)
@@ -58,6 +61,11 @@ texture = ExtResource("4_i41rr")
 
 [node name="BossSpawn" type="Marker2D" parent="." groups=["boss_spawn"]]
 position = Vector2(-130, 339)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(84.833, -53.2934)
+rotation = 0.972173
+shape = SubResource("RectangleShape2D_aufu5")
 
 [connection signal="body_entered" from="ShoppingArea" to="." method="_on_shopping_area_body_entered"]
 [connection signal="body_exited" from="ShoppingArea" to="." method="_on_shopping_area_body_exited"]

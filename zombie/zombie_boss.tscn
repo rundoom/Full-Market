@@ -44,5 +44,3 @@ Now your market is saved!
 Press \"Space\" to restart"
 label_settings = SubResource("LabelSettings_aybrb")
 horizontal_alignment = 1
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

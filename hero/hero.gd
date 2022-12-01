@@ -5,6 +5,7 @@ const SPEED = 300.0
 
 enum AttackType {MELEE, RANGED}
 var current_attack_type := AttackType.RANGED
+var hp_price := 5
 
 @onready var animation := %AnimationPlayer as AnimationPlayer
 @export var money := 0:
@@ -45,7 +46,7 @@ var Chainsaw = preload("res://weapon/chainsaw.tscn")
 
 var weapon_melee_upgrades := {
 	"Knife" : {"scene": Knife, "cost": 0, "next": "Chainsaw"},
-	"Chainsaw" : {"scene": Chainsaw, "cost": 120, "next": null}
+	"Chainsaw" : {"scene": Chainsaw, "cost": 80, "next": null}
 }
 
 
@@ -150,8 +151,10 @@ func _on_collector_body_entered(body: Node2D) -> void:
 
 
 func _on_heal_button_pressed() -> void:
-	if money >= 5 and current_hp < MAX_HP:
+	if money >= hp_price and current_hp < MAX_HP:
 		$ShoppingSound.play()
 		current_hp = MAX_HP
-		money -= 5
+		money -= hp_price
+		hp_price *= 4
+		$UIContainer/Shopping/HealButton.text = "Heal: " + str(hp_price) + "$"
 	

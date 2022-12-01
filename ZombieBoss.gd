@@ -7,7 +7,8 @@ const Zombie := preload("res://zombie/zombie.tscn")
 
 func _ready() -> void:
 #	Avoid stuck in walls
-	current_hp = 200
+	current_hp = 400
+	speed = 250
 	move_and_slide()
 
 
@@ -19,6 +20,11 @@ func lose_hp(hp_val):
 		var level = get_tree().get_first_node_in_group("level")
 		level.add_child.call_deferred(blood_drop)
 		blood_drop.global_position = global_position
+		
+		var zombie = Zombie.instantiate()
+		$ZombieSpawner/PathFollow2D.progress_ratio = randf()
+		zombie.global_position = $ZombieSpawner/PathFollow2D.global_position
+		level.add_child.call_deferred(zombie)
 		if hp_val <= 0:
 			release_spare()
 			$WinScreen.visible = true
