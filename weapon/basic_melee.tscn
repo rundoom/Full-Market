@@ -13,7 +13,7 @@ stream_0/weight = 1.0
 stream_1/stream = ExtResource("3_3gc7l")
 stream_1/weight = 1.0
 
-[node name="BasicMelee" type="Area2D"]
+[node name="BasicMelee" type="Area2D" groups=["melee_weapon"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_2bg0i")

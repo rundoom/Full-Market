@@ -34,3 +34,8 @@ func handle_shoot():
 			$ReloadTime.start()
 			var reloader := create_tween()
 			reloader.tween_property(reload_bar, "value", 0, $ReloadTime.wait_time)
+
+
+func arm(is_arm: bool):
+	enabled = is_arm
+	if !is_arm: $ShootSound.stop()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://cdw4uncpvcxf8"]
+[gd_scene load_steps=67 format=3 uid="uid://cdw4uncpvcxf8"]
 
 [ext_resource type="Script" path="res://hero/hero.gd" id="1_nn66o"]
 [ext_resource type="PackedScene" uid="uid://db3auxgtppuy2" path="res://weapon/pistol.tscn" id="2_7j5sd"]
@@ -420,11 +420,6 @@ _data = {
 "stand": SubResource("Animation_sbe5y")
 }
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w7fgg"]
-streams_count = 1
-stream_0/stream = ExtResource("16_41vh1")
-stream_0/weight = 1.0
-
 [node name="Hero" type="CharacterBody2D" groups=["zombie_attractor"]]
 collision_layer = 25
 motion_mode = 1
@@ -490,19 +485,19 @@ offset_bottom = 248.5
 [node name="HealButton" type="Button" parent="UIContainer/Shopping"]
 offset_right = 181.0
 offset_bottom = 31.0
-text = "Heal 20$"
+text = "Heal 5$"
 
 [node name="UpgradeWeapon" type="Button" parent="UIContainer/Shopping"]
 offset_top = 35.0
 offset_right = 181.0
 offset_bottom = 66.0
-text = "Buy AssaultRifle for 100$"
+text = "Buy AssaultRifle for 20$"
 
 [node name="UpgradeMeleeWeapon" type="Button" parent="UIContainer/Shopping"]
 offset_top = 35.0
 offset_right = 181.0
 offset_bottom = 66.0
-text = "Buy Chainsaw for 1000$"
+text = "Buy Chainsaw for 120$"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-4, -48)
@@ -559,6 +554,7 @@ position = Vector2(1, -50)
 
 [node name="MeleeDetector" parent="Rotator" instance=ExtResource("9_etps2")]
 position = Vector2(-5, 2)
+target_position = Vector2(90, 0)
 
 [node name="RangedSlot" type="Node2D" parent="Rotator"]
 unique_name_in_owner = true
@@ -598,7 +594,7 @@ pitch_scale = 1.5
 script = ExtResource("15_x8ull")
 
 [node name="ShoppingSound" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_w7fgg")
+stream = ExtResource("16_41vh1")
 volume_db = 10.0
 
 [connection signal="pressed" from="UIContainer/Shopping/HealButton" to="." method="_on_heal_button_pressed"]

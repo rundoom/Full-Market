@@ -35,9 +35,9 @@ var Minigun := preload("res://weapon/minigun.tscn")
 
 var weapon_upgrades := {
 	"Pistol" : {"scene": Pistol, "cost": 0, "next": "AssaultRifle"},
-	"AssaultRifle" : {"scene": AssaultRifle, "cost": 100, "next": "Shotgun"},
-	"Shotgun" : {"scene": Shotgun, "cost": 300, "next": "Minigun"},
-	"Minigun" : {"scene": Minigun, "cost": 1000, "next": null}
+	"AssaultRifle" : {"scene": AssaultRifle, "cost": 20, "next": "Shotgun"},
+	"Shotgun" : {"scene": Shotgun, "cost": 60, "next": "Minigun"},
+	"Minigun" : {"scene": Minigun, "cost": 120, "next": null}
 }
 
 var Knife = preload("res://weapon/knife.tscn")
@@ -45,7 +45,7 @@ var Chainsaw = preload("res://weapon/chainsaw.tscn")
 
 var weapon_melee_upgrades := {
 	"Knife" : {"scene": Knife, "cost": 0, "next": "Chainsaw"},
-	"Chainsaw" : {"scene": Chainsaw, "cost": 1000, "next": null}
+	"Chainsaw" : {"scene": Chainsaw, "cost": 120, "next": null}
 }
 
 
@@ -150,8 +150,8 @@ func _on_collector_body_entered(body: Node2D) -> void:
 
 
 func _on_heal_button_pressed() -> void:
-	if money >= 20 and current_hp < MAX_HP:
+	if money >= 5 and current_hp < MAX_HP:
 		$ShoppingSound.play()
 		current_hp = MAX_HP
-		money -= 20
+		money -= 5
 	

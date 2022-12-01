@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://buq042p3j5bhm"]
+
+[ext_resource type="PackedScene" uid="uid://eon1kp7fae5u" path="res://zombie/zombie.tscn" id="1_j2kkt"]
+[ext_resource type="Script" path="res://ZombieBoss.gd" id="2_b5i42"]
+
+[node name="ZombieBoss" instance=ExtResource("1_j2kkt")]
+scale = Vector2(3, 3)
+script = ExtResource("2_b5i42")

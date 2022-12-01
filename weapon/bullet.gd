@@ -14,10 +14,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.RIGHT.rotated(rotation) * speed
 	var collision = move_and_collide(velocity * delta)
-	if collision != null:
-		if "current_hp" in collision.get_collider():
-			collision.get_collider().current_hp -= 1
-			queue_free()
 
 
 func _on_lifetime_timeout() -> void:
@@ -34,6 +30,7 @@ func _on_tree_exiting() -> void:
 	
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("melee_weapon") or area.owner.is_queued_for_deletion() or is_queued_for_deletion(): return
 	if "on_bullet_entered" in area.owner:
 		area.owner.on_bullet_entered(self)
 	queue_free()

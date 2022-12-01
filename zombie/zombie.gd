@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
 
-var speed := randf_range(80, 150) 
+@export var min_speed:= 200
+@export var max_speed:= 280
+var speed := randf_range(min_speed, max_speed)
 var current_speed := 0.0
 var is_hero_visible := false
 var Money = preload("res://valuables/money.tscn")
@@ -10,7 +12,7 @@ var BloodDrop = preload("res://effects/blood_drops.tscn")
 @onready var bullet_sound = $BulletImpact as AudioStreamPlayer2D
 
 
-var current_hp := 6:
+@export var current_hp := 6:
 	set(value):
 		current_hp = value
 		var tween := create_tween()

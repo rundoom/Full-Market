@@ -9,7 +9,7 @@ MAG_SIZE = 90
 AUTOMATIC = true
 
 [node name="ShootCooldown" parent="." index="0"]
-wait_time = 0.1
+wait_time = 0.08
 
 [node name="ReloadTime" parent="." index="1"]
 wait_time = 3.0

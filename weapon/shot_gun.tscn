@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bpm8yb7oo6oud" path="res://weapon/Shotgun.svg" id="3_fajy4"]
 
 [node name="Shotgun" instance=ExtResource("1_lh2xa")]
-SPREAD = 0.3
+SPREAD = 0.5
 BULLET_COUNT = 12
 BULLET_SPEED_SPRED = 400
 MAG_SIZE = 6

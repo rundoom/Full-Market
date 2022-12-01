@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c51bwamfyghcx"]
+[gd_scene load_steps=5 format=3 uid="uid://c51bwamfyghcx"]
 
 [ext_resource type="Script" path="res://building/full_market.gd" id="1_i3lg6"]
 [ext_resource type="Texture2D" uid="uid://ckhddxg8ve5jm" path="res://building/floor/магаз оригинал.svg" id="2_gilvv"]
 [ext_resource type="PackedScene" uid="uid://cglmx3vb0q7vl" path="res://building/transparency_detector.tscn" id="3_cw8u7"]
+[ext_resource type="Texture2D" uid="uid://bwtdqj5i8gavk" path="res://building/shop_bottom.svg" id="4_i41rr"]
 
 [node name="FullMarket" type="StaticBody2D"]
 position = Vector2(-5, -45)
@@ -23,6 +24,7 @@ scale = Vector2(0.79357, 0.79357)
 texture = ExtResource("2_gilvv")
 
 [node name="ShoppingArea" type="Area2D" parent="."]
+visible = false
 position = Vector2(-12.7448, 49.0433)
 rotation = -0.0850892
 collision_layer = 0
@@ -30,12 +32,12 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="ShoppingArea"]
 position = Vector2(16, 482)
-polygon = PackedVector2Array(-715.025, -467.398, -493.509, -569.943, -14, -328, 202, -419, 291, -405, 338.968, -328.32, -93.5469, -22.9731)
+polygon = PackedVector2Array(-715.025, -467.398, -545.051, -542.223, -14.2697, -305.257, 197.599, -400.596, 319.797, -291.817, -93.5469, -22.9731)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-12.7448, 49.0433)
 rotation = -0.0850892
-polygon = PackedVector2Array(-475.346, -89.7661, 34.8747, 129.389, 170.368, 105.818, 265.651, 47.7061, 355.053, 152.684, 593.115, -2.64603, 427.913, -29.195, 2.9129, -271.195)
+polygon = PackedVector2Array(-496.85, -49.4478, 10.6977, 177.508, 209.93, 89.1204, 335.202, 197.158, 606.021, 22.5419, 2.9129, -271.195)
 
 [node name="TransparencyDetector2" parent="." instance=ExtResource("3_cw8u7")]
 position = Vector2(-13.8319, 1.84833)
@@ -43,7 +45,16 @@ rotation = -0.0850892
 transparency_reciever_path = NodePath("..")
 
 [node name="CollisionPolygon2D" parent="TransparencyDetector2" index="0"]
-polygon = PackedVector2Array(552.207, 93.4657, 624, -124, 615, -216, 388, -473, -53, -655, -356, -526, -349, -418, -433, -384, -422, -314, -515, -231, -510, 1, 9, -229, 435, 21)
+visible = false
+polygon = PackedVector2Array(591.879, 71.7128, 624, -124, 615, -216, 388, -473, -53, -655, -356, -526, -349, -418, -433, -384, -422, -314, -515, -231, -510, 1, 9, -229)
+
+[node name="ShopBottom" type="Sprite2D" parent="."]
+position = Vector2(-45, 232)
+rotation = -0.0679014
+scale = Vector2(0.79357, 0.79357)
+z_index = -1
+z_as_relative = false
+texture = ExtResource("4_i41rr")
 
 [connection signal="body_entered" from="ShoppingArea" to="." method="_on_shopping_area_body_entered"]
 [connection signal="body_exited" from="ShoppingArea" to="." method="_on_shopping_area_body_exited"]
